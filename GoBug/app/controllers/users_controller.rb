@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
+  respond_to :js
 
   def show
     @user = current_user
     @trips = @user.trips
+    @expenses = @user.expenses
   end
+
+  def from_trip
+    @selected = Trip.find(params[:trip_id]).expenses
+    respond_to do |format|
+        format.js
+    end
+end
 
   def new
     @user = User.new

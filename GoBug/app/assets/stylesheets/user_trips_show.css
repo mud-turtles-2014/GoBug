@@ -1,0 +1,53 @@
+sidebar {	
+	width: 150px;
+	height: 100%;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	background-color: lightgray;
+	text-align: center;
+}
+
+/*sidebar ul {
+	padding: 0px;
+	/*margin: 0px;*/
+}
+
+sidebar li {
+	text-decoration: none;
+	list-style: none;
+	text-align: center;
+	padding: 10px;	
+}
+
+sidebar article {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding-top: 15px;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 1000px;
+}
+
+#container {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	background-color: beige;
+}
+
+#trip-info, #expense-info {
+	width: 50%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#expense-info {
+	line-height: 30px;
+}
+
