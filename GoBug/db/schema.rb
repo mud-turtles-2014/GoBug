@@ -75,4 +75,19 @@ ActiveRecord::Schema.define(version: 20141018044929) do
     t.datetime "updated_at"
   end
 
+  create_table "wishlist_items", force: true do |t|
+    t.integer  "item_id"
+    t.integer  "wishlist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wishlists", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.float    "budget"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
