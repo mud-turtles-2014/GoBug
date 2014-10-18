@@ -1,11 +1,11 @@
 $(document).ready(function(){
 
   $('body').on('change','.currency select',function(e){
-    $('#usd input').val("")
+    $('#expense_usd_cost').val("")
     var cost = $('.currency input').val();
     var currency = $('.currency select').val();
     var converted = fx.convert(cost, {from: currency, to: "USD"}).toFixed(2)
-    $('#usd input').val(converted + " USD")
+    $('#expense_usd_cost').val(converted + " USD")
     });
 
   $.getJSON(
@@ -25,16 +25,3 @@ $(document).ready(function(){
             }
         });
 });
-
-  // $('.currency').focusout(function(){
-  //   var cost = $('.currency input').val();
-  //   var currency = $('.currency input select').val();
-  //   var converted = fx.convert(cost, {from: currency, to: "USD"});
-  //   $('#usd').prepend(converted + "USD")
-  // })
-
-  // $('.new_expense').on('ajax:success', function(event, data){
-  //       console.log("hi")
-  //       console.log(data)
-  //     })
-  //   })

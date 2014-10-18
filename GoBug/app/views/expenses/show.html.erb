@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Cost:</strong>
-  <%= @expense.cost %>
+  <strong>USD Cost:</strong>
+  <%= @expense.usd_cost %>
 </p>
 
 <p>
@@ -21,7 +21,8 @@
 </p>
 <p>
   <strong>Location:</strong>
-  <%= @expense.location.name %>
+  <!-- change to @expense.location.name -->
+  <%= @expense.location_id%>
 </p>
 
 <%= link_to 'Edit', edit_expense_path(@expense) %> |

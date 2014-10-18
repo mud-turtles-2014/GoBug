@@ -14,10 +14,11 @@
     <%= f.label :location %><br>
     <%= f.text_field :location_id %>
   </div>
-
-  <div class="field">
+  <div class="currency">
     <%= f.label :cost %><br>
     <%= f.text_field :cost %>
+    <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code ] }, {:include_blank => "Currency"} %>
+    <%= f.text_field :usd_cost, disabled: true %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
