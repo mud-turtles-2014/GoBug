@@ -25,3 +25,14 @@ transportation = Category.create(name:"Transportation")
 shopping = Category.create(name:"Shopping")
 activities = Category.create(name:"Activities")
 misc = Category.create(name:"Miscellaneous")
+
+trip = Trip.create(user: sarah, name: "Texas Vacation", budget: "100")
+trip1 = Trip.create(user: nic, name: "Texas Paradise", budget: "1000")
+
+whattaburger = Expense.create(cost:30.50, description:"Lunch at whattaburger", category: food, trip: trip, date: Time.now, location: houston)
+rodeo = Expense.create(cost:112, description:"Rodeo night show", category: activities, trip: trip, date: Time.now, location: houston)
+barn = Expense.create(cost:400, description:"Hotel stay at the Barn", category: housing, trip: trip, date: Time.now, location: austin)
+
+sad_happy_masks = Expense.create(cost:44.99, description:"Sad face, happy face wall decor", category: shopping, trip: trip1, date: Time.now, location: houston)
+improv_class = Expense.create(cost:432, description:"Week long improv class", category: activities, trip: trip1, date: Time.now, location: dallas)
+mcdonalds = Expense.create(cost:12, description:"McDonalds dinner", category: food, trip: trip1, date: Time.now, location: dallas)

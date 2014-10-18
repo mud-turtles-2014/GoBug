@@ -10,6 +10,8 @@ class WishlistsController < ApplicationController
   # GET /wishlists/1
   # GET /wishlists/1.json
   def show
+    @expenses = @wishlist.expenses
+    @is_wishlist = true
   end
 
   # GET /wishlists/new
