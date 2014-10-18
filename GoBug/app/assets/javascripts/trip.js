@@ -24,11 +24,11 @@ $('body').on('click','.location',function(e){
 
 $('#expenses_grid').on('click','#add-expense',function(e){
   console.log("clicked")
-  $('#new-expense').show();
+  $('#new_expense').show();
   $('#add-expense').hide();
 });
 
-$('#expenses_grid').on('submit','#new-expense',function(e){
+$('#expenses_grid').on('submit','#new_expense',function(e){
   
   e.preventDefault();
   $.ajax ({
