@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :require_login
+  respond_to :html, :json
 
   # GET /expenses
   # GET /expenses.json
@@ -32,14 +33,17 @@ class ExpensesController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     @expense = @trip.expenses.new(expense_params)
-
+    puts "*" * 30
+    puts @expense
+    puts "=" * 30
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to [@expense], notice: 'Expense was successfully created.' }
-        format.json { render :show, status: :created, location: @expense }
-      else
-        format.html { render :new }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
+        puts @expense
+        format.html { render partial: 'snippet', locals: {expense: @expense} }
+        #format.json { render :show, status: :created, location: @expense }
+      #else
+        #format.html { render :new }
+        #format.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,15 +51,18 @@ class ExpensesController < ApplicationController
   # PATCH/PUT /expenses/1
   # PATCH/PUT /expenses/1.json
   def update
-    respond_to do |format|
-      if @expense.update(expense_params)
-        format.html { redirect_to expense_path(@expense), notice: 'Expense was successfully updated.' }
-        format.json { render :show, status: :ok, location: @expense }
-      else
-        format.html { render :edit }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
-      end
+    if @expense.update(expense_params)
+      respond_with @exepense
     end
+    # respond_to do |format|
+    #   if @expense.update(expense_params)
+    #     format.html { redirect_to expense_path(@expense), notice: 'Expense was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @expense }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @expense.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /expenses/1

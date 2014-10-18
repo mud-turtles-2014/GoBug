@@ -5,9 +5,11 @@ class UsersController < ApplicationController
     @user = current_user
     @trips = @user.trips
     @expenses = @user.expenses
+    @expense = Expense.new
   end
 
   def from_trip
+    @expense = Expense.new
     @selected = Trip.find(params[:trip_id]).expenses
     respond_to do |format|
         format.js

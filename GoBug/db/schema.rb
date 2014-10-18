@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20141018134647) do
     t.integer  "location_id", null: false
     t.float    "cost",        null: false
     t.string   "title"
-    t.text     "description", null: false
+    t.text     "description"
     t.integer  "category_id", null: false
     t.date     "date"
     t.integer  "trip_id",     null: false
