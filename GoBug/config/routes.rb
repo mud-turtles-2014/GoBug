@@ -15,8 +15,9 @@ Rails.application.routes.draw do
 
   resources :locations
 
-  resources :trips
-  resources :expenses
+  resources :trips do
+    resources :expenses, shallow: true
+  end
 
   get "/fetch_expenses" => 'users#from_trip', as: 'fetch_expenses'
 

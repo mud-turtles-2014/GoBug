@@ -1,6 +1,5 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
-  before_action :set_trip, only: [:new, :create]
   before_action :require_login
 
   # GET /expenses
@@ -8,16 +7,19 @@ class ExpensesController < ApplicationController
   def index
     @search = Expense.search(params[:q])
     @expenses = @search.result
+    @trip = Trip.find(params[:trip_id])
     @is_wishlist = false
   end
 
   # GET /expenses/1
   # GET /expenses/1.json
   def show
+    @expense = Expense.find(params[:id])
   end
 
   # GET /expenses/new
   def new
+    @trip = Trip.find(params[:trip_id])
     @expense = Expense.new
   end
 
@@ -28,6 +30,7 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
+    @trip = Trip.find(params[:trip_id])
     @expense = @trip.expenses.new(expense_params)
 
     respond_to do |format|
@@ -60,7 +63,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to expenses_path, notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to trip_expenses_path, notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,10 +72,6 @@ class ExpensesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
       @expense = Expense.find(params[:id])
-    end
-
-    def set_trip
-      @trip = Trip.find(params[:trip_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

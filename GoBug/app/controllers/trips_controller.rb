@@ -18,12 +18,12 @@ class TripsController < ApplicationController
   def new
     @current_user = current_user
     @trip = @current_user.trips.new
-    @trip.expenses << Expense.new
+    @expense = Expense.new
   end
 
   # GET /trips/1/edit
   def edit
-   @trip.build_expense
+   # @trip.build_expense
   end
 
   # POST /trips
@@ -34,7 +34,7 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to trip_path(@trip), notice: 'Trip was successfully created.' }
+        format.html { redirect_to new_trip_expense_path(@trip), notice: 'Trip was successfully created.' }
         #format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
