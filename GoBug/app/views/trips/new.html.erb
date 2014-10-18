@@ -1,61 +1,70 @@
 <h1>New trip</h1>
-<%= render 'tripbuddy' %>
-<!--
-<%= form_for(@trip) do |f| %>
+
+<%= form_for(@trip, remote: true) do |f| %>
+  <% if @trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+      <ul>
+      <% @trip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id="trip_form">
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+    <div class="field">
+      <%= f.label :budget %><br>
+      <%= f.number_field :budget %>
+    </div>
+      <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= form_for(@expense, remote:true) do |f| %>
+  <% if @expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+
+      <ul>
+      <% @expense.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id="expense_form">
+  <div class="location">
+    <%= f.label :location %><br>
+    <%= f.text_field :location_id %>
+  </div>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :cost %><br>
+    <%= f.text_field :cost %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :budget %><br>
-    <%= f.number_field :budget %>
-  </div>
-<button id="add-location">Add Location</button>
-<div id="legs">
-  <div id="legs1">
-  <%= f.fields_for :legs do |legs_form| %>
-    <div class="field">
-      <%= legs_form.label :location_id %><br>
-      <%= legs_form.text_field :location_id %>
-    </div>
-    <div class="field">
-      <%= legs_form.label :start_date %><br>
-      <%= legs_form.date_select :start_date %>
-    </div>
-    <div class="field">
-      <%= legs_form.label :end_date %><br>
-      <%= legs_form.date_select :end_date %>
-    </div>
-
-  <%= legs_form.fields_for :expenses do |expenses_form| %>
-  <div class="field">
-    <%= expenses_form.label :cost %><br>
-    <%= expenses_form.text_field :cost %>
+    <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"} %>
   </div>
   <div class="field">
-    <%= expenses_form.label :description %><br>
-    <%= expenses_form.text_area :description %>
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
   </div>
-  <div class="field">
-    <%= expenses_form.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"} %>
-  </div>
-  <div class="field">
-    <%= expenses_form.label :date %><br>
-    <%= expenses_form.date_select :date %>
-  </div>
-  <% end %>
-  <% end %>
-  </div>
-</div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
--->
+</div>
 
-<%= link_to 'Back', trips_path %>
+<% end %>
