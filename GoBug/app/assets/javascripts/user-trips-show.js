@@ -4,4 +4,6 @@ $(document).ready(function(){
 	},function(){
 		$(this).css('background','none')
 	});
+
+	$('.best_in_place').best_in_place()
 });

@@ -3,6 +3,7 @@ class ExpensesController < ApplicationController
   before_action :require_login
   before_action :convert_currency, only: [:create, :edit]
   # before_action :clean_usd_cost, only: [:create, :edit]
+  respond_to :html, :json
 
   # GET /expenses
   # GET /expenses.json
@@ -38,16 +39,23 @@ class ExpensesController < ApplicationController
     # p params[:expense][:usd_cost][0..-5].to_f
     @trip = Trip.find(params[:trip_id])
     @expense = @trip.expenses.new(expense_params)
+<<<<<<< HEAD
     @expense.update(currency_id: @currency_id)
       # , usd_cost: @usd_cost)
 
+=======
+    puts "*" * 30
+    puts @expense
+    puts "=" * 30
+>>>>>>> master
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to [@expense], notice: 'Expense was successfully created.' }
-        format.json { render :show, status: :created, location: @expense }
-      else
-        format.html { render :new }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
+        puts @expense
+        format.html { render partial: 'snippet', locals: {expense: @expense} }
+        #format.json { render :show, status: :created, location: @expense }
+      #else
+        #format.html { render :new }
+        #format.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,15 +63,18 @@ class ExpensesController < ApplicationController
   # PATCH/PUT /expenses/1
   # PATCH/PUT /expenses/1.json
   def update
-    respond_to do |format|
-      if @expense.update(expense_params)
-        format.html { redirect_to expense_path(@expense), notice: 'Expense was successfully updated.' }
-        format.json { render :show, status: :ok, location: @expense }
-      else
-        format.html { render :edit }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
-      end
+    if @expense.update(expense_params)
+      respond_with @exepense
     end
+    # respond_to do |format|
+    #   if @expense.update(expense_params)
+    #     format.html { redirect_to expense_path(@expense), notice: 'Expense was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @expense }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @expense.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /expenses/1
@@ -93,6 +104,12 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
+<<<<<<< HEAD
       params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)
+=======
+      @location = Location.where(name: params[:expense][:location_id]).first_or_create
+      params[:expense][:location_id] = @location.id
+      params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id)
+>>>>>>> master
     end
 end

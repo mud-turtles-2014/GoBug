@@ -1,5 +1,5 @@
 <sidebar>
 	<% @trips.each do |trip| %>
-	    <%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true, class: "trip" %><br>
+	    <article class="trip"><%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true %></article>
 	<% end %>
 </sidebar>

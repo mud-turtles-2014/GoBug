@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: d14da00f49256adbe023c245449d8937eb1bee42
+  specs:
+    best_in_place (3.0.0.rc1)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -118,6 +126,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  best_in_place!
   coffee-rails (~> 4.0.0)
   faker
   jbuilder (~> 2.0)
