@@ -1,5 +1,14 @@
 <h1>Listing expenses</h1>
 
+<%= search_form_for @search do |f| %>
+  <div class="search_results">
+    <%= f.text_field :location_name_cont, placeholder: "Location"%><p>
+     <%= f.text_field :usd_cost_gteq, placeholder: "USD Cost From" %> - <%= f.text_field :usd_cost_lteq, placeholder: "To" %><p>
+    <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: 'By Category' %>
+  </div>
+  <%= f.submit "Search" %>
+<% end %>
+
 <%= render 'expense_table' %>
 
 <br>

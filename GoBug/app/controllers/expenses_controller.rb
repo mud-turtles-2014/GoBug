@@ -6,8 +6,8 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @trip = Trip.find(params[:trip_id])
-    @expenses = @trip.expenses.all
+    @search = Expense.search(params[:q])
+    @expenses = @search.result
     @is_wishlist = false
   end
 
@@ -58,10 +58,9 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1
   # DELETE /expenses/1.json
   def destroy
-    @leg = @expense.leg
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to leg_expenses_path(@leg), notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to expenses_path, notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
