@@ -17,4 +17,9 @@ $(document).ready(function(){
   //   e.preventDefault();
   //   addLegForm();
   // })
+
+  $('body').on('click','.location',function(e){
+    $(this).geocomplete();
+  });
+
 })
