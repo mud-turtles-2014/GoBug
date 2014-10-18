@@ -76,6 +76,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:name, :description, :budget, :is_published, :is_private, expenses_attributes: [:location_id, :cost, :description, :category_id, :date])
+      params.require(:trip).permit(:name, :description, :budget, :is_published, :is_private)
     end
 end

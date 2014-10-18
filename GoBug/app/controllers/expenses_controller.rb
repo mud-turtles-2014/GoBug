@@ -1,3 +1,4 @@
+require 'pry'
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :set_trip, only: [:new, :create]
@@ -57,10 +58,9 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1
   # DELETE /expenses/1.json
   def destroy
-    @leg = @expense.leg
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to leg_expenses_path(@leg), notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to expenses_path, notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
