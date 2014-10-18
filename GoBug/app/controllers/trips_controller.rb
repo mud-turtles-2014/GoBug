@@ -23,6 +23,7 @@ class TripsController < ApplicationController
 
   # GET /trips/1/edit
   def edit
+   @trip.build_expense
   end
 
   # POST /trips
@@ -33,7 +34,7 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to trips_path, notice: 'Trip was successfully created.' }
+        format.html { redirect_to trip_path(@trip), notice: 'Trip was successfully created.' }
         #format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
