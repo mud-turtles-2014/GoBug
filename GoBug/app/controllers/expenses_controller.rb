@@ -1,6 +1,5 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
-  before_action :set_trip, only: [:new, :create]
   before_action :require_login
 
   # GET /expenses
@@ -18,7 +17,6 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/new
   def new
-    @expense = Expense.new
   end
 
   # GET /expenses/1/edit
@@ -28,8 +26,8 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
-    @expense = @trip.expenses.new(expense_params)
-
+    @expense = Expense.new(expense_params)
+    binding.pry
     respond_to do |format|
       if @expense.save
         format.html { redirect_to [@expense], notice: 'Expense was successfully created.' }
@@ -69,10 +67,6 @@ class ExpensesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
       @expense = Expense.find(params[:id])
-    end
-
-    def set_trip
-      @trip = Trip.find(params[:trip_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
