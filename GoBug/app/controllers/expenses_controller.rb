@@ -1,4 +1,3 @@
-require 'pry'
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :set_trip, only: [:new, :create]
@@ -7,8 +6,8 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @trip = Trip.find(params[:trip_id])
-    @expenses = @trip.expenses.all
+    @search = Expense.search(params[:q])
+    @expenses = @search.result
     @is_wishlist = false
   end
 
