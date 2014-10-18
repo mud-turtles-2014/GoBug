@@ -22,6 +22,7 @@
         <td><%= expense.location.name %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
         <td><%= link_to 'Destroy', expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Add to Wishlist', {:controller => :wishlist_items, :action => 'create', :expense_id => expense.id, :wishlist_id => 1 }, :method => :create %></td>
       </tr>
     <% end %>
   </tbody>
