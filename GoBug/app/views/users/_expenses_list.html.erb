@@ -2,14 +2,25 @@
 	<h2>Full Item List</h2>
 <% else %>
 	<h2>Items for <%= expenses.first.trip.name %></h2>
+	<button id="add-expense">Add Expense</button>
 <% end %> 
+
+<form id="new-expense", action="/trips/<%= expenses.first.trip.id%>/expenses" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+  <input name="expense[date]" type="date">
+  <input name="expense[location_id]" placeholder="Location"> 
+  <input name="expense[cost]" placeholder="Cost">
+  <input name="expense[category_id]" placeholder="Select Category">
+  <input name="expense[description]" value="Enter a description" type="hidden">
+  <input type="submit">
+</form>
 
 <% expenses.each do |expense| %>
   <div class="item_box">
-    <%= expense.location.name %><br>
-    <%= number_to_currency(expense.cost) %> |
-    <%= expense.category.name %> |
-    <%= expense.date %><br>
-    <%= expense.description %>
+    <%= best_in_place expense.location, :name %><br>
+    <%= best_in_place expense, :cost %> |
+    <%= best_in_place expense.category, :name %> |
+    <%= best_in_place expense, :date %><br>
+    <%= best_in_place expense, :description, type: :textarea %>
   </div>
 <% end %>

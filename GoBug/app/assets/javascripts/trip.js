@@ -18,8 +18,31 @@ $(document).ready(function(){
   //   addLegForm();
   // })
 
-  $('body').on('click','.location',function(e){
-    $(this).geocomplete();
+$('body').on('click','.location',function(e){
+  $(this).geocomplete();
+});
+
+$('#expenses_grid').on('click','#add-expense',function(e){
+  console.log("clicked")
+  $('#new-expense').show();
+  $('#add-expense').hide();
+});
+
+$('#expenses_grid').on('submit','#new-expense',function(e){
+  
+  e.preventDefault();
+  $.ajax ({
+    url: $(e.target).attr('action'),
+    type: 'POST',
+    data: $(e.target).serialize()
+  }).done(function(data){
+    $('#expenses_grid').append(data);
+    clearInputs();
   });
 
+});
 })
+
+clearInputs = function(){
+  $(':input').val("");
+}

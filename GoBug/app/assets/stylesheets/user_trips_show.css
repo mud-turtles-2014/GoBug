@@ -52,3 +52,6 @@ body {
 	margin-right: auto;
 }
 
+#new-expense {
+	display: none;
+}

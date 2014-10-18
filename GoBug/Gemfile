@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+
+gem "best_in_place", github: 'bernat/best_in_place'
 gem 'ransack'
 gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
