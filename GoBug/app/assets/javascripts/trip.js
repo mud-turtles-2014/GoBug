@@ -5,8 +5,7 @@ $(document).ready(function(){
     $('#trip_form').hide();
     $('#expense_form').show();
   });
-  // $('body').on('click','.location',function(e){
-  //   $(this).geocomplete();
-  // });
+
+  $('input#expense_location_id').geocomplete();
 
 });
