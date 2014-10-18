@@ -3,9 +3,11 @@
     <%= f.label :location_id %><br>
     <%= f.text_field :location_id, class: "location" %>
   </div>
-  <div class="field">
+  <div class="currency">
     <%= f.label :cost %><br>
     <%= f.text_field :cost %>
+    <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code ] }, {:include_blank => "Select Currency"} %>
+  <div id="usd"><%= f.text_field :usd_cost, disabled: true %></div>
   </div>
   <div class="field">
     <%= f.label :description %><br>
