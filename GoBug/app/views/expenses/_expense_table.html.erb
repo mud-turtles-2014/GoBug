@@ -1,11 +1,11 @@
 <table>
   <thead>
     <tr>
-      <th>Cost</th>
+      <th><%= sort_link @search, :cost, 'Cost'%></th>
       <th>Description</th>
       <th>Category</th>
       <th>Date</th>
-      <th>Location</th>
+      <th><%= sort_link @search, :location, 'Location'%></th>
       <th colspan="2"></th>
     </tr>
   </thead>
