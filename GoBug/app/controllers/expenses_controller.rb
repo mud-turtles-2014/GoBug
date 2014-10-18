@@ -7,6 +7,7 @@ class ExpensesController < ApplicationController
   def index
     @search = Expense.search(params[:q])
     @expenses = @search.result
+    @trip = Trip.find(params[:trip_id])
     @is_wishlist = false
   end
 

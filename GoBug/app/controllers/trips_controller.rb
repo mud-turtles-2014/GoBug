@@ -23,7 +23,7 @@ class TripsController < ApplicationController
 
   # GET /trips/1/edit
   def edit
-   @trip.build_expense
+   # @trip.build_expense
   end
 
   # POST /trips
