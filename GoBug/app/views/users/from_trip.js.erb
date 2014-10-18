@@ -1,1 +1,1 @@
-$("#expenses_grid").html("<%= escape_javascript(render partial: 'expenses_list', locals: { expenses: @selected } ) %>").html_safe;
+$("#expenses_grid").html("<%= escape_javascript(render partial: 'expenses_list', locals: { expenses: @selected, all: false } ) %>").html_safe;

@@ -1,5 +1,15 @@
+<% if all %>
+	<h2>Full Item List</h2>
+<% else %>
+	<h2>Items for <%= expenses.first.trip.name %></h2>
+<% end %> 
+
 <% expenses.each do |expense| %>
   <div class="item_box">
+    <%= expense.location.name %><br>
+    <%= number_to_currency(expense.cost) %> |
+    <%= expense.category.name %> |
+    <%= expense.date %><br>
     <%= expense.description %>
   </div>
 <% end %>
