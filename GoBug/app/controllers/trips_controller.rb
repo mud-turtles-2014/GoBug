@@ -31,6 +31,7 @@ class TripsController < ApplicationController
   def create
     @current_user = current_user
     @trip = @current_user.trips.new(trip_params)
+    binding.pry
 
     respond_to do |format|
       if @trip.save
