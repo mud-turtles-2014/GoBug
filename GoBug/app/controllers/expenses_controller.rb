@@ -13,10 +13,13 @@ class ExpensesController < ApplicationController
   # GET /expenses/1
   # GET /expenses/1.json
   def show
+    @expense = Expense.find(params[:id])
   end
 
   # GET /expenses/new
   def new
+    @trip = Trip.find(params[:trip_id])
+    @expense = Expense.new
   end
 
   # GET /expenses/1/edit
@@ -26,8 +29,9 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
-    @expense = Expense.new(expense_params)
-    binding.pry
+    @trip = Trip.find(params[:trip_id])
+    @expense = @trip.expenses.new(expense_params)
+
     respond_to do |format|
       if @expense.save
         format.html { redirect_to [@expense], notice: 'Expense was successfully created.' }
@@ -58,7 +62,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to expenses_path, notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to trip_expenses_path, notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
