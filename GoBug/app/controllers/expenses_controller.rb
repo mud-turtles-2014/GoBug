@@ -76,6 +76,8 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
+      @location = Location.where(name: params[:expense][:location_id]).first_or_create
+      params[:expense][:location_id] = @location.id
       params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id)
     end
 end
