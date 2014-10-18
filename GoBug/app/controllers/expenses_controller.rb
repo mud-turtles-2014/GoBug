@@ -8,6 +8,7 @@ class ExpensesController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @expenses = @trip.expenses.all
+    @is_wishlist = false
   end
 
   # GET /expenses/1
