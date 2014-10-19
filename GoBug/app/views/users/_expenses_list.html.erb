@@ -1,9 +1,13 @@
 <% if all %>
 	<h2>Full Item List</h2>
+<% elsif wishlist %>
+  <h2>Wishlist for <%= @wishlist.name %></h2>
 <% else %>
 	<h2>Items for <%= expenses.first.trip.name %></h2>
 	<button id="add-expense">Add Expense</button>
 <% end %> 
+
+<% if !wishlist %>
 <% @trip = expenses.first.trip %>
 
 
@@ -29,7 +33,7 @@
     <%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
     <%= f.submit "Submit" %>
 <% end %>
-
+<% end %>
 
 <% expenses.each do |expense| %>
   <div class="item_box">

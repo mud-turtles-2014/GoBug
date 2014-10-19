@@ -5,6 +5,6 @@
 	<% end %>
 	<h3>Your WishLists</h3>
 	<% @wishlists.each do |wishlist| %>
-	    <article class="wishlist"><%= wishlist.name %></article>
+	    <article class="wishlist"><%= link_to wishlist.name, fetch_wishlist_items_path(:wishlist_id => wishlist), :remote => true %></article>
 	<% end %>
 </sidebar>
