@@ -14,8 +14,6 @@ class ExpensesController < ApplicationController
     if @current_user
       @wishlist = @current_user.wishlists.new
       @wishlists = @current_user.wishlists
-      p "*"*50
-      p @current_user.wishlists.length
       @wishlist_options = @wishlists.all.map{|u| [ u.name, u.id ] }
     end
     @is_wishlist = false
