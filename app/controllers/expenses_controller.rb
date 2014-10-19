@@ -11,8 +11,11 @@ class ExpensesController < ApplicationController
     @current_user = current_user
     if @current_user
       @wishlist = @current_user.wishlists.new
+      @wishlists = @current_user.wishlists
+      @wishlist_options = @wishlists.all.map{|u| [ u.name, u.id ] }
+    else
+      @is_wishlist = false
     end
-    @is_wishlist = false
   end
 
   def show
