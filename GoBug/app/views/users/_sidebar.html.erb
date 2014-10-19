@@ -1,5 +1,10 @@
 <sidebar>
+	<h3>Your Trips</h3>
 	<% @trips.each do |trip| %>
 	    <article class="trip"><%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true %></article>
+	<% end %>
+	<h3>Your WishLists</h3>
+	<% @wishlists.each do |wishlist| %>
+	    <article class="wishlist"><%= wishlist.name %></article>
 	<% end %>
 </sidebar>

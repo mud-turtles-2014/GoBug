@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @trips = @user.trips
     @expenses = @user.expenses
     @expense = Expense.new
+    @wishlists = @user.wishlists
   end
 
   def from_trip
