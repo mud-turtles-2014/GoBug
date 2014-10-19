@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018134647) do
+ActiveRecord::Schema.define(version: 20141019183618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,22 +29,22 @@ ActiveRecord::Schema.define(version: 20141018134647) do
   end
 
   create_table "expenses", force: true do |t|
-    t.integer  "location_id", null: false
-    t.float    "cost",        null: false
+    t.integer  "location_id",     null: false
+    t.float    "cost",            null: false
     t.string   "title"
     t.text     "description"
-    t.integer  "category_id", null: false
+    t.integer  "category_id",     null: false
     t.date     "date"
-    t.integer  "trip_id",     null: false
     t.integer  "currency_id"
     t.float    "usd_cost"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "expensable_id"
+    t.string   "expensable_type"
   end
 
   add_index "expenses", ["category_id"], name: "index_expenses_on_category_id", using: :btree
   add_index "expenses", ["location_id"], name: "index_expenses_on_location_id", using: :btree
-  add_index "expenses", ["trip_id"], name: "index_expenses_on_trip_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "name",       null: false
@@ -71,13 +71,6 @@ ActiveRecord::Schema.define(version: 20141018134647) do
     t.string   "email",           null: false
     t.string   "first_name",      null: false
     t.string   "last_name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "wishlist_items", force: true do |t|
-    t.integer  "expense_id"
-    t.integer  "wishlist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
