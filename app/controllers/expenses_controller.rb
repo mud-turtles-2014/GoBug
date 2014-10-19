@@ -64,10 +64,9 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
-    @trip = @expense.trip
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to trip_expenses_path(@trip), notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user), notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
