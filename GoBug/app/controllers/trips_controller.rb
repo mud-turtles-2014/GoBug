@@ -1,33 +1,28 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, except: [:index]
+  before_action :require_login
 
-  # GET /trips
-  # GET /trips.json
   def index
     @current_user = current_user
-    @trips = Trip.all
+    if @current_user
+      @trips = @current_user.trips
+    else
+      @trips = Trip.all
+    end
   end
 
-  # GET /trips/1
-  # GET /trips/1.json
   def show
   end
 
-  # GET /trips/new
   def new
     @current_user = current_user
     @trip = @current_user.trips.new
     @expense = Expense.new
   end
 
-  # GET /trips/1/edit
   def edit
-   # @trip.build_expense
   end
 
-  # POST /trips
-  # POST /trips.json
   def create
     @current_user = current_user
     @trip = @current_user.trips.new(trip_params)
@@ -44,8 +39,6 @@ class TripsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /trips/1
-  # PATCH/PUT /trips/1.json
   def update
     respond_to do |format|
       if @trip.update(trip_params)
@@ -58,8 +51,6 @@ class TripsController < ApplicationController
     end
   end
 
-  # DELETE /trips/1
-  # DELETE /trips/1.json
   def destroy
     @trip.destroy
     respond_to do |format|
