@@ -25,7 +25,7 @@
           <td><%= link_to 'Destroy', expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% if @is_wishlist == false %>
             <td id="add">
-              <%= select_tag(:author_id, options_for_select(@wishlist_options)) %>
+              <%= select_tag(:wishlist_id, options_for_select(@wishlist_options)) %>
               <%= button_to 'Add to Wishlist', {:controller => :wishlist_items, :action => 'create', :expense_id => expense.id, :wishlist_id => @wishlist.id }, :method => :create %>
             </td>
           <% else %>
