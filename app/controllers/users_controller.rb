@@ -3,10 +3,25 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @trips = @user.trips
-    @trip = @trips.first
-    @expenses = @trips.first.expenses
-    @expense = Expense.new
+    if @user.trips
+      @trips = @user.trips
+      if @trips.last
+        @trip = @trips.last
+        if @trip.expenses
+          @expenses = @trip.expenses
+        else
+          @expenses = false
+        end
+      else
+        @trip = false
+        @expenses = false
+      end
+      @expense = Expense.new
+    else
+     @trips = false
+     @trip = false
+     @expenses = false
+    end
     @wishlists = @user.wishlists
   end
 
