@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :locations
 
+  resources :expenses, only: [:index]
+
   resources :trips do
     resources :expenses, shallow: true
   end

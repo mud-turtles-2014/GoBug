@@ -6,9 +6,10 @@ class ExpensesController < ApplicationController
   before_action :set_location, only: [:create]
 
   def index
+    @expenses = Expense.all
     @search = Expense.search(params[:q])
     @expenses = @search.result
-    @trip = Trip.find(params[:trip_id])
+    # @trip = Trip.find(params[:trip_id])
     @current_user = current_user
     @wishlist = @current_user.wishlists.new
     @is_wishlist = false
