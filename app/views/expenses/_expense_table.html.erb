@@ -5,10 +5,11 @@
 <table>
   <thead>
     <tr>
+      <th>Cost</th>
       <th>Description</th>
       <th>Category</th>
       <th>Date</th>
-      <th colspan="2"></th>
+      <th>Location</th>
     </tr>
   </thead>
 
@@ -21,16 +22,15 @@
         <td><%= expense.date %></td>
         <td><%= expense.location.name %></td>
         <% if @current_user %>
-          <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-          <td><%= link_to 'Destroy', expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% if @is_wishlist == false %>
-            <td id="add">
-              <%= select_tag(:author_id, options_for_select(@wishlist_options)) %>
-              <%= button_to 'Add to Wishlist', {:controller => :wishlist_items, :action => 'create', :expense_id => expense.id, :wishlist_id => @wishlist.id }, :method => :create %>
+          <td id="add">
+              <% if @wishlists.length > 1 %>
+                <%= form_tag action:'add_to_wishlist', method:'post' do %>
+                <%= select_tag(:wishlist_id, options_for_select(@wishlist_options)) %>
+                <%= hidden_field_tag :expense_id, expense.id %>
+                <%= submit_tag 'Add to Wishlist' %>
+                <% end %>
+              <% end %>
             </td>
-          <% else %>
-            <td><%= button_to 'Remove', {:controller => :wishlist_items, :action => 'destroy', :expense_id => expense.id, :wishlist_id => 1 }, :method => :delete %></td>
-          <% end %>
         <% end %>
       </tr>
     <% end %>
