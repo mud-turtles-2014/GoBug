@@ -1,8 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :require_login
-  before_action :convert_currency, only: [:create]
-  before_action :clean_usd_cost, only: [:create, :edit]
+  before_action :clean_usd_cost, only: [:create]
   respond_to :html, :json
 
   def index
@@ -24,13 +23,14 @@ class ExpensesController < ApplicationController
   end
 
   def edit
+    # @currency_code = Expense.find(params[:id]).currency_code
    # @expense.update(currency_id: @currency_id, usd_cost: @usd_cost)
   end
 
   def create
     @trip = Trip.find(params[:trip_id])
     @expense = @trip.expenses.new(expense_params)
-    @expense.update(currency_id: @currency_id, usd_cost: @usd_cost)
+    @expense.update(usd_cost: @usd_cost)
     respond_to do |format|
       if @expense.save
         puts @expense
@@ -45,7 +45,7 @@ class ExpensesController < ApplicationController
 
   def update
     if @expense.update(expense_params)
-      respond_with @exepense
+      respond_with @expense
     end
     # respond_to do |format|
     #   if @expense.update(expense_params)
@@ -72,10 +72,6 @@ class ExpensesController < ApplicationController
     def clean_usd_cost
       @usd_cost = params[:expense][:usd_cost]
       @usd_cost = @usd_cost[0..-5].to_f
-    end
-
-    def convert_currency
-      @currency_id = Currency.where(code: params[:expense][:currency_id]).first.id
     end
 
     def set_expense
