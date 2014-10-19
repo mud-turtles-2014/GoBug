@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :require_login
-  before_action :convert_currency, only: [:create, :edit]
+  # before_action :convert_currency, only: [:create, :edit]
   # before_action :clean_usd_cost, only: [:create, :edit]
   respond_to :html, :json
 
@@ -33,7 +33,7 @@ class ExpensesController < ApplicationController
     # p params[:expense][:usd_cost][0..-5].to_f
     @trip = Trip.find(params[:trip_id])
     @expense = @trip.expenses.new(expense_params)
-    @expense.update(currency_id: @currency_id)
+    # @expense.update(currency_id: @currency_id)
       # , usd_cost: @usd_cost)
     respond_to do |format|
       if @expense.save

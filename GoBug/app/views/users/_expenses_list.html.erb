@@ -1,11 +1,15 @@
 <% if all %>
 	<h2>Full Item List</h2>
+<% elsif wishlist %>
+  <h2>Wishlist for <%= @wishlist.name %></h2>
 <% else %>
 	<h2>Items for <%= expenses.first.trip.name %></h2>
 	<button id="add-expense">Add Expense</button>
 <% end %>
-<% @trip = expenses.first.trip %>
 
+
+<% if !wishlist %>
+<% @trip = expenses.first.trip %>
 
 <%= form_for [expenses.first.trip, @expense] do |f| %>
   <% if @expense.errors.any? %>
@@ -28,9 +32,7 @@
 
     <%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
     <%= f.submit "Submit" %>
-  </div>
 <% end %>
-
 
 <% expenses.each do |expense| %>
   <div class="item_box">
@@ -40,4 +42,17 @@
     <%= best_in_place expense, :date %><br>
     <%= best_in_place expense, :description, type: :textarea %>
   </div>
+<% end %>
+<% end %>
+
+<% if wishlist %>
+  <% expenses.each do |expense| %>
+    <div class="item_box">
+      <%= expense.location.name %><br>
+      <%= expense.cost %> |
+      <%= expense.category.name %> |
+      <%= expense.date %><br>
+      <%= expense.description %>
+    </div>
+  <% end %>
 <% end %>

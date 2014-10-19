@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @trips = @user.trips
     @expenses = @user.expenses
     @expense = Expense.new
+    @wishlists = @user.wishlists
   end
 
   def from_trip
@@ -14,7 +15,16 @@ class UsersController < ApplicationController
     respond_to do |format|
         format.js
     end
-end
+  end
+
+  def from_wishlist
+    @expense = Expense.new
+    @wishlist = Wishlist.find(params[:wishlist_id])
+    @selected = Wishlist.find(params[:wishlist_id]).expenses
+    respond_to do |format|
+        format.js
+    end
+  end
 
   def new
     @user = User.new
