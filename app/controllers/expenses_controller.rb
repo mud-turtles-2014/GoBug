@@ -22,7 +22,7 @@ class ExpensesController < ApplicationController
   end
 
   def new
-    @trip = Trip.find(params[:trip_id])
+    @trip_or_wishlist = Trip.find_by(id: params[:trip_id]) || Wishlist.find_by(id: params[:wish_id])
     @expense = Expense.new
   end
 
@@ -32,12 +32,11 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    @trip = Trip.find(params[:trip_id])
-    @expense = @trip.expenses.new(expense_params)
+    @trip_or_wishlist = Trip.find_by(id: params[:trip_id]) || Wishlist.find_by(id: params[:wish_id])
+    @expense = @trip_or_wishlist.expenses.new(expense_params)
     @expense.update(usd_cost: @usd_cost)
     respond_to do |format|
       if @expense.save
-        puts @expense
         format.html { render partial: 'snippet', locals: {expense: @expense} }
         #format.json { render :show, status: :created, location: @expense }
       #else

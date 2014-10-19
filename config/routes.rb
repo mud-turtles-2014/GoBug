@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   get "/fetch_expenses" => 'users#from_trip', as: 'fetch_expenses'
   get "/fetch_wishlist_items" => 'users#from_wishlist', as: 'fetch_wishlist_items'
 
-  resources :wishlists
+  resources :wishlists do
+    resources :expenses, shallow: true
+  end
 
   resources :wishlist_items
 
