@@ -10,6 +10,9 @@ class WishlistsController < ApplicationController
   # GET /wishlists/1
   # GET /wishlists/1.json
   def show
+    @current_user = current_user
+    @user_wishlists = @current_user.wishlists
+    binding.pry
     @expenses = @wishlist.expenses
     @is_wishlist = true
   end

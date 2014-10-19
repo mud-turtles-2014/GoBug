@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
-  before_action :require_login
+  before_action :require_login, except: [:index]
 
   def index
     @current_user = current_user

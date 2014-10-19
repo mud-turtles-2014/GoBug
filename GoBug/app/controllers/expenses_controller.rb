@@ -9,6 +9,8 @@ class ExpensesController < ApplicationController
     @search = Expense.search(params[:q])
     @expenses = @search.result
     @trip = Trip.find(params[:trip_id])
+    @current_user = current_user
+    @wishlist = @current_user.wishlists.new
     @is_wishlist = false
   end
 
@@ -87,5 +89,6 @@ class ExpensesController < ApplicationController
     def expense_params
       @location = Location.where(name: params[:expense][:location_id]).first_or_create
       params[:expense][:location_id] = @location.id
-params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)    end
+      params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)
+    end
 end
