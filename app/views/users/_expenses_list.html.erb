@@ -1,17 +1,13 @@
-<% if all %>
-	<h2>Full Item List</h2>
+<% if @trip %>
+	<h2>Items for <%= @trip.name %></h2>
+	<button id="add-expense">Add Expense</button>
 <% elsif wishlist %>
   <h2>Wishlist for <%= @wishlist.name %></h2>
-<% else %>
-	<h2>Items for <%= expenses.first.trip.name %></h2>
-	<button id="add-expense">Add Expense</button>
 <% end %>
 
+<% if @trip %>
 
-<% if !wishlist %>
-<% @trip = expenses.first.trip %>
-
-<%= form_for [expenses.first.trip, @expense] do |f| %>
+<%= form_for [@trip, @expense] do |f| %>
   <% if @expense.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
@@ -24,8 +20,8 @@
     </div>
   <% end %>
 
-    <%= f.text_field :location_id, class: "location" %>
-    <%= f.text_field :cost, class: "currency" %>
+    <%= f.text_field :location_id, class: "location", placeholder: "Enter a location" %>
+    <%= f.text_field :cost, class: "currency", placeholder: "Enter cost" %>
     <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ] }, {:include_blank => "Currency"}, class: "currency" %>
     <%= f.text_field :usd_cost, readonly: true, placeholder: "USD", class: "currency" %>
     <%= f.hidden_field :description, value: "Enter a description" %>

@@ -4,14 +4,17 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @trips = @user.trips
-    @expenses = @user.expenses
+    @trip = @trips.first
+    @expenses = @trips.first.expenses
     @expense = Expense.new
     @wishlists = @user.wishlists
   end
 
   def from_trip
+    @user = current_user
+    @trip = Trip.find(params[:trip_id])
     @expense = Expense.new
-    @selected = Trip.find(params[:trip_id]).expenses
+    @selected = @trip.expenses
     respond_to do |format|
         format.js
     end
