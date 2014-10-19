@@ -12,7 +12,6 @@ class WishlistsController < ApplicationController
   def show
     @current_user = current_user
     @user_wishlists = @current_user.wishlists
-    binding.pry
     @expenses = @wishlist.expenses
     @is_wishlist = true
   end
