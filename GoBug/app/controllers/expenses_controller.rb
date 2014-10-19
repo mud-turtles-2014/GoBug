@@ -39,15 +39,8 @@ class ExpensesController < ApplicationController
     # p params[:expense][:usd_cost][0..-5].to_f
     @trip = Trip.find(params[:trip_id])
     @expense = @trip.expenses.new(expense_params)
-<<<<<<< HEAD
     @expense.update(currency_id: @currency_id)
       # , usd_cost: @usd_cost)
-
-=======
-    puts "*" * 30
-    puts @expense
-    puts "=" * 30
->>>>>>> master
     respond_to do |format|
       if @expense.save
         puts @expense
@@ -104,12 +97,7 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-<<<<<<< HEAD
-      params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)
-=======
       @location = Location.where(name: params[:expense][:location_id]).first_or_create
       params[:expense][:location_id] = @location.id
-      params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id)
->>>>>>> master
-    end
+params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)    end
 end
