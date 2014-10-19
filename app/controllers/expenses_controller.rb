@@ -7,7 +7,7 @@ class ExpensesController < ApplicationController
 
   def index
     @search = Expense.search(params[:q])
-    @expenses = @search.result
+    @expenses = @search.result.trip
     @current_user = current_user
     if @current_user
       @wishlist = @current_user.wishlists.new
