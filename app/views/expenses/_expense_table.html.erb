@@ -1,3 +1,7 @@
+<% if @current_user %>
+  <%= link_to("Create New Wishlist", new_wishlist_path) %>
+<% end %>
+
 <table>
   <thead>
     <tr>
