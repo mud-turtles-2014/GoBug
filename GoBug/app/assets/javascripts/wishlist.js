@@ -1,0 +1,11 @@
+$(document).ready(function(){
+  $('td#add').hide();
+  $('tr').hover(
+    function(){
+      $(this).children('td#add').show();
+    },
+    function(){
+      $(this).children('td#add').hide();
+    }
+  );
+});

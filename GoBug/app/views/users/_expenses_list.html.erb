@@ -5,7 +5,8 @@
 <% else %>
 	<h2>Items for <%= expenses.first.trip.name %></h2>
 	<button id="add-expense">Add Expense</button>
-<% end %> 
+<% end %>
+
 
 <% if !wishlist %>
 <% @trip = expenses.first.trip %>
@@ -22,7 +23,7 @@
       </ul>
     </div>
   <% end %>
-  
+
     <%= f.text_field :location_id, placeholder: "Location" %>
     <%= f.text_field :cost, placeholder: "Cost" %>
     <%= f.hidden_field :description, value: "Enter a description" %>

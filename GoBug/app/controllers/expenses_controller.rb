@@ -5,34 +5,28 @@ class ExpensesController < ApplicationController
   # before_action :clean_usd_cost, only: [:create, :edit]
   respond_to :html, :json
 
-  # GET /expenses
-  # GET /expenses.json
   def index
     @search = Expense.search(params[:q])
     @expenses = @search.result
     @trip = Trip.find(params[:trip_id])
+    @current_user = current_user
+    @wishlist = @current_user.wishlists.new
     @is_wishlist = false
   end
 
-  # GET /expenses/1
-  # GET /expenses/1.json
   def show
     @expense = Expense.find(params[:id])
   end
 
-  # GET /expenses/new
   def new
     @trip = Trip.find(params[:trip_id])
     @expense = Expense.new
   end
 
-  # GET /expenses/1/edit
   def edit
    @expense.update(currency_id: @currency_id, usd_cost: @usd_cost)
   end
 
-  # POST /expenses
-  # POST /expenses.json
   def create
     # p "*" * 100
     # p params[:expense][:usd_cost][0..-5]
@@ -53,8 +47,6 @@ class ExpensesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /expenses/1
-  # PATCH/PUT /expenses/1.json
   def update
     if @expense.update(expense_params)
       respond_with @exepense
@@ -70,8 +62,6 @@ class ExpensesController < ApplicationController
     # end
   end
 
-  # DELETE /expenses/1
-  # DELETE /expenses/1.json
   def destroy
     @trip = @expense.trip
     @expense.destroy
@@ -99,5 +89,6 @@ class ExpensesController < ApplicationController
     def expense_params
       @location = Location.where(name: params[:expense][:location_id]).first_or_create
       params[:expense][:location_id] = @location.id
-params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)    end
+      params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)
+    end
 end
