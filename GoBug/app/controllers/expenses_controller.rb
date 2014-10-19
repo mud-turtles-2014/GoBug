@@ -1,8 +1,8 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :require_login
-  # before_action :convert_currency, only: [:create, :edit]
-  # before_action :clean_usd_cost, only: [:create, :edit]
+  before_action :convert_currency, only: [:create]
+  before_action :clean_usd_cost, only: [:create, :edit]
   respond_to :html, :json
 
   def index
@@ -24,17 +24,13 @@ class ExpensesController < ApplicationController
   end
 
   def edit
-   @expense.update(currency_id: @currency_id, usd_cost: @usd_cost)
+   # @expense.update(currency_id: @currency_id, usd_cost: @usd_cost)
   end
 
   def create
-    # p "*" * 100
-    # p params[:expense][:usd_cost][0..-5]
-    # p params[:expense][:usd_cost][0..-5].to_f
     @trip = Trip.find(params[:trip_id])
     @expense = @trip.expenses.new(expense_params)
-    # @expense.update(currency_id: @currency_id)
-      # , usd_cost: @usd_cost)
+    @expense.update(currency_id: @currency_id, usd_cost: @usd_cost)
     respond_to do |format|
       if @expense.save
         puts @expense
@@ -73,9 +69,10 @@ class ExpensesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    # def clean_usd_cost
-    #   @usd_cost = params[:expense][:usd_cost][0..-5].to_f
-    # end
+    def clean_usd_cost
+      @usd_cost = params[:expense][:usd_cost]
+      @usd_cost = @usd_cost[0..-5].to_f
+    end
 
     def convert_currency
       @currency_id = Currency.where(code: params[:expense][:currency_id]).first.id
