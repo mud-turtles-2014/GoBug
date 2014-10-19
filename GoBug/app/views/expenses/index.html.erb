@@ -8,10 +8,6 @@
   </div>
   <%= f.submit "Search" %>
 <% end %>
-
-<% if @current_user.wishlists != nil %>
-  <%= render 'wishlists/form' %>
-<% end %>
 <%= render 'expense_table' %>
 
 <br>
