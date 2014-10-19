@@ -191,6 +191,7 @@ leeds = Location.create(name:"Leeds England")
 edinborough = Location.create(name:"Edinborough Scotland")
 oahu = Location.create(name:"Oahu HI USA")
 strassbourg = Location.create(name: "Strassbourg France")
+hong_kong = Location.create(name: "Hong Kong")
 
 food = Category.create(name:"Food")
 housing = Category.create(name:"Housing")
@@ -200,12 +201,21 @@ activities = Category.create(name:"Activities")
 misc = Category.create(name:"Miscellaneous")
 
 trip = Trip.create(user: sarah, name: "Texas Vacation", budget: "100")
-trip1 = Trip.create(user: nic, name: "Texas Paradise", budget: "1000")
+trip1 = Trip.create(user: nic, name: "Hong Kong Adventure", budget: "2000")
+trip2 = Trip.create(user: nic, name: "Europe Dream", budget: "1500")
 
-whattaburger = Expense.create(cost:30.50, currency_id: 10, description:"Lunch at whattaburger", category: food, trip: trip, date: Time.now, location: houston)
-rodeo = Expense.create(cost:112, currency_id: 10, description:"Rodeo night show", category: activities, trip: trip, date: Time.now, location: houston)
-barn = Expense.create(cost:400, currency_id: 10, description:"Hotel stay at the Barn", category: housing, trip: trip, date: Time.now, location: austin)
+wishlist = Wishlist.create(user: mich, name: "Hong Kong Reunion", budget: "800")
+wishlist1 = Wishlist.create(user: mich, name: "Texas Road Trip", budget: "300")
+wishlist2 = Wishlist.create(user: sarah, name: "Eurotrip!", budget: "900")
 
-sad_happy_masks = Expense.create(cost:44.99, currency_id: 10, description:"Sad face, happy face wall decor", category: shopping, trip: trip1, date: Time.now, location: houston)
-improv_class = Expense.create(cost:432, currency_id: 10, description:"Week long improv class", category: activities, trip: trip1, date: Time.now, location: dallas)
-mcdonalds = Expense.create(cost:12, currency_id: 10, description:"McDonalds dinner", category: food, trip: trip1, date: Time.now, location: dallas)
+whattaburger = Expense.create(cost:30.50, currency_id: 150, usd_cost: 30.50, description:"Lunch at whattaburger", category: food, trip: trip, date: Time.now, location: houston)
+rodeo = Expense.create(cost:112, currency_id: 150, usd_cost: 112, description:"Rodeo night show", category: activities, trip: trip, date: Time.now, location: houston)
+barn = Expense.create(cost:400, currency_id: 10, usd_cost: 400, description:"Hotel stay at the Barn", category: housing, trip: trip, date: Time.now, location: austin)
+sad_happy_masks = Expense.create(cost:44.99, currency_id: 46, usd_cost: 57.41, description:"Sad face, happy face wall decor", category: shopping, trip: trip2, date: Time.now, location: prague)
+improv_class = Expense.create(cost:432, currency_id: 46, usd_cost: 551.22, description:"Week long improv class", category: activities, trip: trip2, date: Time.now, location: london)
+mcdonalds = Expense.create(cost:100, currency_id: 58, usd_cost: 12.89, description:"McDonalds dinner", category: food, trip: trip1, date: Time.now, location: hong_kong)
+egg_tarts = Expense.create(cost:100, currency_id: 58, usd_cost: 12.89, description:"Egg Tarts", category: food, trip: trip1, date: Time.now, location: hong_kong)
+
+wishlist.expenses << [mcdonalds, egg_tarts]
+wishlist1.expenses << [whattaburger, rodeo, barn]
+wishlist2.expenses << [sad_happy_masks, improv_class]
