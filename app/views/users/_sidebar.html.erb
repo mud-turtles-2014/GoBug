@@ -8,5 +8,6 @@
 	<% @wishlists.each do |wishlist| %>
 	    <article class="wishlist"><%= link_to wishlist.name, fetch_wishlist_items_path(:wishlist_id => wishlist), :remote => true %></article>
 	<% end %>
+	<%= link_to "Browse for Items", expenses_path %><br>
   <%= link_to "Add a Wishlist", new_wishlist_path %>
 </sidebar>
