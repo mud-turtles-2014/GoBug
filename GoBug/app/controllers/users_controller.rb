@@ -26,6 +26,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def new_trip
+    @current_user = current_user
+    @trip = @current_user.trips.new
+    @expense = Expense.new
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new
     @user = User.new
   end
