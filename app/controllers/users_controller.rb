@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @trips = @user.trips
-    @trip = @trips.first
-    @expenses = @trips.first.expenses
+    @trip = @trips.last
+    @expenses = @trip.expenses || false
     @expense = Expense.new
     @wishlists = @user.wishlists
   end
