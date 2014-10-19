@@ -1,16 +1,19 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
-  before_action :require_login
+  before_action :require_login, except: [:index]
   before_action :clean_usd_cost, only: [:create]
   respond_to :html, :json
   before_action :set_location, only: [:create]
 
   def index
+    @expenses = Expense.all
     @search = Expense.search(params[:q])
     @expenses = @search.result
-    @trip = Trip.find(params[:trip_id])
+    # @trip = Trip.find(params[:trip_id])
     @current_user = current_user
-    @wishlist = @current_user.wishlists.new
+    if @current_user
+      @wishlist = @current_user.wishlists.new
+    end
     @is_wishlist = false
   end
 

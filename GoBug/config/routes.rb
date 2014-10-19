@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => "sessions#destroy"
 
-  root 'trips#index'
+  root 'expenses#index'
 
   resources :categories
 
   resources :locations
+
+  resources :expenses, only: [:index]
 
   resources :trips do
     resources :expenses, shallow: true
