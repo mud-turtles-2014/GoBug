@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :wishlist_items
 
+  get "/fetch_new_trip" => 'users#new_trip', as: 'fetch_new_trip'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

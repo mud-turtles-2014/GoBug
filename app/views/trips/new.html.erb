@@ -1,31 +1,4 @@
 <h1>New trip</h1>
 
-<%= form_for @trip do |f| %>
-  <% if @trip.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
-
-      <ul>
-      <% @trip.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div id="trip_form">
-    <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </div>
-    <div class="field">
-      <%= f.label :budget %><br>
-      <%= f.number_field :budget %>
-    </div>
-      <%= f.submit %>
-  </div>
-<% end %>
+<%= render 'form' %>
 
