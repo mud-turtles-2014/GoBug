@@ -6,4 +6,5 @@
   <%= expense.category.name %> |
   <%= best_in_place expense, :date %><br>
   <%= best_in_place expense, :description, type: :textarea %>
+  <%= button_to "delete", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete' %>
 </div>
