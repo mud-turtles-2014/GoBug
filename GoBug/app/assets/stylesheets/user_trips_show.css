@@ -52,6 +52,6 @@ body {
 	margin-right: auto;
 }
 
-#new_expense {
+#expenses_grid #new_expense {
 	display: none;
 }
