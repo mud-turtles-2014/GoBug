@@ -72,6 +72,16 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def add_to_wishlist
+      @wishlist = current_user.wishlists.first
+      @expense = Expense.find(params[:expense_id])
+      @new_expense = Expense.new(@expense.attributes)
+      @new_expense.expensable = @wishlist
+      @new_expense.id = nil
+      @new_expense.save
+      redirect_to root_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def clean_usd_cost
