@@ -1,7 +1,9 @@
-  <div class="item_box">
-    <%= best_in_place expense.location, :name %><br>
-    <%= best_in_place expense, :usd_cost %> |
-    <%= best_in_place expense.category, :name %> |
-    <%= best_in_place expense, :date %><br>
-    <%= best_in_place expense, :description, type: :textarea %>
-  </div>
+<div class="item_box">
+  <%= expense.location.name %><br>
+  <%= expense.currency.code %>
+  <%= expense.cost %> |
+  <%= expense.usd_cost %> |
+  <%= expense.category.name %> |
+  <%= best_in_place expense, :date %><br>
+  <%= best_in_place expense, :description, type: :textarea %>
+</div>

@@ -18,7 +18,7 @@
     <%= f.label :cost %><br>
     <%= f.text_field :cost %>
     <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ] }, {:include_blank => "Currency"} %>
-    <%= f.text_field :usd_cost, readonly: true %>
+    <%= f.text_field :usd_cost, readonly: true, placeholder: "USD" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

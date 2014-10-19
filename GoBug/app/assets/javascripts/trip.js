@@ -44,7 +44,7 @@ $('#expenses_grid').on('submit','#new_expense',function(e){
 });
 
 clearInputs = function(){
-  $("input[name='expense[date]'").val("");
+  $("input[name='expense[usd_cost]'").val("");
   $("input[name='expense[location_id]'").val("");
   $("input[name='expense[cost]'").val("");
   $("input[name='expense[category_id]'").val("");

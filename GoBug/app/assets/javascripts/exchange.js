@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
-  $('body').on('change','.currency select',function(e){
+  $('body').on('change','#expense_currency_id',function(e){
     currency_exchange();
     });
 
-   $('body').on('focusout','.currency input',function(e){
+   $('body').on('focusout','#expense_cost',function(e){
    currency_exchange();
     });
 
@@ -28,8 +28,8 @@ $(document).ready(function(){
 
 function currency_exchange() {
    $('#expense_usd_cost').val("")
-    var cost = $('.currency input').val();
-    var currency = $('.currency select option:selected').text()
+    var cost = $('#expense_cost').val();
+    var currency = $('#expense_currency_id option:selected').text()
     var converted = fx.convert(cost, {from: currency, to: "USD"}).toFixed(2)
     $('#expense_usd_cost').val(converted + " USD")
 }

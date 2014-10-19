@@ -24,8 +24,10 @@
     </div>
   <% end %>
 
-    <%= f.text_field :location_id, placeholder: "Location" %>
-    <%= f.text_field :cost, placeholder: "Cost" %>
+    <%= f.text_field :location_id, class: "location" %>
+    <%= f.text_field :cost, class: "currency" %>
+    <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ] }, {:include_blank => "Currency"}, class: "currency" %>
+    <%= f.text_field :usd_cost, readonly: true, placeholder: "USD", class: "currency" %>
     <%= f.hidden_field :description, value: "Enter a description" %>
 
     <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"} %>
@@ -36,9 +38,11 @@
 
 <% expenses.each do |expense| %>
   <div class="item_box">
-    <%= best_in_place expense.location, :name %><br>
-    <%= best_in_place expense, :cost %> |
-    <%= best_in_place expense.category, :name %> |
+    <%= expense.location.name %><br>
+    <%= expense.currency.code %>
+    <%= expense.cost %> |
+    <%= expense.usd_cost %> |
+    <%= expense.category.name %> |
     <%= best_in_place expense, :date %><br>
     <%= best_in_place expense, :description, type: :textarea %>
   </div>
@@ -49,7 +53,7 @@
   <% expenses.each do |expense| %>
     <div class="item_box">
       <%= expense.location.name %><br>
-      <%= expense.cost %> |
+      <%= expense.usd_cost %> |
       <%= expense.category.name %> |
       <%= expense.date %><br>
       <%= expense.description %>

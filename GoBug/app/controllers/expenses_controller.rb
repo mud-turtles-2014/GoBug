@@ -3,6 +3,7 @@ class ExpensesController < ApplicationController
   before_action :require_login
   before_action :clean_usd_cost, only: [:create]
   respond_to :html, :json
+  before_action :set_location, only: [:create]
 
   def index
     @search = Expense.search(params[:q])
@@ -80,8 +81,11 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
+      params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)
+    end
+
+    def set_location
       @location = Location.where(name: params[:expense][:location_id]).first_or_create
       params[:expense][:location_id] = @location.id
-      params.require(:expense).permit(:cost, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)
     end
 end
