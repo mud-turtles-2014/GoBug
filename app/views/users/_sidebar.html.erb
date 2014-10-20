@@ -3,10 +3,11 @@
 	<% @trips.each do |trip| %>
 	    <article class="trip"><%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true %></article>
 	<% end %>
-  <%= link_to "Add a Trip", fetch_new_trip_path, :remote => true %>
+  <article class="trip"><%= link_to "Add a Trip", fetch_new_trip_path, :remote => true %></article>
 	<h3>Your WishLists</h3>
 	<% @wishlists.each do |wishlist| %>
 	    <article class="wishlist"><%= link_to wishlist.name, fetch_wishlist_items_path(:wishlist_id => wishlist), :remote => true %></article>
 	<% end %>
-  <%= link_to "Add a Wishlist", new_wishlist_path %>
+  <article class="wishlist"><%= link_to "Add a Wishlist", new_wishlist_path %></article>
+  <article class="wishlist"><%= link_to "Browse for Items", expenses_path %></article>
 </sidebar>
