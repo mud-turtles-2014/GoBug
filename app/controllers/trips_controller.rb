@@ -59,6 +59,12 @@ class TripsController < ApplicationController
     end
   end
 
+  def splash
+    @search = Expense.search(params[:q])
+    @expenses = @search.result.trip
+    render 'splash', layout: false
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trip

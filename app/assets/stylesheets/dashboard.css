@@ -1,10 +1,12 @@
 /*
  * Base structure
  */
+  .main_content {
 
+  }
 
   body {
-    /*background: url('https://pbs.twimg.com/media/BiYeD_vCUAExSqo.jpg:large');*/
+    /*background: url('https://pbs.twimg.com/media/BiYeD_vCUAExSqo.jpg:large')*/
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding: 60px 0px;
