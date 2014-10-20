@@ -6,15 +6,31 @@ class ExpensesController < ApplicationController
   before_action :set_location, only: [:create]
 
   def index
-    @search = Expense.search(params[:q])
-    @expenses = @search.result.trip
+    if params[:q]
+        @search = Expense.search(params[:q])
+        @expenses = @search.result
+      if params[:q][:description] != ""
+        @fuzzy_search = Expense.find_by_fuzzy_description(params[:q][:description])
+        @expenses = @expenses & @fuzzy_search
+      end
+    else
+      @search = Expense.search()
+      @expenses = Expense.all.limit(20)
+    end
+
     @current_user = current_user
     if @current_user
       # @wishlist = @current_user.wishlists.new
       @wishlists = @current_user.wishlists
-      default_option = ["Select Wishlist"]
-      list_options = @wishlists.all.map{|u| [ u.name, u.id ] }
-      @wishlist_options = default_option + list_options
+      if @wishlists.length == 0
+        default_option = ["Add to a new Wishlist"]
+      elsif @wishlists.length == 1
+        default_option = @wishlists.first.name
+      else
+        default_option = ["Select Wishlist"]
+        list_options = @wishlists.all.map{|u| [ u.name, u.id ] }
+        @wishlist_options = default_option + list_options
+      end
     else
       @is_wishlist = false
     end

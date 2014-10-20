@@ -21,13 +21,13 @@
   <nav>
     <div class="navbar navbar-inverse navbar-fixed-top" role:"navigation">
       <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand" href="#">GoBug!</a></div>
+        <% if session[:user_id] %>
+        <div class="navbar-header"><%= link_to "GoBug!", user_path(User.find(session[:user_id])), class: "navbar-brand" %></div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               <%= flash[:error] %>
-              <% if session[:user_id] %>
-                <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %><br></li>
-                <li><%= link_to "Create a Trip", new_trip_path %><br></li>
+                <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %></li>
+                <li><%= link_to "Create a Trip", new_trip_path %></li>
                 <li><%= link_to "Log Out", '/logout', method: :delete %></li>
               <% else %>
                 <%= form_for :session, url: '/login', html: {class: 'form-inline'} do |f|  %>
@@ -35,7 +35,7 @@
                   <div class="form-group"><%= f.password_field :password, placeholder: "Password", class: 'form-control' %></div>
                   <%= f.submit "Log In", class: 'btn btn-default' %>
                   <% end %>
-                <%= link_to "Sign Up", '/users/new' %>
+                <%= link_to "Sign Up", '/users/new', class: 'btn btn-sm' %>
                 <% end %>
             </ul>
           </div>
