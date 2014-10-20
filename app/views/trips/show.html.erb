@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trip.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @trip.description %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @trip.budget %>
+</p>
+
+<p>
+  <strong>Is published:</strong>
+  <%= @trip.is_published %>
+</p>
+
+<p>
+  <strong>Is private:</strong>
+  <%= @trip.is_private %>
+</p>
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>

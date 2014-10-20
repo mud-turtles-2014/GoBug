@@ -1,0 +1,1 @@
+$("#expenses_grid").html("<%= escape_javascript(render partial: 'expenses_list', locals: { expenses: @selected, wishlist: @wishlist } ) %>").html_safe;

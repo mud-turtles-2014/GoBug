@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>USD Cost:</strong>
+  <%= @expense.usd_cost %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @expense.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @expense.category.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @expense.date %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <!-- change to @expense.location.name -->
+  <%= @expense.location_id%>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', trip_expenses_path(@expense.trip) %>

@@ -1,0 +1,17 @@
+<div id="wrapper" class="active">
+  <div id="sidebar-wrapper">
+    <%= render 'sidebar' %>
+  </div>
+  <div id="page-content-wrapper">
+    <div class="page-content inset">
+        <div id="expenses_grid" >
+          <%= render partial: 'expense_grid', locals: { expenses: @expenses} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
