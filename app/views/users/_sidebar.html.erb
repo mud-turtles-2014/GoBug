@@ -14,5 +14,5 @@
 		  <% @wishlists.each do |wishlist| %>
 		    <li><%= link_to wishlist.name, fetch_wishlist_items_path(:wishlist_id => wishlist), :remote => true %></li>
 		  <% end %>
-    <li><%= link_to "Add a Wishlist +", new_wishlist_path %></li>
+    <li><%= link_to "Add a Wishlist +", fetch_new_wishlist_path, :remote => true %></li>
   </ul>

@@ -53,6 +53,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def new_wishlist
+    @current_user = current_user
+    @wishlist = @current_user.wishlists.new
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new
     @user = User.new
   end
