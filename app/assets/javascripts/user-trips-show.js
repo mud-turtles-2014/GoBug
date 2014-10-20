@@ -6,4 +6,9 @@ $(document).ready(function(){
 	});
 
 	$('.best_in_place').best_in_place()
+
+	$('body').on('click','.delete',function(e){
+		$(e.target).closest('li').hide();
+		console.log($(e.target).closest('li'))
+	})
 });
