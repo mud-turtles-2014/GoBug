@@ -3,4 +3,14 @@ class Trip < ActiveRecord::Base
   has_many :expenses, as: :expensable
 
   accepts_nested_attributes_for :expenses, allow_destroy: true
+
+  def calculate_total
+    total = 0
+    self.expenses.each { |expense| total += expense.usd_cost }
+    return total
+  end
+
+  def remaining_budget
+    self.budget - self.calculate_total
+  end
 end
