@@ -23,12 +23,12 @@
       </ul>
     </div>
     <% end %>
-
     <%= f.text_field :location_id, class: "location", placeholder: "Enter a location" %><br>
     <%= f.text_field :cost, class: "currency", placeholder: "Enter cost" %>
     <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ]}, {:selected => '150'}, class: "currency" %>
     <%= f.text_field :usd_cost, readonly: true, placeholder: "USD", class: "currency" %><br>
-    <%= f.hidden_field :description, value: "Enter a description" %>
+    <%= f.text_field :title, placeholder: "Where did you go?" %><br>
+    <%= f.text_field :description, placeholder: "How was your experience?" %><br>
 
     <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"} %><br><br>
 
