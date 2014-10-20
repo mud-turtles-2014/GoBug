@@ -21,7 +21,7 @@
   <nav>
     <div class="navbar navbar-inverse navbar-fixed-top" role:"navigation">
       <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand" href="#">GoBug!</a></div>
+        <div class="navbar-header"><%= link_to "GoBug!", user_path(User.find(session[:user_id])), class: "navbar-brand" %></div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               <%= flash[:error] %>
