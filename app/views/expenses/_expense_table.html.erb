@@ -22,7 +22,7 @@
         <td><%= expense.date %></td>
         <td><%= expense.location.name %></td>
         <% if @current_user %>
-            <td id="add">
+          <td id="add">
               <% if @wishlists.length > 1 %>
                 <%= select_tag :wishlist_id, options_for_select(@wishlist_options, :include_blank => true) %>
                 <%= hidden_field_tag :expense_id, expense.id, class: "expense_id" %>

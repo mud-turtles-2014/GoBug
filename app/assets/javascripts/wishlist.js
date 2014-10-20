@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
   $('td#add').hide();
   $('tr').hover(
@@ -19,3 +20,4 @@ $(document).ready(function(){
   });
 
 });
+
