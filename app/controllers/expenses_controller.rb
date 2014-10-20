@@ -6,11 +6,16 @@ class ExpensesController < ApplicationController
   before_action :set_location, only: [:create]
 
   def index
-      @search = Expense.search(params[:q])
-      @expenses = @search.result
-    if params[:q][:description] != ""
-      @fuzzy_search = Expense.find_by_fuzzy_description(params[:q][:description])
-      @expenses = @expenses & @fuzzy_search
+    if params[:q]
+        @search = Expense.search(params[:q])
+        @expenses = @search.result
+      if params[:q][:description] != ""
+        @fuzzy_search = Expense.find_by_fuzzy_description(params[:q][:description])
+        @expenses = @expenses & @fuzzy_search
+      end
+    else
+      @search = Expense.search()
+      @expenses = Expense.all.limit(20)
     end
 
     @current_user = current_user
