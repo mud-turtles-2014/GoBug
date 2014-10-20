@@ -93,11 +93,16 @@ text-align: center;
   margin-bottom: 15px;
   margin-left: 0px;
 }
+
 .nav-sidebar > li > a {
   background-color: #50C8C6;
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
   padding-right: 20px;
   padding-left: 20px;
 }
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
@@ -111,7 +116,9 @@ text-align: center;
  */
 
 .main {
-  padding: 50px;}
+  padding: 20px;
+}
+
 @media (min-width: 768px) {
   .main {
     padding-right: 40px;
@@ -131,7 +138,6 @@ text-align: center;
   margin-bottom: 30px;
   width:100%;
   text-align: center;
-
 }
 .placeholders h4 {
   margin-bottom: 0;

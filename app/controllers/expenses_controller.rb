@@ -6,15 +6,18 @@ class ExpensesController < ApplicationController
   before_action :set_location, only: [:create]
 
   def index
-    @expenses = Expense.all
     @search = Expense.search(params[:q])
-    @expenses = @search.result
-    # @trip = Trip.find(params[:trip_id])
+    @expenses = @search.result.trip
     @current_user = current_user
     if @current_user
       @wishlist = @current_user.wishlists.new
+      @wishlists = @current_user.wishlists
+      default_option = ["Select Wishlist"]
+      list_options = @wishlists.all.map{|u| [ u.name, u.id ] }
+      @wishlist_options = default_option + list_options
+    else
+      @is_wishlist = false
     end
-    @is_wishlist = false
   end
 
   def show
@@ -63,12 +66,21 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
-    @trip = @expense.trip
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to trip_expenses_path(@trip), notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user), notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_to_wishlist
+      @wishlist = Wishlist.find(params[:wishlist_id])
+      @expense = Expense.find(params[:expense_id])
+      @new_expense = Expense.new(@expense.attributes)
+      @new_expense.expensable = @wishlist
+      @new_expense.id = nil
+      @new_expense.save
+      redirect_to root_path
   end
 
   private
