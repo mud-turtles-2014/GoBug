@@ -6,8 +6,13 @@ class ExpensesController < ApplicationController
   before_action :set_location, only: [:create]
 
   def index
-    @search = Expense.search(params[:q])
-    @expenses = @search.result.trip
+      @search = Expense.search(params[:q])
+      @expenses = @search.result
+    if params[:q][:description] != ""
+      @fuzzy_search = Expense.find_by_fuzzy_description(params[:q][:description])
+      @expenses = @expenses & @fuzzy_search
+    end
+
     @current_user = current_user
     if @current_user
       @wishlist = @current_user.wishlists.new
