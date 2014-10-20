@@ -6,4 +6,6 @@ class Expense < ActiveRecord::Base
   has_one :user, through: :trip
   scope :trip, -> { where(expensable_type: "Trip")}
   scope :wishlist, -> { where(expensable_type: "Wishlist")}
+
+  fuzzily_searchable :description
 end

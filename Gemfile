@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 gem "best_in_place", github: 'bernat/best_in_place'
 gem 'ransack'
 gem 'faker'
+gem 'fuzzily'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
