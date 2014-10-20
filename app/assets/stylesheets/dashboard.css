@@ -116,7 +116,7 @@ text-align: center;
  */
 
 .main {
-  padding: 20px;
+  padding: 80px;
 }
 
 @media (min-width: 768px) {
