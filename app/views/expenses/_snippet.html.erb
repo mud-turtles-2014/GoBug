@@ -1,10 +1,11 @@
-<div class="item_box">
-  <%= expense.location.name %><br>
-  <%= expense.currency.code %>
-  <%= expense.cost %> |
-  <%= expense.usd_cost %> |
-  <%= expense.category.name %> |
-  <%= best_in_place expense, :date %><br>
-  <%= best_in_place expense, :description, type: :textarea %>
-  <%= button_to "delete", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete' %>
+
+<li>
+  <time>
+  <%= image_tag( category_image(expense.category.name)) %></time>
+  <div class="info">
+    <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
+    <h4 class="title"><%= expense.location.name %></h4>
+    <p class="desc" id="counttextarea"><%= best_in_place expense, :description, type: :textarea %></p>
+    <p class="desc"><%= expense.usd_cost %> USD | <%= expense.cost %> <%=expense.currency.code %></p>
 </div>
+</li>
