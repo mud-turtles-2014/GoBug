@@ -2,11 +2,20 @@
  * Base structure
  */
 
-    @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
-    @import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
-    body {
+
+  body {
+    /*background: url('https://pbs.twimg.com/media/BiYeD_vCUAExSqo.jpg:large');*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     padding: 60px 0px;
-    background-color: rgb(220, 220, 220);
+  }
+
+  .page-header {
+    color:#50C8C6;
+  }
+
+  textarea {
+    width: 100%;
   }
 
   .event-list {
@@ -18,7 +27,7 @@
   .event-list > li {
     background-color: rgb(255, 255, 255);
     padding: 0px;
-    margin: 0px 0px 20px;
+    margin: 0px 0px 10px;
   }
 
   .event-list > li > time {
@@ -54,6 +63,7 @@
 
    .event-list > li > .info > .delete {
     float: right;
+    padding-top: 8px;
   }
 
   .event-list > li > .info > ul {
@@ -89,13 +99,13 @@
     .event-list > li > time,
     .event-list > li > img {
       width: 50px;
-      height: 110px;
+      height: 120px;
       padding: 10px;
       margin: 0px;
     }
     .event-list > li > .info {
       position: relative;
-      height: 110px;
+      height: 120px;
       text-align: left;
       padding-right: 20px;
     }

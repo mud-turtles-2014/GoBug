@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
   $("#menu-toggle").click(function(e) {
       e.preventDefault();
       console.log("hello")
@@ -12,6 +13,7 @@ $(document).ready(function(){
     $('#trip_form').hide();
     $('#expense_form').show();
   });
+
   $('input#expense_location_id').geocomplete();
 
   $('form').on('click','.add_fields', function(event){
@@ -46,8 +48,6 @@ $('#expenses_grid').on('submit','#new_expense',function(e){
     $('#expenses_grid').append(data);
     clearInputs();
   });
-
-});
 });
 
 clearInputs = function(){
@@ -55,7 +55,10 @@ clearInputs = function(){
   $("input[name='expense[location_id]'").val("");
   $("input[name='expense[cost]'").val("");
   $("input[name='expense[category_id]'").val("");
+  };
+});
 
 
-};
+
+
 
