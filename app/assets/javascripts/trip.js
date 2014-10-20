@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('#trip_form').hide();
     $('#expense_form').show();
   });
-  $('input#expense_location_id').geocomplete();
+  // $('input#expense_location_id').geocomplete();
 
   $('form').on('click','.add_fields', function(event){
     event.preventDefault();
@@ -19,10 +19,11 @@ $(document).ready(function(){
   // })
 
 $('body').on('click','.location',function(e){
-  $(this).geocomplete();
+  // $(this).geocomplete();
 });
 
-$('#expenses_grid').on('click','#add-expense',function(e){
+$('#expenses_grid').on('click','#add-expense', function(e){
+  e.preventDefault();
   console.log("clicked");
   $('#new_expense').show();
   $('#add-expense').hide();

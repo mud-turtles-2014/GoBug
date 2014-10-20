@@ -1,4 +1,12 @@
-<div id="container">
-	<%= render 'sidebar' %>
-	<%= render partial: 'expense_grid', locals: { expenses: @expenses} %>
+<div class="container-fluid">
+  <!-- <h1 class="page-header"><%= @user.username %></h1> -->
+  <div class="col-sm-2">
+	  <%= render 'sidebar' %>
+  </div>
+  <div class="col-sm-5 col-sm-offset-3 col-md-8 col-md-offset-1 main">
+    <div id="expenses_grid" >
+      <%= render partial: 'expense_grid', locals: { expenses: @expenses} %>
+    </div>
+  </div>
 </div>
+
