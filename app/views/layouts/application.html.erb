@@ -26,7 +26,6 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               <%= flash[:error] %>
-                <li><%= search_form_for [@trip, @search] do |f| %><%= f.text_field :location_id, class: "location", placeholder: "Enter a location" %><%= f.submit "Search" %><% end %></li>
                 <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %></li>
                 <li><%= link_to "Create a Trip", new_trip_path %></li>
                 <li><%= link_to "Log Out", '/logout', method: :delete %></li>
