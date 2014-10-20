@@ -17,3 +17,7 @@
 body {
   padding-top: 60px;
 }
+
+.pac-container {
+  z-index:2000 !important;
+}
