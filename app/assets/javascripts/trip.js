@@ -45,7 +45,7 @@ $('#expenses_grid').on('submit','#new_expense',function(e){
     type: 'POST',
     data: $(e.target).serialize()
   }).done(function(data){
-    $('#expenses_grid').append(data);
+    $('.event-list').append(data);
     clearInputs();
   });
 });
