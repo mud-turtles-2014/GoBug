@@ -1,8 +1,9 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   before_action :require_login, except: [:index, :splash]
-
-  def index
+  respond_to :html, :json
+  
+  def index 
     @current_user = current_user
     if @current_user
       @trips = @current_user.trips
@@ -40,15 +41,19 @@ class TripsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @trip.update(trip_params)
-        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
-        format.json { render :show, status: :ok, location: @trip }
-      else
-        format.html { render :edit }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
-      end
+
+    if @trip.update(trip_params)
+      respond_with @trip
     end
+    # respond_to do |format|
+    #   if @trip.update(trip_params)
+    #     format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @trip }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @trip.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def destroy
