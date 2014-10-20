@@ -2,36 +2,26 @@
   <%= link_to("Create New Wishlist", new_wishlist_path) %>
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Cost</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Date</th>
-      <th>Location</th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container-fluid">
+    <div class="row">
     <% @expenses.each do |expense| %>
-      <tr>
-        <td><%= expense.usd_cost %></td>
-        <td><%= link_to expense.description, trip_path(expense.expensable) %></td>
-        <td><%= expense.category.name %></td>
-        <td><%= expense.date %></td>
-        <td><%= expense.location.name %></td>
+      <div class="col-md-3">
+        <%= link_to expense.description, trip_path(expense.expensable) %><br>
+        <%=number_to_currency(expense.usd_cost) %><br>
+        <%= expense.category.name %><br>
+        <%= expense.date %></br>
+        <%= expense.location.name %></br>
         <% if @current_user %>
-          <td id="add">
+          <div class="wishlist-button">
               <% if @wishlists.length > 1 %>
                 <%= select_tag :wishlist_id, options_for_select(@wishlist_options, :include_blank => true) %>
                 <%= hidden_field_tag :expense_id, expense.id, class: "expense_id" %>
               <% else %>
                 <%= button_to "Create Wishlist", new_wishlist_path, method: "get" %>
               <% end %>
-            </td>
+            </div>
         <% end %>
-      </tr>
+      </div>
     <% end %>
-  </tbody>
+  </div>
 </table>

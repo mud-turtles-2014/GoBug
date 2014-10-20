@@ -1,0 +1,10 @@
+.col-md-3 {
+	text-align: center;
+	/*border: 2px solid blue;*/
+	height: 150px;
+	/*background-color: red;*/
+}
+
+.wishlist-button {
+	display: none;
+}
