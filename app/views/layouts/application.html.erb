@@ -21,11 +21,11 @@
   <nav>
     <div class="navbar navbar-inverse navbar-fixed-top" role:"navigation">
       <div class="container-fluid">
+        <% if session[:user_id] %>
         <div class="navbar-header"><%= link_to "GoBug!", user_path(User.find(session[:user_id])), class: "navbar-brand" %></div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               <%= flash[:error] %>
-              <% if session[:user_id] %>
                 <li><%= search_form_for [@trip, @search] do |f| %><%= f.text_field :location_id, class: "location", placeholder: "Enter a location" %><%= f.submit "Search" %><% end %></li>
                 <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %></li>
                 <li><%= link_to "Create a Trip", new_trip_path %></li>
@@ -36,7 +36,7 @@
                   <div class="form-group"><%= f.password_field :password, placeholder: "Password", class: 'form-control' %></div>
                   <%= f.submit "Log In", class: 'btn btn-default' %>
                   <% end %>
-                <%= link_to "Sign Up", '/users/new' %>
+                <%= link_to "Sign Up", '/users/new', class: 'btn btn-sm' %>
                 <% end %>
             </ul>
           </div>
