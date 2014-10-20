@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => "sessions#destroy"
 
-  root 'expenses#index'
+  root 'trips#splash'
 
   resources :categories
 

@@ -6,7 +6,7 @@
 <% end %>
 
 <% if @trip %>
-
+<p><p>
 <div class="row placeholders">
 <%= form_for [@trip, @expense] do |f| %>
   <% if @expense.errors.any? %>
@@ -31,21 +31,30 @@
 
 <!--     <%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %> -->
     <%= f.submit "Submit" %>
+    <p><p>
 <% end %>
 </div>
 
 
-<% expenses.each do |expense| %>
-  <div class="item_box">
-    <%= expense.location.name %><br>
-    <%= expense.currency.code %>
-    <%= expense.cost %> |
-    <%= expense.usd_cost %> |
-    <%= expense.category.name %><br>
-    <%= best_in_place expense, :description, type: :textarea %>
-    <%= button_to "delete", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete' %>
-  </div>
-<% end %>
+    <div class="row">
+      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        <ul class="event-list">
+          <% expenses.each do |expense| %>
+            <li>
+              <time>
+              <%= image_tag( category_image(expense.category.name)) %></time>
+              <div class="info">
+                <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete' %></div>
+                <h4 class="title"><%= expense.location.name %></h4>
+                <p class="desc" id="counttextarea"><%= best_in_place expense, :description, type: :textarea %></p>
+                <p class="desc"><%= expense.usd_cost %> USD | <%= expense.cost %> <%=expense.currency.code %></p>
+            </div>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+
 <% end %>
 
 <% if wishlist %>
@@ -59,3 +68,5 @@
     </div>
   <% end %>
 <% end %>
+
+
