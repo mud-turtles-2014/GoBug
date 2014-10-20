@@ -9,6 +9,7 @@ $(document).ready(function(){
     }
   );
   $('select[name="wishlist_id"').change(function(e){
+    e.preventDefault();
     var wishlist_id = $(this).val()
     var expense_id = $(this).parent().children('.expense_id').val()
     $.ajax ({

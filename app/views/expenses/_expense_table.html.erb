@@ -23,9 +23,11 @@
         <td><%= expense.location.name %></td>
         <% if @current_user %>
             <td id="add">
-              <% if @wishlists.length > 1 %>
+              <% if @wishlists.length > 2 %>
                 <%= select_tag :wishlist_id, options_for_select(@wishlist_options, :include_blank => true) %>
                 <%= hidden_field_tag :expense_id, expense.id, class: "expense_id" %>
+              <% else %>
+                <%= button_to "Create Wishlist", new_wishlist_path, method: "get" %>
               <% end %>
             </td>
         <% end %>
