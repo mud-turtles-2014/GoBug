@@ -1,12 +1,16 @@
-<sidebar>
-	<h3>Your Trips</h3>
-	<% @trips.each do |trip| %>
-	    <article class="trip"><%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true %></article>
-	<% end %>
-  <%= link_to "Add a Trip", fetch_new_trip_path, :remote => true %>
-	<h3>Your WishLists</h3>
-	<% @wishlists.each do |wishlist| %>
-	    <article class="wishlist"><%= link_to wishlist.name, fetch_wishlist_items_path(:wishlist_id => wishlist), :remote => true %></article>
-	<% end %>
-  <%= link_to "Add a Wishlist", new_wishlist_path %>
-</sidebar>
+<h4>Your Trips</h4>
+  <ul>
+		<% @trips.each do |trip| %>
+		    <li><%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true %></li>
+		<% end %>
+  <li><%= link_to "Add a Trip", fetch_new_trip_path, :remote => true %></li>
+  </ul>
+<h4>Your WishLists</h4>
+  <ul>
+		<% @wishlists.each do |wishlist| %>
+		    <li><%= link_to wishlist.name, fetch_wishlist_items_path(:wishlist_id => wishlist), :remote => true %></li>
+		<% end %>
+  <li><%= link_to "Add a Wishlist", new_wishlist_path %></li>
+	</ul>
+
+
