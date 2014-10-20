@@ -22,9 +22,15 @@ class ExpensesController < ApplicationController
     if @current_user
       # @wishlist = @current_user.wishlists.new
       @wishlists = @current_user.wishlists
-      default_option = ["Select Wishlist"]
-      list_options = @wishlists.all.map{|u| [ u.name, u.id ] }
-      @wishlist_options = default_option + list_options
+      if @wishlists.length == 0
+        default_option = ["Add to a new Wishlist"]
+      elsif @wishlists.length == 1
+        default_option = @wishlists.first.name
+      else
+        default_option = ["Select Wishlist"]
+        list_options = @wishlists.all.map{|u| [ u.name, u.id ] }
+        @wishlist_options = default_option + list_options
+      end
     else
       @is_wishlist = false
     end
