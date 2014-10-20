@@ -11,4 +11,10 @@ $(document).ready(function(){
 		$(e.target).closest('li').hide();
 		console.log($(e.target).closest('li'))
 	})
+
+	$('.sidebar-nav li a').hover(function(){
+		$(this).parent().children('.x-delete').show();
+	}, function(){
+		$(this).parent().children('.x-delete').hide();
+	})
 });

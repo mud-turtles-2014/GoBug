@@ -53,3 +53,7 @@ body {
 #expenses_grid #new_expense {
 	display: none;
 }
+
+.x-delete {
+	display: none;
+}
