@@ -25,6 +25,7 @@
     <%= search_form_for [@trip, @search] do |f| %>
     <div class="splash-search">
        <%= f.text_field :location_name_cont, placeholder: "What Place Does Your Heart Desire", class: 'location' %><p><p>
+         <%= f.submit 'On my way', class: 'btn btn-default' %>
     </div>
   <% end %>
 
