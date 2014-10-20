@@ -8,4 +8,13 @@ $(document).ready(function(){
       $(this).children('td#add').hide();
     }
   );
+  $('select[name="wishlist_id"').change(function(e){
+    var wishlist_id = $(this).val()
+    var expense_id = $(this).parent().children('.expense_id').val()
+    $.ajax ({
+      url: '/add_to_wishlist?expense_id=' + expense_id + '&' + 'wishlist_id=' + wishlist_id,
+      type: 'POST'
+    });
+  });
+
 });

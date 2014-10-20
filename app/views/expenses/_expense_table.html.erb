@@ -24,11 +24,8 @@
         <% if @current_user %>
             <td id="add">
               <% if @wishlists.length > 1 %>
-                <%= form_tag action:'add_to_wishlist', method:'post' do %>
-                <%= select_tag(:wishlist_id, options_for_select(@wishlist_options)) %>
-                <%= hidden_field_tag :expense_id, expense.id %>
-                <%= submit_tag 'Add to Wishlist' %>
-                <% end %>
+                <%= select_tag :wishlist_id, options_for_select(@wishlist_options, :include_blank => true) %>
+                <%= hidden_field_tag :expense_id, expense.id, class: "expense_id" %>
               <% end %>
             </td>
         <% end %>

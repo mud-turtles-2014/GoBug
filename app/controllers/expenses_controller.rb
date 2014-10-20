@@ -12,7 +12,9 @@ class ExpensesController < ApplicationController
     if @current_user
       @wishlist = @current_user.wishlists.new
       @wishlists = @current_user.wishlists
-      @wishlist_options = @wishlists.all.map{|u| [ u.name, u.id ] }
+      default_option = ["Select Wishlist"]
+      list_options = @wishlists.all.map{|u| [ u.name, u.id ] }
+      @wishlist_options = default_option + list_options
     else
       @is_wishlist = false
     end
@@ -72,7 +74,7 @@ class ExpensesController < ApplicationController
   end
 
   def add_to_wishlist
-      @wishlist = current_user.wishlists.first
+      @wishlist = Wishlist.find(params[:wishlist_id])
       @expense = Expense.find(params[:expense_id])
       @new_expense = Expense.new(@expense.attributes)
       @new_expense.expensable = @wishlist
