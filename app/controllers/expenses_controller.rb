@@ -10,7 +10,7 @@ class ExpensesController < ApplicationController
     @expenses = @search.result.trip
     @current_user = current_user
     if @current_user
-      @wishlist = @current_user.wishlists.new
+      # @wishlist = @current_user.wishlists.new
       @wishlists = @current_user.wishlists
       default_option = ["Select Wishlist"]
       list_options = @wishlists.all.map{|u| [ u.name, u.id ] }

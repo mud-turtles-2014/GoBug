@@ -13,7 +13,9 @@
         <%= expense.location.name %></br>
         <% if @current_user %>
           <div class="wishlist-button">
-              <% if @wishlists.length > 1 %>
+              <% if @wishlists.length == 1 %>
+                <%= button_to "Add to Wishlist", add_to_wishlist_path(wishlist_id: @wishlists.first, expense_id: expense.id), method: "post", remote: true %>    
+              <% elsif @wishlists.length > 1 %>
                 <%= select_tag :wishlist_id, options_for_select(@wishlist_options, :include_blank => true) %>
                 <%= hidden_field_tag :expense_id, expense.id, class: "expense_id" %>
               <% else %>
