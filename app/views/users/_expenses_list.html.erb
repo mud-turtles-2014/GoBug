@@ -1,5 +1,8 @@
 <% if @trip %>
 <h2 class="page-header"><%= @trip.name %></h2>
+<h4>Visible to: <%= best_in_place @trip, :is_private, :type => :checkbox,collection: {false => "Everyone", true => "Only you"}%>
+</h4>
+  <br><br>
 <button id="add-expense">Add Expense</button>
 <% elsif wishlist %>
 <h2>Wishlist for <%= @wishlist.name %></h2>
