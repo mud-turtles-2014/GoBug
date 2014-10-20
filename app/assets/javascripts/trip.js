@@ -1,4 +1,11 @@
 $(document).ready(function(){
+
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      console.log("hello")
+      $("#wrapper").toggleClass("active");
+  });
+
   $('#expense_form').hide();
 
   $('#trip_form').on('click', 'input[type=submit]', function(event){
@@ -48,6 +55,7 @@ clearInputs = function(){
   $("input[name='expense[location_id]'").val("");
   $("input[name='expense[cost]'").val("");
   $("input[name='expense[category_id]'").val("");
+
 
 };
 
