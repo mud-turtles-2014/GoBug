@@ -2,7 +2,7 @@ body {
   background: url('night_in_rome.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 0;
+  margin-top: 60px;
   padding: 0 ;
 }
 
@@ -15,5 +15,8 @@ h2 {
 
 .splash-search input[type=text] {
   width: 400px;
+}
 
+.expense_search {
+  margin-left:50px;
 }
