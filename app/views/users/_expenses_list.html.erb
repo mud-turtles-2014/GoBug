@@ -23,16 +23,14 @@
       </ul>
     </div>
     <% end %>
-    <%= f.text_field :location_id, class: "location", placeholder: "Enter a location" %><br>
+    <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"}, class: "category-dropdown" %><br><br>
+    <%= f.text_field :location_id, class: "location", placeholder: "Enter a location", class: 'large_input' %><br>
     <%= f.text_field :cost, class: "currency", placeholder: "Enter cost" %>
-    <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ]}, {:selected => '150'}, class: "currency" %>
+    <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ]}, {:selected => '150'} %>
     <%= f.text_field :usd_cost, readonly: true, placeholder: "USD", class: "currency" %><br>
-    <%= f.text_field :title, placeholder: "Where did you go?" %><br>
-    <%= f.text_field :description, placeholder: "How was your experience?" %><br>
+    <%= f.text_field :title, placeholder: "Where did you go?", class: 'large_input' %><br>
+    <%= f.text_area :description, placeholder: "How was your experience?", class: 'large_input' %><p id="charNum"></p>
 
-    <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"} %><br><br>
-
-    <!--     <%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %> -->
     <%= f.submit "Submit" %>
     <p><p>
       <% end %>

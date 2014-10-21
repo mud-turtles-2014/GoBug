@@ -1,5 +1,18 @@
 $(document).ready(function(){
 
+  $('#expense_description').keyup(function () {
+    var max = 300;
+    var len = $(this).val().length;
+    var char = max - len;
+    if (len >= max) {
+      $('#charNum').text(char + ' chars left');
+      $('#charNum').css('color', 'red');
+    } else {
+      $('#charNum').text(char + ' chars left');
+      $('#charNum').css('color', 'grey');
+    }
+  });
+
 
   $("#menu-toggle").click(function(e) {
       e.preventDefault();
