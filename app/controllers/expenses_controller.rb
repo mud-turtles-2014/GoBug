@@ -45,8 +45,6 @@ class ExpensesController < ApplicationController
   end
 
   def edit
-    # @currency_code = Expense.find(params[:id]).currency_code
-   # @expense.update(currency_id: @currency_id, usd_cost: @usd_cost)
   end
 
   def create
@@ -57,10 +55,6 @@ class ExpensesController < ApplicationController
       if @expense.save
         puts @expense
         format.html { render partial: 'snippet', locals: {expense: @expense} }
-        # format.json { render :show, status: :created, location: @expense }
-      #else
-        #format.html { render :new }
-        #format.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,21 +63,12 @@ class ExpensesController < ApplicationController
     if @expense.update(expense_params)
       respond_with @expense
     end
-    # respond_to do |format|
-    #   if @expense.update(expense_params)
-    #     format.html { redirect_to expense_path(@expense), notice: 'Expense was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @expense }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @expense.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   def destroy
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to user_path(current_user), notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user) }
       format.json { head :no_content }
     end
   end
@@ -99,7 +84,7 @@ class ExpensesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def clean_usd_cost
       @usd_cost = params[:expense][:usd_cost]
       @usd_cost = @usd_cost[0..-5].to_f
@@ -109,7 +94,6 @@ class ExpensesController < ApplicationController
       @expense = Expense.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
       params.require(:expense).permit(:cost, :title, :description, :category_id, :date, :location_id, :usd_cost, :currency_id)
     end
