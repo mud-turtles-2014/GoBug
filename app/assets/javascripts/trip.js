@@ -15,6 +15,8 @@ $(document).ready(function(){
     }
   });
 
+   $('#expense_currency_id').select2();
+
 
   $("#menu-toggle").click(function(e) {
       e.preventDefault();
