@@ -4,7 +4,7 @@
 <h5>Your Trips</h5>
   <ul class="sidebar-nav" id="sidebar">
 		<% @trips.each do |trip| %>
-		  <li><%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true %> 
+		  <li><%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true %>
       </li>
 		<% end %>
     <li><%= link_to "Add a Trip +", fetch_new_trip_path, :remote => true %></li>
@@ -17,3 +17,8 @@
         <% end %>
     <li><%= link_to "Add a Wishlist +", fetch_new_wishlist_path, :remote => true %></li>
   </ul>
+
+   <ul class="sidebar-nav" id="sidebar">
+    <li><%= link_to "Search", expenses_path %></li>
+  </ul>
+
