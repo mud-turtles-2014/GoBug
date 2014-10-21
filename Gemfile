@@ -4,6 +4,7 @@ gem 'ransack'
 gem 'faker'
 gem 'fuzzily'
 gem 'seed_dump'
+gem "select2-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
