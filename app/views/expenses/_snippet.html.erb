@@ -6,7 +6,7 @@
   </time>
   <div class="info">
   <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
-    <h5 class="title"><%= expense.title%></h5>
+    <h5 data-category="<%=expense.category_id %>" class="title"><%= expense.title%></h5>
     <p class="loc"><%= expense.location.name %></p>
     <p class="desc"><%= best_in_place expense, :description, type: :textarea %></p>
  </li>
