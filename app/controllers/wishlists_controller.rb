@@ -29,9 +29,11 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       if @wishlist.save
+        flash[:success] = "Success!"
         format.html { redirect_to expenses_path }
         format.json { render :show }
       else
+        flash[:danger] = "Hrm... try again?"
         format.html { render :new }
         format.json { render :json }
       end
@@ -41,9 +43,11 @@ class WishlistsController < ApplicationController
   def update
     respond_to do |format|
       if @wishlist.update(wishlist_params)
+        flash[:success] = "Success!"
         format.html { redirect_to @wishlist }
         format.json { render :show }
       else
+        flash[:danger] = "Hrm... try again?"
         format.html { render :edit }
         format.json { render :json }
       end
@@ -51,8 +55,10 @@ class WishlistsController < ApplicationController
   end
 
   def destroy
-    @wishlist.destroy
-    redirect_to user_path(current_user)
+    if @wishlist.destroy
+      flash[:success] = "Success!"
+      redirect_to user_path(current_user)
+    end
   end
 
   private

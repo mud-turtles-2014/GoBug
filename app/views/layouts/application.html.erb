@@ -28,7 +28,7 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
           <% flash.each do |name, msg| -%>
-            <li><%= content_tag :div, msg, class: "alert alert-#{name}" %></li>
+            <%= content_tag :li, msg, class: "alert alert-#{name}" %>
           <% end -%>
                 <li><%= link_to "Browse", expenses_path %></li>
                 <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %></li>

@@ -22,8 +22,9 @@ body {
   z-index:2000 !important;
 }
 
-li .alert {
-  margin-top: 9px;
-  max-height: 10px;
-  line-height: 3px;
+li.alert.alert-success {
+  margin-bottom: 0;
+}
+li.alert.alert-danger {
+  margin-bottom: 0;
 }
