@@ -64,10 +64,11 @@ class WishlistsController < ApplicationController
   # DELETE /wishlists/1.json
   def destroy
     @wishlist.destroy
-    respond_to do |format|
-      format.html { redirect_to wishlists_url, notice: 'Wishlist was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to user_path(current_user)
+    # respond_to do |format|
+    #   format.html { redirect_to wishlists_url, notice: 'Wishlist was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

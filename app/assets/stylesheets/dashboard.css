@@ -258,15 +258,6 @@
   text-decoration: none;
 }
 
-.sidebar-nav .x-delete {
-  background-color: red;
-  text-align: right;
-  padding-right: 30px;
-}
-
-.sidebar-nav .x-delete {
-  display: none;
-}
 
 .sidebar-nav li a:hover {
   color: #fff;
