@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :expenses, only: [:index]
 
   resources :trips do
+    collection do
+      post 'from_expenses'
+    end
     resources :expenses, shallow: true
   end
 
@@ -31,7 +34,7 @@ Rails.application.routes.draw do
   get "/fetch_new_trip" => 'users#new_trip', as: 'fetch_new_trip'
 
   post "/add_to_wishlist" => 'expenses#add_to_wishlist', as: 'add_to_wishlist'
-  
+
   get "/fetch_new_wishlist" => 'users#new_wishlist', as: 'fetch_new_wishlist'
 
   # The priority is based upon order of creation: first created -> highest priority.

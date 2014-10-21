@@ -41,6 +41,10 @@ class TripsController < ApplicationController
     end
   end
 
+  def from_expenses
+
+  end
+
   def update
 
     if @trip.update(trip_params)
