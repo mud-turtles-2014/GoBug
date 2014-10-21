@@ -17,7 +17,7 @@
   }
 
   .new_expense select{
-    width: 7%;
+    width: 8%;
   }
 
   .new_expense .category-dropdown {
@@ -34,10 +34,14 @@
 
 
   .new_expense .currency{
-    width: 17%;
+    width: 14%;
   }
 
   .new_expense .large_input{
+    width: 40%;
+  }
+
+  .new_expense #location-field{
     width: 40%;
   }
 

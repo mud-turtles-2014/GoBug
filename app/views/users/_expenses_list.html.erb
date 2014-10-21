@@ -24,7 +24,7 @@
     </div>
     <% end %>
     <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"}, class: "category-dropdown" %><br><br>
-    <%= f.text_field :location_id, class: "location", placeholder: "Enter a location", class: 'large_input' %><br>
+    <%= f.text_field :location_id, class: "location", placeholder: "Enter a location", id: "location-field" %><br>
     <%= f.text_field :cost, class: "currency", placeholder: "Enter cost" %>
     <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ]}, {:selected => '150'} %>
     <%= f.text_field :usd_cost, readonly: true, placeholder: "USD", class: "currency" %><br>
