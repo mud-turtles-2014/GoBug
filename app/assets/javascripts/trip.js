@@ -55,12 +55,16 @@ $('#expenses_grid').on('click','#add-expense', function(e){
 
 $('#expenses_grid').on('submit','#new_expense',function(e){
   e.preventDefault();
+  var old_balance = parseFloat($('#balance-field').text().replace(/[A-Za-z$-,]/g, ""));
   $.ajax ({
     url: $(e.target).attr('action'),
     type: 'POST',
     data: $(e.target).serialize()
   }).done(function(data){
     $('.event-list').append(data);
+    var usd = parseFloat($('.event-list li:last-child #usd-cost-field').text().replace(/[A-Za-z$-,]/g, ""));
+    var new_balance = (old_balance - usd).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    $('#balance-field').text('$' + new_balance)
     clearInputs();
   });
 });
@@ -70,8 +74,8 @@ clearInputs = function(){
   $("input[name='expense[location_id]'").val("");
   $("input[name='expense[cost]'").val("");
   $("input[name='expense[category_id]'").val("");
-  $("input[name='expense[description]'").val("");
-  $("textarea[name='expense[title]'").val("");
+  $("textarea[name='expense[description]'").val("");
+  $("input[name='expense[title]'").val("");
   };
 });
 

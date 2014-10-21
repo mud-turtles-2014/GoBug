@@ -57,7 +57,7 @@ class ExpensesController < ApplicationController
       if @expense.save
         puts @expense
         format.html { render partial: 'snippet', locals: {expense: @expense} }
-        #format.json { render :show, status: :created, location: @expense }
+        # format.json { render :show, status: :created, location: @expense }
       #else
         #format.html { render :new }
         #format.json { render json: @expense.errors, status: :unprocessable_entity }

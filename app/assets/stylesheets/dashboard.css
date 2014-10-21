@@ -8,6 +8,10 @@
     padding: 60px 0px;
   }
 
+  #balance-field {
+    display: inline-block;
+  }
+
   #charNum {
     padding-left: 28%;
   }
@@ -34,7 +38,7 @@
 
 
   .new_expense .currency{
-    width: 14%;
+    width: 15%;
   }
 
   .new_expense .large_input{
