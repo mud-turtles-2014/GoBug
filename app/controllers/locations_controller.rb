@@ -37,7 +37,7 @@ class LocationsController < ApplicationController
         format.json { render :show }
       else
         format.html { render :edit }
-        format.json { render json: }
+        format.json { render :json }
       end
     end
   end

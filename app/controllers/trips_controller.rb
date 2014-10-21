@@ -34,7 +34,7 @@ class TripsController < ApplicationController
         format.json { render :show }
       else
         format.html { render :new }
-        format.json { render json: }
+        format.json { render :json }
       end
     end
   end
