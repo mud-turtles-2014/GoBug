@@ -22,9 +22,9 @@ $(document).ready(function(){
     new_budget = (e.target.value) * 1
     var total_spent = old_budget - balance;
     var new_balance = (new_budget - total_spent).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
-    $('#balance-field').text(new_balance)
+    $('#balance-field').text('$' + new_balance)
     var formatted = new_budget.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
-    $('h5 .best_in_place[data-bip-attribute="budget"]').text(formatted)
+    $('h5 .best_in_place[data-bip-attribute="budget"]').text('$' + formatted)
   })
 
   $('#expense_currency_id').select2();
