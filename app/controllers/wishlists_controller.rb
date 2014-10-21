@@ -33,7 +33,7 @@ class WishlistsController < ApplicationController
         format.json { render :show }
       else
         format.html { render :new }
-        format.json { render json: }
+        format.json { render :json }
       end
     end
   end
@@ -45,7 +45,7 @@ class WishlistsController < ApplicationController
         format.json { render :show }
       else
         format.html { render :edit }
-        format.json { render json: }
+        format.json { render :json }
       end
     end
   end
