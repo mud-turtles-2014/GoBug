@@ -21,3 +21,9 @@ body {
 .pac-container {
   z-index:2000 !important;
 }
+
+li .alert {
+  margin-top: 9px;
+  max-height: 10px;
+  line-height: 3px;
+}
