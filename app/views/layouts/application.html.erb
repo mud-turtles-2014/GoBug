@@ -27,7 +27,9 @@
         <div class="navbar-header"><%= link_to "GoBug!", root_path, class: "navbar-brand" %></div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <%= flash[:error] %>
+          <% flash.each do |name, msg| -%>
+            <%= content_tag :li, msg, class: "alert alert-#{name}" %>
+          <% end -%>
                 <li><%= link_to "Browse", expenses_path %></li>
                 <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %></li>
                 <li><%= link_to "Log Out", '/logout', method: :delete %></li>
@@ -45,9 +47,6 @@
       </div>
     </div>
   </nav>
-
-<%= flash[:notice] %>
-<%= flash[:alert] %>
 <div class="main_content">
   <%= yield %>
 </div>
