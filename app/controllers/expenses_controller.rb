@@ -7,15 +7,15 @@ class ExpensesController < ApplicationController
 
   def index
     if params[:q]
-        @search = Expense.search(params[:q])
+        @search = Expense.public_expenses.search(params[:q])
         @expenses = @search.result.trip
       if params[:q][:description] != ""
         @fuzzy_search = Expense.find_by_fuzzy_description(params[:q][:description]).trip
         @expenses = @expenses & @fuzzy_search
       end
     else
-      @search = Expense.search()
-      @expenses = Expense.all.limit(20).trip
+      @search = Expense.public_expenses.search()
+      @expenses = Expense.public_expenses.limit(20).trip
     end
 
     @current_user = current_user
