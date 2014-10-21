@@ -7,4 +7,12 @@ module TripsHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def price(cost)
+  	if cost == 0
+  	  return 'Free'
+  	else
+  	  number_to_currency(cost)
+  	end
+  end
 end
