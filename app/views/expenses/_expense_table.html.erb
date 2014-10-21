@@ -18,7 +18,9 @@
           <p><%= truncate(expense.description, :length => 300) %></p>
         <% if @current_user %>
           <div class="wishlist-button">
-              <% if @wishlists.length == 1 %>
+              <% if @current_user.has_expense_in_wishlist(expense) %>
+                <%= button_to "Remove from wishlist", {:controller => :expenses, :action => 'destroy', :id => @current_user.wishlist_id_of(expense) }, method: 'delete', remote: true %>
+              <% elsif @wishlists.length == 1 %>
                 <%= button_to "Add to Wishlist", add_to_wishlist_path(wishlist_id: @wishlists.first, expense_id: expense.id), method: "post", remote: true %>
               <% elsif @wishlists.length > 1 %>
                 <%= select_tag :wishlist_id, options_for_select(@wishlist_options, :include_blank => true) %>
