@@ -1,7 +1,9 @@
 <% if @trip %>
   <h2 class="page-header"><%= best_in_place @trip, :name %></h2>
-  <h4>Visible to: <%= best_in_place @trip, :is_private, :type => :checkbox,collection: {false => "Everyone", true => "Only you"}%>
-  </h4>
+    <h5>Visible to: <%= best_in_place @trip, :is_private, :type => :checkbox,collection: {false => "Everyone", true => "Only you"}%>
+    </h5>
+    <h5>Budget: <%= best_in_place @trip, :budget, :display_with => :number_to_currency %> | Remaining: <%= number_to_currency(@trip.remaining_budget) %>
+    </h5>
     <br><br>
   <button id="add-expense">Add Expense</button>
 <% elsif wishlist %>
@@ -43,8 +45,8 @@
           <% expenses.each do |expense| %>
             <li>
               <time><%= image_tag( category_image(expense.category.name)) %><p>
-              <p class="desc"><%= expense.usd_cost %> USD </p>
-              <p class="desc"><%= expense.cost %> <%=expense.currency.code %></p>
+              <p class="desc"><%= number_to_currency(expense.usd_cost)%></p>
+              <p class="desc"><%= number_with_precision(expense.cost, :precision => 2) %> <%=expense.currency.code %></p>
             </time>
               <div class="info">
                 <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
