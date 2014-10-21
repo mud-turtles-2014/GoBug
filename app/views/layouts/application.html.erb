@@ -27,7 +27,6 @@
             <ul class="nav navbar-nav navbar-right">
               <%= flash[:error] %>
                 <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %></li>
-                <li><%= link_to "Create a Trip", new_trip_path %></li>
                 <li><%= link_to "Log Out", '/logout', method: :delete %></li>
               <% else %>
                 <%= form_for :session, url: '/login', html: {class: 'form-inline'} do |f|  %>
