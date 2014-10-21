@@ -8,6 +8,8 @@
   <button id="add-expense">Add Expense</button>
 <% elsif wishlist %>
   <h2 class="page-header"><%= best_in_place @wishlist, :name %></h2>
+  <h5>Budget: <%= best_in_place @wishlist, :budget, :display_with => :number_to_currency %> | Remaining: <div id='balance-field'><%= number_to_currency(@wishlist.remaining_budget) %></div>
+  </h5><br><br>
   <h5><%= link_to "Delete Wishlist", {:controller => :wishlists, :action => 'destroy', :id => @wishlist.id }, method: 'delete' %></h5>
 <% end %>
 
