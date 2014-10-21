@@ -1,7 +1,7 @@
 $(document).ready(function(){
+    var max = 300;
 
   $('#expense_description').keyup(function () {
-    var max = 300;
     var len = $(this).val().length;
     var char = max - len;
     if (len >= max) {
@@ -76,6 +76,8 @@ clearInputs = function(){
   $("input[name='expense[category_id]'").val("");
   $("textarea[name='expense[description]'").val("");
   $("input[name='expense[title]'").val("");
+  $('select option:contains("Category")').prop('selected',true);
+  $('#charNum').text(max + ' chars left');
   };
 });
 
