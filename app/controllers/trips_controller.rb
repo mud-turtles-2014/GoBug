@@ -42,7 +42,15 @@ class TripsController < ApplicationController
   end
 
   def from_expenses
-
+     num_of_expenses = params[:number_of_items]
+     for i in 0..(num_of_expenses -1) do
+        title_param = "title_#{i}"
+        cat_param = "cat_#{i}"
+        loc_param = "loc_#{i}"
+     end
+     p title_param
+     p cat_param
+     p loc_param
   end
 
   def update
