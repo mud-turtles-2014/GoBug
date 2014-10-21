@@ -3,6 +3,11 @@
 <% end %>
 
 <div class="container-fluid">
+  <% @expenses.each do |ex| %>
+    <% @bing_image = Bing.new(ENV['ACCOUNT_KEY'], 1, 'Image') %>
+    <% results = @bing_image.search(ex.location.name) %>
+    <div class="mod-picture"><%= image_tag(results[0][:Image][0][:MediaUrl]) %></div>
+  <% end %>
     <div class="row">
     <% @expenses.each do |expense| %>
       <div class="col-md-3">
@@ -14,7 +19,7 @@
         <% if @current_user %>
           <div class="wishlist-button">
               <% if @wishlists.length == 1 %>
-                <%= button_to "Add to Wishlist", add_to_wishlist_path(wishlist_id: @wishlists.first, expense_id: expense.id), method: "post", remote: true %>    
+                <%= button_to "Add to Wishlist", add_to_wishlist_path(wishlist_id: @wishlists.first, expense_id: expense.id), method: "post", remote: true %>
               <% elsif @wishlists.length > 1 %>
                 <%= select_tag :wishlist_id, options_for_select(@wishlist_options, :include_blank => true) %>
                 <%= hidden_field_tag :expense_id, expense.id, class: "expense_id" %>
