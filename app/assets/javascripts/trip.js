@@ -70,6 +70,8 @@ clearInputs = function(){
   $("input[name='expense[location_id]'").val("");
   $("input[name='expense[cost]'").val("");
   $("input[name='expense[category_id]'").val("");
+  $("input[name='expense[description]'").val("");
+  $("textarea[name='expense[title]'").val("");
   };
 });
 
