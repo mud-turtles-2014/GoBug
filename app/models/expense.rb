@@ -8,4 +8,8 @@ class Expense < ActiveRecord::Base
   scope :wishlist, -> { where(expensable_type: "Wishlist")}
 
   fuzzily_searchable :description
+
+  def self.public_expenses
+  	joins('inner join trips on expenses.expensable_id = trips.id').where('trips.is_private = false')
+  end
 end

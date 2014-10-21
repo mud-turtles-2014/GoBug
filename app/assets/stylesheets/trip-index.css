@@ -1,10 +1,109 @@
-.col-md-3 {
-	text-align: center;
+.col-md-4 {
+
+	/*text-align: center;*/
 	/*border: 2px solid blue;*/
-	height: 150px;
+	/*height: 250px;*/
 	/*background-color: red;*/
 }
 
 .wishlist-button {
 	display: none;
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }
+
+/* AWESOME BUTTON FROM http://zurb.com/article/266/super-awesome-buttons-with-css3-and-rgba */
+.awesome{
+	background: #222 url(/images/alert-overlay.png) repeat-x;
+	background-color: #A7CD2C;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: absolute;
+	right:0;
+}
+
+/* RIBBON FROM http://css3.wikidot.com/blog:wrap-around-ribbons-with-css */
+.ribbon {
+	height: 250px;
+    width: 350px;
+    margin: 10px auto;
+    padding: 0 10px 0;
+    position: relative;
+    color: #444;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+/*    background-color: #E1F5C4;
+*/}
+.ribbon h4 {
+    display: block;
+    height: 40px;
+    line-height: 1.3;
+    width: 360px;
+    margin: 0;
+    padding: 5px 10px;
+    position: relative;
+    left: -16px;
+    top: 8px;
+    color: white;
+    text-shadow: 0 1px 1px #50C8C6;
+    border-top: 1px solid #50C8C6;
+    border-bottom: 1px solid #50C8C6;
+    background: #50C8C6;
+    background: linear-gradient(top, #50C8C6 0%, #50C8C6 100%);
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.ribbon p {
+	margin-top: 15px;	
+}
+.ribbon h4::before,
+.ribbon h4::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -11px;
+    z-index: -10;
+    border: 5px solid;
+    border-color: #242424 transparent transparent transparent;    
+}
+.ribbon h4::before {left: 0;}
+.ribbon h4::after {right: 0;}
+
+
+/* PRICETAG FROM http://jsfiddle.net/alexroper/zhrwA/25/ */
+
+ul.filters-list > li {
+  color: #666666;
+  font-weight: bold;
+  float: left;
+  list-style-type: none;
+  line-height:26px;
+  margin-right: 10px;
+  margin-left: 10px;
+  position:absolute;
+  left: 0;
+}
+ul.filters-list > li {
+  color: #666666;
+  padding:0 18px 0 24px;
+  background:url('2.png') 0 0 no-repeat;
+  border-right:1px solid #ccc;
+  display:block;
+}
+

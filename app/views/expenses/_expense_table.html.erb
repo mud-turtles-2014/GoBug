@@ -8,11 +8,14 @@
   <% end %>
     <div class="row">
     <% @expenses.each do |expense| %>
-      <div class="col-md-3">
-        <%= expense.title %><br>
-        <%= expense.location.name %></br>
-        <%= price(expense.usd_cost) %> | <%= expense.category.name %><br>
-        <%= truncate(expense.description, :length => 90) %>
+      <div class="col-md-4">
+        <div class="ribbon">
+          <h4><%= expense.title%></h4>
+          <ul class="filters-list">
+            <li><%= price(expense.usd_cost) %></li>
+          </ul>
+          <div class= "awesome"><%= expense.location.name %></div></br>
+          <p><%= truncate(expense.description, :length => 300) %></p>
         <% if @current_user %>
           <div class="wishlist-button">
               <% if @wishlists.length == 1 %>
@@ -25,6 +28,11 @@
               <% end %>
             </div>
         <% end %>
+        </div>
+<!--         <%= expense.title%><br>
+        <div class= "awesome"><%= expense.location.name %></div></br>
+        <%= price(expense.usd_cost) %> | <%= expense.category.name %><br>
+        <%= truncate(expense.description, :length => 300) %> -->
       </div>
     <% end %>
   </div>
