@@ -22,12 +22,12 @@
 </head>
 <body>
   <h2>GoBug</h2>
-    <%= search_form_for [@trip, @search] do |f| %>
-    <div class="splash-search">
-       <%= f.text_field :location_name_cont, placeholder: "What Place Does Your Heart Desire", class: 'location' %><p><p>
-         <%= f.submit 'On my way', class: 'btn btn-default' %>
-    </div>
+<%= search_form_for @search do |f| %>
+  <div class="search_results">
+    <%= f.text_field :description, placeholder: "Search Keyword" %><p>
+    <%= f.text_field :location_name_cont, placeholder: "Location", class: "location" %><p>
+  </div>
+  <%= f.submit "Search" %>
   <% end %>
-
 </body>
 </html>
