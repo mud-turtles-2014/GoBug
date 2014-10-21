@@ -2,7 +2,7 @@
   <h2 class="page-header"><%= best_in_place @trip, :name %></h2>
     <h5>Visible to: <%= best_in_place @trip, :is_private, :type => :checkbox,collection: {false => "Everyone", true => "Only you"}%>
     </h5>
-    <h5>Budget: <%= best_in_place @trip, :budget, :display_with => :number_to_currency %> | Remaining: <%= number_to_currency(@trip.remaining_budget) %>
+    <h5>Budget: <%= best_in_place @trip, :budget, :display_with => :number_to_currency %> | Remaining: <div id='balance-field'><%= number_to_currency(@trip.remaining_budget) %></div>
     </h5>
     <br><br>
   <button id="add-expense">Add Expense</button>
@@ -45,7 +45,7 @@
           <% expenses.each do |expense| %>
             <li>
               <time><%= image_tag( category_image(expense.category.name)) %><p>
-              <p class="desc"><%= number_to_currency(expense.usd_cost)%></p>
+              <p class="desc", id="usd-cost-field"><%= number_to_currency(expense.usd_cost)%></p>
               <p class="desc"><%= number_with_precision(expense.cost, :precision => 2) %> <%=expense.currency.code %></p>
             </time>
               <div class="info">
@@ -68,13 +68,15 @@
         <ul class="event-list">
           <% expenses.each do |expense| %>
             <li>
-              <time>
-              <%= image_tag( category_image(expense.category.name)) %></time>
+              <time><%= image_tag( category_image(expense.category.name)) %><p>
+              <p class="desc", id="usd-cost-field"><%= number_to_currency(expense.usd_cost)%></p>
+              <p class="desc"><%= number_with_precision(expense.cost, :precision => 2) %> <%=expense.currency.code %></p>
+              </time>
               <div class="info">
                 <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
-                <h4 class="title"><%= expense.location.name %></h4>
-                <p class="desc" id="counttextarea"><%= expense.description %></p>
-                <p class="desc"><%= expense.usd_cost %> USD | <%= expense.cost %> <%=expense.currency.code %></p>
+                <h5 class="title"><%= expense.title%></h5>
+                <p class="loc"><%= expense.location.name %></p>
+                <p class="desc"><%= best_in_place expense, :description, type: :textarea %></p>
             </div>
             <% end %>
           </li>
