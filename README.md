@@ -1,5 +1,3 @@
-GoBug
-=====
 GoBug ![travis-ci-status](https://travis-ci.org/mud-turtles-2014/GoBug.svg?branch=master)
 ============
 

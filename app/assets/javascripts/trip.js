@@ -1,5 +1,20 @@
 $(document).ready(function(){
 
+  $('#expense_description').keyup(function () {
+    var max = 300;
+    var len = $(this).val().length;
+    var char = max - len;
+    if (len >= max) {
+      $('#charNum').text(char + ' chars left');
+      $('#charNum').css('color', 'red');
+      $('.new_expense input[type=submit]').attr('disabled','disabled');
+    } else {
+      $('#charNum').text(char + ' chars left');
+      $('#charNum').css('color', 'grey');
+      $('.new_expense input[type=submit]').removeAttr('disabled');
+    }
+  });
+
 
   $("#menu-toggle").click(function(e) {
       e.preventDefault();
