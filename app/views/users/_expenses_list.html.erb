@@ -42,13 +42,16 @@
         <ul class="event-list">
           <% expenses.each do |expense| %>
             <li>
-              <time>
-              <%= image_tag( category_image(expense.category.name)) %></time>
+              <time><%= image_tag( category_image(expense.category.name)) %><p>
+              <p class="desc"><%= expense.usd_cost %> USD </p>
+              <p class="desc"><%= expense.cost %> <%=expense.currency.code %></p>
+            </time>
               <div class="info">
                 <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
-                <h4 class="title"><%= expense.location.name %></h4>
-                <p class="desc" id="counttextarea"><%= best_in_place expense, :description, type: :textarea %></p>
-                <p class="desc"><%= expense.usd_cost %> USD | <%= expense.cost %> <%=expense.currency.code %></p>
+                <h5 class="title"><%= expense.title%></h5>
+                <p class="loc"><%= expense.location.name %></p>
+                <p class="desc"><%= best_in_place expense, :description, type: :textarea %></p>
+
             </div>
             <% end %>
           </li>

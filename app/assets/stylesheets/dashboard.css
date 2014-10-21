@@ -50,7 +50,8 @@
   }
 
   textarea {
-    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
   }
 
   .event-list {
@@ -61,14 +62,16 @@
 
   .event-list > li {
     background-color: rgb(255, 255, 255);
-    padding: 0px;
+    padding: 10px;
     margin: 0px 0px 10px;
+    height: auto;
   }
 
   .event-list > li > time {
     display: inline-block;
     width: 100%;
-    color: rgb(255, 255, 255);
+    color: black;
+    font-weight: 600;
     background-color: #50C8C6;
     padding: 2px;
     text-align: center;
@@ -86,13 +89,20 @@
     text-align: center;
   }
   .event-list > li > .info > .title {
-    font-size: 14pt;
-    font-weight: 700;
+    font-size: 12pt;
+    font-weight: 600;
     margin: 0px;
   }
+
+  .event-list > li > .info > .loc {
+    font-size: 10pt;
+    font-weight: 700;
+    margin: 10px;
+  }
+
   .event-list > li > .info > .desc {
-    font-size: 12pt;
-    font-weight: 300;
+    font-size: 10pt;
+    font-weight: 400;
     margin: 0px;
   }
 
@@ -133,7 +143,8 @@
     }
     .event-list > li > time,
     .event-list > li > img {
-      width: 50px;
+      width: 95px;
+      font-size: 12px;
       height: 120px;
       padding: 10px;
       margin: 0px;
