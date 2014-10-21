@@ -1,15 +1,44 @@
 /*
  * Base structure
  */
-  .main_content {
-
-  }
-
   body {
     /*background: url('https://pbs.twimg.com/media/BiYeD_vCUAExSqo.jpg:large')*/
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding: 60px 0px;
+  }
+
+  #charNum {
+    padding-left: 28%;
+  }
+
+  .new_expense input{
+    margin-bottom: 9px;
+  }
+
+  .new_expense select{
+    width: 7%;
+  }
+
+  .new_expense .category-dropdown {
+    width: 30%;
+  }
+
+  #expense_description {
+    height: 80px;
+  }
+
+  .newexpense #charNum {
+    padding-left: 100px;
+  }
+
+
+  .new_expense .currency{
+    width: 17%;
+  }
+
+  .new_expense .large_input{
+    width: 40%;
   }
 
   .page-header {
