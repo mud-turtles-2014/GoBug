@@ -12,4 +12,8 @@ class Expense < ActiveRecord::Base
   def self.public_expenses
   	joins('inner join trips on expenses.expensable_id = trips.id').where('trips.is_private = false')
   end
+
+  def self.have_same_info(expenseA, expenseB)
+    expenseA.title == expenseB.title && expenseA.description == expenseB.description && expenseA.category == expenseB.category && expenseA.cost == expenseB.cost
+  end
 end

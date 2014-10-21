@@ -2,7 +2,7 @@ body {
   background: url('night_in_rome.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 0;
+  margin-top: 60px;
   padding: 0 ;
   color: white;
 }
@@ -40,4 +40,7 @@ font-family: 'Fira Mono', ;
 #search {
   text-align: center;
   padding-top: 30px;
+
+.expense_search {
+  margin-left:50px;
 }
