@@ -4,7 +4,7 @@ body {
   background-size: cover;
   margin-top: 60px;
   padding: 0 ;
-  color: white;
+  color: black;
 }
 
 h2 {
@@ -37,10 +37,7 @@ h4 {
 font-family: 'Fira Mono', ;
 }
 
-#search {
+#expense_search {
   text-align: center;
   padding-top: 30px;
-
-.expense_search {
-  margin-left:50px;
 }
