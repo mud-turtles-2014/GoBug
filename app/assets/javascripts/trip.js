@@ -7,9 +7,11 @@ $(document).ready(function(){
     if (len >= max) {
       $('#charNum').text(char + ' chars left');
       $('#charNum').css('color', 'red');
+      $('.new_expense input[type=submit]').attr('disabled','disabled');
     } else {
       $('#charNum').text(char + ' chars left');
       $('#charNum').css('color', 'grey');
+      $('.new_expense input[type=submit]').removeAttr('disabled');
     }
   });
 
