@@ -1,6 +1,6 @@
 <% if @trip %>
   <h2 class="page-header"><%= best_in_place @trip, :name %></h2>
-    <h5>Visible to: <%= best_in_place @trip, :is_private, :type => :checkbox,collection: {false => "Everyone", true => "Only you"}%>
+    <h5>Visible to: <%= best_in_place @trip, :is_private, :type => :checkbox,collection: {false => "Everyone", true => "Only you"}%> | <%= link_to "Delete Trip", {:controller => :trips, :action => 'destroy', :id => @trip.id }, method: 'delete' %>
     </h5>
     <h5>Budget: <%= best_in_place @trip, :budget, :display_with => :number_to_currency %> | Remaining: <%= number_to_currency(@trip.remaining_budget) %>
     </h5>
@@ -8,6 +8,7 @@
   <button id="add-expense">Add Expense</button>
 <% elsif wishlist %>
   <h2 class="page-header"><%= best_in_place @wishlist, :name %></h2>
+  <h5><%= link_to "Delete Wishlist", {:controller => :wishlists, :action => 'destroy', :id => @wishlist.id }, method: 'delete' %></h5>
 <% end %>
 
 <% if @trip %>
