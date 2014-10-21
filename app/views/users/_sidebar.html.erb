@@ -4,7 +4,7 @@
 <h5>Your Trips</h5>
   <ul class="sidebar-nav" id="sidebar">
 		<% @trips.each do |trip| %>
-		  <li><%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true %> <%= link_to "Remove", {:controller => :trips, :action => 'destroy', :id => trip.id }, method: 'delete', class: "x-delete" %>
+		  <li><%= link_to trip.name, fetch_expenses_path(:trip_id => trip), :remote => true %> 
       </li>
 		<% end %>
     <li><%= link_to "Add a Trip +", fetch_new_trip_path, :remote => true %></li>
@@ -13,7 +13,7 @@
 <h5>Your WishLists</h5>
    <ul class="sidebar-nav" id="sidebar">
 		  <% @wishlists.each do |wishlist| %>
-		    <li><%= link_to wishlist.name, fetch_wishlist_items_path(:wishlist_id => wishlist), :remote => true %><%= link_to "Remove", {:controller => :wishlists, :action => 'destroy', :id => wishlist.id }, method: 'delete', class: "x-delete" %></li>
-		  <% end %>
+		    <li><%= link_to wishlist.name, fetch_wishlist_items_path(:wishlist_id => wishlist), :remote => true %></li>
+        <% end %>
     <li><%= link_to "Add a Wishlist +", fetch_new_wishlist_path, :remote => true %></li>
   </ul>
