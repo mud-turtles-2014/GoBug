@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   respond_to :js
+  before_action :correct_user, only:[:show]
 
   def show
     @user = current_user
@@ -85,5 +86,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :first_name, :last_name, :password, :password_confirmation, :email)
+  end
+
+  def correct_user
+    unless current_user.id == params[:id].to_i
+      redirect_to root_path
+    end
   end
 end
