@@ -11,6 +11,7 @@
     <%= javascript_include_tag 'application' %>
     <script src="/jquery.geocomplete.js"></script>
      <!-- Latest compiled and minified CSS -->
+     <link href='http://fonts.googleapis.com/css?family=Overlock|Fira+Mono|Source+Code+Pro|Cousine|Comfortaa|Berkshire+Swash' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -21,13 +22,16 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-  <h2>GoBug</h2>
-<%= search_form_for @search do |f| %>
+  <h2>goBug</h2>
+<div id="search">
+  <%= search_form_for @search do |f| %>
   <div class="search_results">
-    <%= f.text_field :description, placeholder: "Search Keyword" %><p>
-    <%= f.text_field :location_name_cont, placeholder: "Location", class: "location" %><p>
+    <%= f.hidden_field :description %><p>
+    <h4>Where would you like to go?<h4>
+    <%= f.text_field :location_name_cont, class: "location" %><p>
   </div>
   <%= f.submit "Search" %>
   <% end %>
+</div>
 </body>
 </html>
