@@ -9,19 +9,19 @@ class UsersController < ApplicationController
       if @trips.last
         @trip = @trips.last
         if @trip.expenses
-          @expenses = @trip.expenses
+          @your_expenses = @trip.expenses
         else
-          @expenses = false
+          @your_expenses = false
         end
       else
         @trip = false
-        @expenses = false
+        @your_expenses = false
       end
       @expense = Expense.new
     else
      @trips = false
      @trip = false
-     @expenses = false
+     @your_expenses = false
     end
 
     @wishlists = @current_user.wishlists
