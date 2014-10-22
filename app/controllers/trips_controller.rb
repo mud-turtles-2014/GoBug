@@ -54,7 +54,6 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
-        flash[:success] = "Success!"
         format.html { redirect_to user_path(@current_user) }
         format.json { render :show }
       else
@@ -82,14 +81,12 @@ class TripsController < ApplicationController
   def update
 
     if @trip.update(trip_params)
-      flash[:success] = "Success!"
       respond_with @trip
     end
   end
 
   def destroy
     if @trip.destroy
-      flash[:success] = "Success!"
       redirect_to user_path(current_user)
     end
   end

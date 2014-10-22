@@ -29,7 +29,6 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       if @wishlist.save
-        flash[:success] = "Success!"
         format.html { redirect_to expenses_path }
         format.json { render :show }
       else
@@ -43,7 +42,6 @@ class WishlistsController < ApplicationController
   def update
     respond_to do |format|
       if @wishlist.update(wishlist_params)
-        flash[:success] = "Success!"
         format.html { redirect_to @wishlist }
         format.json { render :show }
       else
@@ -56,7 +54,6 @@ class WishlistsController < ApplicationController
 
   def destroy
     if @wishlist.destroy
-      flash[:success] = "Success!"
       redirect_to user_path(current_user)
     end
   end
