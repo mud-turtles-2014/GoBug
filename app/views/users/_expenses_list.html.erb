@@ -49,8 +49,13 @@
           <% expenses.each do |expense| %>
             <li>
               <time><%= image_tag( category_image(expense.category.name)) %><p>
+                <% if expense.cost %>
               <p class="desc", id="usd-cost-field"><%= number_to_currency(expense.usd_cost)%></p>
               <p class="desc"><%= number_with_precision(expense.cost, :precision => 2) %> <%=expense.currency.code %></p>
+              <% else %>
+              <p class="desc", id="usd-cost-field"><%= best_in_place expense, :cost, :display_with => :number_to_currency %></p>
+              <p class="desc"></p>
+              <% end %>
             </time>
               <div class="info">
                 <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
@@ -80,7 +85,7 @@
                 <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
                 <h5 class="title"><%= expense.title%></h5>
                 <p class="loc"><%= expense.location.name %></p>
-                <p class="desc"><%= best_in_place expense, :description, type: :textarea %></p>
+                <p class="desc"><%= best_in_place expense, :cost, type: :textarea %></p>
             </div>
             <% end %>
           </li>
