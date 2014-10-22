@@ -1,6 +1,11 @@
 <%= render '/expenses/nav_bar' %>
 
-<div id="wrapper" class="active">
+<% if session[:toggle] %>
+  <div id="wrapper" class="active">
+<% else %>
+  <div id="wrapper">
+<% end %> 
+
   <div id="sidebar-wrapper">
     <%= render '/users/sidebar' %>
   </div>
