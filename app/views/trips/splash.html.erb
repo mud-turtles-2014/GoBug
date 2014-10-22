@@ -23,32 +23,8 @@
 </head>
 <body>
 
-  <nav>
-    <div class="navbar navbar-inverse navbar-fixed-top" role:"navigation">
-      <div class="container-fluid">
-        <% if session[:user_id] %>
-        <div class="navbar-header"><%= link_to "GoBug!", root_path, class: "navbar-brand" %></div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-          <% flash.each do |name, msg| -%>
-            <%= content_tag :li, msg, class: "alert alert-#{name}" %>
-          <% end -%>
-                <li><%= link_to "Browse", expenses_path %></li>
-                <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %></li>
-                <li><%= link_to "Log Out", '/logout', method: :delete %></li>
-              <% else %>
-                <%= form_for :session, url: '/login', html: {class: 'form-inline'} do |f|  %>
-                  <%= f.text_field :username, placeholder: "Username", class: 'form-control' %>
-                  <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
-                  <%= f.submit "Log In", class: 'btn btn-default' %>
-                  <% end %>
-                <%= link_to "Sign Up", '/users/new', class: 'btn btn-sm' %>
-                <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-  </nav>
+<a href="#" data-toggle="modal" data-target="#loginModal">LogI n</a> |
+<a href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
 
   <h2>goBug</h2>
 <div class="#splash">
@@ -60,4 +36,40 @@
 <% end %>
 </div>
 </body>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+            <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+            </div>
+            <div class="modal-body">
+              <%= form_for :session, url: '/login', html: {class: 'form-inline'} do |f|  %>
+                  <%= f.text_field :username, placeholder: "Username", class: 'form-control' %><br>
+                  <%= f.password_field :password, placeholder: "Password", class: 'form-control' %><br>
+                  <%= f.submit "Log In", class: 'btn btn-default' %>
+              <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+            <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+            </div>
+            <div class="modal-body">
+              <%= render 'users/form' %>
+            </div>
+        </div>
+  </div>
+</div>
+
 </html>
