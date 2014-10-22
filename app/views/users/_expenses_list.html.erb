@@ -5,7 +5,7 @@
     <h5>Budget: <%= best_in_place @trip, :budget, :display_with => :number_to_currency %> | Remaining: <div id='balance-field'><%= number_to_currency(@trip.remaining_budget) %></div>
     </h5>
     <br><br>
-  <button id="add-expense">Add Expense</button>
+  <button id="add-expense">Add Item</button>
 <% elsif wishlist %>
   <h2 class="page-header"><%= best_in_place @wishlist, :name %></h2>
   <h5>Budget: <%= best_in_place @wishlist, :budget, :display_with => :number_to_currency %> | Remaining: <div id='balance-field'><%= number_to_currency(@wishlist.remaining_budget) %></div>
