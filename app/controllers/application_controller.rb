@@ -13,4 +13,23 @@ class ApplicationController < ActionController::Base
       redirect_to trips_path
     end
   end
+
+  def search(params)
+     if params
+        @public = Expense.public_expenses
+        @search = @public.search(params)
+        @expenses = @search.result.trip
+      if params[:description] != ""
+        @fuzzy_description = Expense.find_by_fuzzy_description(params[:description])
+        @fuzzy_title = Expense.find_by_fuzzy_title(params[:description])
+        @all_fuzzy = @fuzzy_description + @fuzzy_title
+        @fuzzy_results = []
+        @fuzzy_search = @all_fuzzy.each {|expense| @fuzzy_results << expense if expense.expensable_type == "Trip"}
+        @expenses = @expenses & @fuzzy_search
+      end
+    else
+      @search = Expense.public_expenses.search()
+      @expenses = Expense.public_expenses.limit(20).trip
+    end
+  end
 end
