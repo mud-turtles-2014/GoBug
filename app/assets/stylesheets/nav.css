@@ -22,7 +22,7 @@
   width: 68%;
 }
 
-@media only screen and (max-width : 1024) {
+@media only screen and (max-width : 1024px) {
     .search_results .currency {
         display: none;
         height: auto;
@@ -32,6 +32,7 @@
         display: none;
         height: auto;
     }
+  }
 
 @media only screen and (max-width : 480px) {
     nav {
@@ -54,7 +55,7 @@
         height: 30px;
         display: inline-block;
         position: absolute;
-        rightright: 15px;
+        right: 15px;
         top: 10px;
     }
-}
+  }
