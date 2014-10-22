@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
   get "/fetch_new_wishlist" => 'users#new_wishlist', as: 'fetch_new_wishlist'
 
+  post '/toggle' => 'users#toggle'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

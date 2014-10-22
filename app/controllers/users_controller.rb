@@ -65,6 +65,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def toggle
+    if current_user
+      session[:toggle] = !session[:toggle]
+    end
+    respond_to do |format|
+      format.html { head :no_content }
+      format.json { head :no_content }
+    end
+  end
+
   def new
     @user = User.new
   end
