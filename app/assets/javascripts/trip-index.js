@@ -6,4 +6,17 @@ $(document).ready(function(){
 		// $(this).css('background','white');
 		$(this).find('.wishlist-button').hide();
 	});
+
+	$('#new_wishlist').submit(function(e){
+		e.preventDefault();
+		$(this).children('#modal-submit').val("Submitting...")
+		$.ajax ({
+			url: '/wishlists',
+			type: 'POST',
+			data: $(e.target).serialize()
+		}).done(function(response){
+			location.reload();
+			$('#modal').modal('toggle');
+		})
+	})
 });
