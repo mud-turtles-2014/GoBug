@@ -1,0 +1,14 @@
+.search_results {
+  padding-left: 17%;
+}
+
+.search_results li{
+  display: inline;
+  padding-right: 10px;
+  padding-top: 7px;
+  float: left;
+}
+
+.search_results .currency{
+  width: 6em;
+}

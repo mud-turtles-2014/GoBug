@@ -1,0 +1,47 @@
+ <nav>
+    <div class="navbar navbar-inverse navbar-fixed-top" role:"navigation">
+      <div class="container-fluid">
+        <% if session[:user_id] %>
+          <div class="navbar-header"><%= link_to "GoBug!", root_path, class: "navbar-brand" %></div>
+            <ul class="left">
+              <%= search_form_for @search do |f| %>
+              <div class="search_results">
+              <li><%= f.text_field :description, placeholder: " Search Keyword" %></li><p>
+              <li><%= f.text_field :location_name_cont, placeholder: " Location", class: "location" %><p></li>
+              <li><%= f.text_field :usd_cost_gteq, placeholder: " Price from", class: "currency"%></li>
+              <li><%= f.text_field :usd_cost_lteq, placeholder: " Price to" , class: "currency" %></li>
+              <li><%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: 'By Category' %></li>
+              <li><%= f.submit "Search" %></li>
+              </div>
+              <% end %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% flash.each do |name, msg| -%>
+                <%= content_tag :li, msg, class: "alert alert-#{name}" %>
+                <% end -%>
+                <li><%= link_to "Browse", expenses_path %></li>
+                <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %></li>
+                <li><%= link_to "Log Out", '/logout', method: :delete %></li>
+              <% else %>
+                <%= form_for :session, url: '/login', html: {class: 'form-inline'} do |f|  %>
+                  <div class="form-group"><%= f.text_field :username, placeholder: "Username", class: 'form-control' %></div>
+                  <div class="form-group"><%= f.password_field :password, placeholder: "Password", class: 'form-control' %></div>
+                  <%= f.submit "Log In", class: 'btn btn-default' %>
+                  <% end %>
+                  <%= link_to "Sign Up", '/users/new', class: 'btn btn-sm' %>
+              <% end %>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- %= search_form_for @search do |f| %>
+  <div class="search_results">
+    %= f.text_field :description, placeholder: "Search Keyword" %><p>
+    %= f.text_field :location_name_cont, placeholder: "Location", class: "location" %><p>
+     %= f.text_field :usd_cost_gteq, placeholder: "USD Cost From" %> - %= f.text_field :usd_cost_lteq, placeholder: "To" %><p>
+    %= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: 'By Category' %>
+  </div>
+  %= f.submit "Search" %>
+% end %> -->
