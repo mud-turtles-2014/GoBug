@@ -29,5 +29,3 @@ $(document).on('click', '.converter', function(event) {
     $('<input>').attr('type', 'submit').attr('value', 'Create trip').appendTo('#exp_form');
 
   });
-
-});
