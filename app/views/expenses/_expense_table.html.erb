@@ -1,7 +1,3 @@
-<% if @current_user %>
-  <%= link_to("Create New Wishlist", new_wishlist_path) %>
-<% end %>
-
 <div class="container-fluid">
   <% @expenses.each do |ex| %>
 
@@ -10,7 +6,10 @@
     <% @expenses.each do |expense| %>
       <div class="col-md-4">
         <div class="ribbon">
-          <h4><%= expense.title%> <a href="/trips/<%= expense.expensable.id %>">Full itinerary --></a> </h4>
+          <h4><%= expense.title%>
+            <% if @show_itinerary %>
+              <a href="/trips/<%= expense.expensable.id %>">Full itinerary --></a>
+            <% end %> </h4>
           <ul class="filters-list">
             <li><%= price(expense.usd_cost) %></li>
           </ul>

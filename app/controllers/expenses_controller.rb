@@ -6,6 +6,8 @@ class ExpensesController < ApplicationController
   before_action :set_location, only: [:create]
 
   def index
+    @show_itinerary = true
+
     if params[:q]
         @public = Expense.public_expenses
         @search = @public.search(params[:q])

@@ -1,25 +1,20 @@
-  <!DOCTYPE html>
-<html>
-<head>
-  <title>goBug</title>
-    <%= stylesheet_link_tag 'dashboard', media: 'all' %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-    <%= javascript_include_tag 'application' %>
-    <script src="/jquery.geocomplete.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-    <%= csrf_meta_tags %>
-</head>
-<body>
-    <nav>
+ <nav>
     <div class="navbar navbar-inverse navbar-fixed-top" role:"navigation">
       <div class="container-fluid">
         <% if session[:user_id] %>
           <div class="navbar-header"><%= link_to "GoBug!", root_path, class: "navbar-brand" %></div>
+            <ul class="left">
+              <%= search_form_for @search do |f| %>
+              <div class="search_results">
+              <li><%= f.text_field :description, placeholder: " Search Keyword" %></li><p>
+              <li><%= f.text_field :location_name_cont, placeholder: " Location", class: "location" %><p></li>
+              <li><%= f.text_field :usd_cost_gteq, placeholder: " Price from", class: "currency"%></li>
+              <li><%= f.text_field :usd_cost_lteq, placeholder: " Price to" , class: "currency" %></li>
+              <li><%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: 'By Category' %></li>
+              <li><%= f.submit "Search" %></li>
+              </div>
+              <% end %>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
               <% flash.each do |name, msg| -%>
                 <%= content_tag :li, msg, class: "alert alert-#{name}" %>
@@ -38,11 +33,15 @@
             </ul>
         </div>
       </div>
+    </div>
   </nav>
 
-<div class="main_content">
-  <%= yield %>
-</div>
-
-</body>
-</html>
+  <!-- %= search_form_for @search do |f| %>
+  <div class="search_results">
+    %= f.text_field :description, placeholder: "Search Keyword" %><p>
+    %= f.text_field :location_name_cont, placeholder: "Location", class: "location" %><p>
+     %= f.text_field :usd_cost_gteq, placeholder: "USD Cost From" %> - %= f.text_field :usd_cost_lteq, placeholder: "To" %><p>
+    %= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: 'By Category' %>
+  </div>
+  %= f.submit "Search" %>
+% end %> -->

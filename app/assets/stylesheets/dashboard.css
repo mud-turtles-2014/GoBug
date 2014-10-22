@@ -187,7 +187,7 @@
 
 #sidebar-wrapper {
     margin-left: -150px;
-    margin-top: -0.9%;
+    margin-top: 0%;
     left: -13px;
     width: 225px;
     background: #222;
@@ -208,7 +208,7 @@
 }
 #page-content-wrapper {
     padding-left: 0;
-    margin-left: 0;
+    margin-left: -6%;
     width: 100%;
     height: auto;
 }
