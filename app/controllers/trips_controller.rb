@@ -34,6 +34,7 @@ class TripsController < ApplicationController
     else
       @search = Expense.public_expenses.search()
       @expenses = Expense.public_expenses.limit(20).trip
+    end
 
     if @current_user
       # @wishlist = @current_user.wishlists.new
