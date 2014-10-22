@@ -1,7 +1,7 @@
 <h1>Listing expenses</h1>
 
 <% if @current_user %>
-  <%= link_to("Create New Wishlist", new_wishlist_path) %>
+  <a href="#" data-toggle="modal" data-target="#basicModal">New Wishlist</a>
 <% end %>
 
 <%= render 'nav_bar' %>
@@ -9,3 +9,24 @@
 <%= render 'expense_table' %>
 
 <br>
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	<div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+            <h4 class="modal-title" id="myModalLabel">New Wishlist</h4>
+            </div>
+            <div class="modal-body">
+                <p>Create new wishlist by entering a name and optional budget below. As you browse, add items to your wishlist. Review at any time by visiting your dashboard.</p>
+                
+                <% @wishlist = Wishlist.new %>
+	                <%= form_for(@wishlist) do |f| %>
+					<%= f.text_field :name, placeholder: "Enter a name" %><br>
+					<%= f.number_field :budget, placeholder: "Enter a budget" %><br>
+					<%= f.submit "Create", id: "modal-submit", class:"btn btn-primary" %>
+				<% end %>
+        </div>
+    </div>
+  </div>
+</div>
