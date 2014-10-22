@@ -48,6 +48,7 @@
 /*    background-color: #E1F5C4;
 */}
 .ribbon h4 {
+    text-align: left;
     display: block;
     height: 40px;
     line-height: 1.3;
@@ -67,8 +68,14 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
+.ribbon a {
+  font-size: 12px;
+  float: right;
+  padding-top: 5px;
+}
+
 .ribbon p {
-	margin-top: 15px;	
+  margin-top: 15px;
 }
 .ribbon h4::before,
 .ribbon h4::after {
@@ -80,13 +87,17 @@
     bottom: -11px;
     z-index: -10;
     border: 5px solid;
-    border-color: #242424 transparent transparent transparent;    
+    border-color: #242424 transparent transparent transparent;
 }
 .ribbon h4::before {left: 0;}
 .ribbon h4::after {right: 0;}
 
 
 /* PRICETAG FROM http://jsfiddle.net/alexroper/zhrwA/25/ */
+.back-link {
+  float: left;
+  padding-left: 10px;
+}
 
 ul.filters-list > li {
   color: #666666;
@@ -106,4 +117,3 @@ ul.filters-list > li {
   border-right:1px solid #ccc;
   display:block;
 }
-
