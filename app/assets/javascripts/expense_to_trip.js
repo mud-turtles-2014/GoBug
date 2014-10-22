@@ -17,7 +17,7 @@ $(document).on('click', '.converter', function(event){
     form.setAttribute('method', 'POST');
     form.setAttribute('id', 'exp_form');
     div.appendChild(form);
-    $(document.body).find("#expenses_grid").append(div);
+    $(document.body).find("#expenses_grid").append(div).hide();
 
     for (i=0; i< expenses.length; i++) {
       var exp = expenses[i];
@@ -28,5 +28,5 @@ $(document).on('click', '.converter', function(event){
     $('<input>').attr('type', 'hidden').attr('name', 'number_of_items').attr('value', expenses.length).appendTo('#exp_form');
     $('<input>').attr('type', 'submit').attr('value', 'Create trip').appendTo('#exp_form');
   });
-$("#exp_form").submit();
+    $("#exp_form").submit();
   });
