@@ -223,7 +223,12 @@
   width: 100%;
 }
 
-#sidebar_menu li a, .sidebar-nav li a {
+#sidebar_menu li a {
+  margin-bottom: 4px;
+  color: #50C8C6;
+
+}
+.sidebar-nav li a {
     color: #A7CD2C;
     display: block;
     float: left;
@@ -248,6 +253,10 @@
 #sidebar-wrapper h5 {
     padding-left: 20px;
     color: #A7CD2C;
+}
+
+.sidebar-nav {
+  padding-bottom: 10px;
 }
 
 .sidebar-nav li {
@@ -303,7 +312,7 @@
 }
 .content-header {
   height: 65px;
-  line-height: 65px;
+  line-height: 70px;
 }
 
 .content-header h1 {
