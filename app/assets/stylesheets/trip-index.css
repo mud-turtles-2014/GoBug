@@ -38,7 +38,6 @@
 /* RIBBON FROM http://css3.wikidot.com/blog:wrap-around-ribbons-with-css */
 .ribbon {
 	height: 250px;
-    width: 350px;
     margin: 10px auto;
     padding: 0 10px 0;
     position: relative;
@@ -47,14 +46,13 @@
     border: 1px solid #d2d2d2;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-/*    background-color: #E1F5C4;
-*/}
+}
+
 .ribbon h4 {
     text-align: left;
     display: block;
     height: 40px;
     line-height: 1.3;
-    width: 360px;
     margin: 0;
     padding: 5px 10px;
     position: relative;
@@ -65,7 +63,6 @@
     border-top: 1px solid #50C8C6;
     border-bottom: 1px solid #50C8C6;
     background: #50C8C6;
-    /*background: linear-gradient(top, #50C8C6 0%, #50C8C6 100%);*/
     border-radius: 2px 2px 0 0;
     box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
