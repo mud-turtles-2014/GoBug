@@ -34,7 +34,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'rspec-rails'
 gem 'rails_12factor', group: :production
-gem 'dotenv-rails', :groups => [:development, :test]
 gem 'searchbing'
 
 # Use unicorn as the app server

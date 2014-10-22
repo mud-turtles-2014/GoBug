@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/bernat/best_in_place.git
-  revision: d14da00f49256adbe023c245449d8937eb1bee42
+  revision: 800bc70f3b7ab170496c4a14e64135b04f6e4e90
   specs:
-    best_in_place (3.0.0.rc1)
+    best_in_place (3.0.0)
       actionpack (>= 3.2)
       railties (>= 3.2)
 
@@ -47,9 +47,6 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     diff-lcs (1.2.5)
-    dotenv (1.0.2)
-    dotenv-rails (1.0.2)
-      dotenv (= 1.0.2)
     erubis (2.7.0)
     execjs (2.2.2)
     faker (1.4.3)
@@ -58,7 +55,7 @@ GEM
       activerecord (>= 2.3.17)
     hike (1.2.3)
     i18n (0.6.11)
-    jbuilder (2.2.2)
+    jbuilder (2.2.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.2)
@@ -68,7 +65,7 @@ GEM
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.4.2)
+    mime-types (2.4.3)
     minitest (5.4.2)
     multi_json (1.10.1)
     pg (0.17.1)
@@ -168,7 +165,6 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   best_in_place!
   coffee-rails (~> 4.0.0)
-  dotenv-rails
   faker
   fuzzily
   jbuilder (~> 2.0)

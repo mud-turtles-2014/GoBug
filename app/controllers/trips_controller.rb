@@ -13,6 +13,10 @@ class TripsController < ApplicationController
   end
 
   def show
+    @total = @trip.calculate_total
+    @current_user = current_user
+    @expenses = @trip.expenses
+    @wishlists = @current_user.wishlists
   end
 
   def new
@@ -39,6 +43,19 @@ class TripsController < ApplicationController
         format.json { render :json }
       end
     end
+  end
+
+  def from_expenses
+    @current_user = current_user
+    @trip = @current_user.trips.create(name: "Trip from Wishlist", budget: 0)
+     num_of_expenses = params[:number_of_items].to_i
+     for i in 0..(num_of_expenses-1) do
+        title_param = "title_#{i}"
+        cat_param = "cat_#{i}"
+        loc_param = "loc_#{i}"
+        @expense = Expense.new(title: params["title_#{i}"], location_id: params["cat_#{i}"].to_i, category_id: params["loc_#{i}"], expensable_id: @trip.id, expensable_type: "Trip")
+     end
+     redirect_to user_path(current_user)
   end
 
   def update

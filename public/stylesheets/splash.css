@@ -4,10 +4,17 @@ body {
   background-size: cover;
   margin-top: 60px;
   padding: 0 ;
+  color: black;
 }
 
 h2 {
-  padding-left: 50px;
+  /*font-family: 'La Belle Aurore', cursive;*/
+  font-family: 'Cousine';
+  font-size: 100px;
+  font-weight: 50px;
+  text-align: center;
+  color: white;
+  padding-top: 25px;
 }
 .splash-search {
   padding-left: 50px;
@@ -17,6 +24,20 @@ h2 {
   width: 400px;
 }
 
-.expense_search {
-  margin-left:50px;
+input[type=text] {
+  width: 20%;
+  font-size: 15px;
+}
+
+input[type=submit] {
+  color: black;
+}
+
+h4 {
+font-family: 'Fira Mono', ;
+}
+
+#expense_search {
+  text-align: center;
+  padding-top: 30px;
 }

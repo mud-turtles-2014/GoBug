@@ -2,10 +2,6 @@
  * Base structure
  */
 
-  .main_content {
-
-  }
-
   body {
     /*background: url('https://pbs.twimg.com/media/BiYeD_vCUAExSqo.jpg:large')*/
     background-repeat: no-repeat;
@@ -13,12 +9,54 @@
     padding: 60px 0px;
   }
 
+  #balance-field {
+    display: inline-block;
+  }
+
+  #charNum {
+    padding-left: 28%;
+  }
+
+  .new_expense input{
+    margin-bottom: 9px;
+  }
+
+  .new_expense select{
+    width: 8%;
+  }
+
+  .new_expense .category-dropdown {
+    width: 30%;
+  }
+
+  #expense_description {
+    height: 80px;
+  }
+
+  .newexpense #charNum {
+    padding-left: 100px;
+  }
+
+
+  .new_expense .currency{
+    width: 15%;
+  }
+
+  .new_expense .large_input{
+    width: 40%;
+  }
+
+  .new_expense #location-field{
+    width: 40%;
+  }
+
   .page-header {
     color:#50C8C6;
   }
 
   textarea {
-    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
   }
 
   .event-list {
@@ -29,14 +67,16 @@
 
   .event-list > li {
     background-color: rgb(255, 255, 255);
-    padding: 0px;
+    padding: 10px;
     margin: 0px 0px 10px;
+    height: auto;
   }
 
   .event-list > li > time {
     display: inline-block;
     width: 100%;
-    color: rgb(255, 255, 255);
+    color: black;
+    font-weight: 600;
     background-color: #50C8C6;
     padding: 2px;
     text-align: center;
@@ -54,13 +94,20 @@
     text-align: center;
   }
   .event-list > li > .info > .title {
-    font-size: 14pt;
-    font-weight: 700;
+    font-size: 12pt;
+    font-weight: 600;
     margin: 0px;
   }
+
+  .event-list > li > .info > .loc {
+    font-size: 10pt;
+    font-weight: 700;
+    margin: 10px;
+  }
+
   .event-list > li > .info > .desc {
-    font-size: 12pt;
-    font-weight: 300;
+    font-size: 10pt;
+    font-weight: 400;
     margin: 0px;
   }
 
@@ -101,7 +148,8 @@
     }
     .event-list > li > time,
     .event-list > li > img {
-      width: 50px;
+      width: 95px;
+      font-size: 12px;
       height: 120px;
       padding: 10px;
       margin: 0px;
@@ -136,7 +184,7 @@
 
 #sidebar-wrapper {
     margin-left: -150px;
-    margin-top: 70px;
+    margin-top: -0.9%;
     left: -13px;
     width: 225px;
     background: #222;
@@ -158,7 +206,6 @@
 #page-content-wrapper {
     padding-left: 0;
     margin-left: 0;
-    padding-top: 60px;
     width: 100%;
     height: auto;
 }
@@ -210,6 +257,7 @@
   display: block;
   text-decoration: none;
 }
+
 
 .sidebar-nav li a:hover {
   color: #fff;
@@ -279,94 +327,4 @@
     transition: all .4s ease 0s;
 }
 
-
-body {
-  background: url('night_in_rome.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0;
-  padding: 0 ;
-}
-
-h2 {
-  padding-left: 50px;
-}
-.splash-search {
-  padding-left: 50px;
-}
-
-.splash-search input[type=text] {
-  width: 400px;
-
-}
-sidebar {
-	width: 15%;
-	height: 100%;
-	float: left;
-	margin: 0px;
-	padding: 0px;
-	background-color: lightgray;
-	text-align: center;
-	padding-top: 20px;
-}
-
-sidebar article {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-
-body {
-	margin: 0px;
-	padding: 0px;
-	height: 1000px;
-}
-
-#container {
-	text-align: center;
-	margin: 0px;
-	padding: 0px;
-	height: 100%;
-	background-color: beige;
-}
-
-#trip-info, #expense-info {
-	width: 50%;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-#expenses_grid {
-	width: 85%;
-	float:right;
-	text-align: center;
-}
-
-.item_box {
-	padding-top: 10px;
-	width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#expenses_grid #new_expense {
-	display: none;
-}
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
-
-
- */
 

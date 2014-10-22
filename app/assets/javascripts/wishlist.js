@@ -25,9 +25,7 @@ $(document).ready(function(){
       url:$(e.target).parent().parent().attr('action'),
       type: 'POST'
     }).done(function(response){
-      // wishlist_button.html(response)
-      console.log(wishlist_button.children('.hidden_add'));
-      wishlist_button.children('.hidden_add').show();
+      wishlist_button.html(response)
     });
 
   });
@@ -43,7 +41,8 @@ $(document).ready(function(){
     }).done(function(){
       wishlist_button.remove();
     });
-});
+  });
 
 }); 
+
 
