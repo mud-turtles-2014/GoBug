@@ -11,7 +11,7 @@ $(document).ready(function(){
       url: '/add_to_wishlist?expense_id=' + expense_id + '&' + 'wishlist_id=' + wishlist_id,
       type: 'POST'
     }).done(function(response){
-      wishlist_button.html(response)
+      wishlist_button.html('<i>In your Wishlist</i>')
     });
   });
 
@@ -25,23 +25,11 @@ $(document).ready(function(){
       url:$(e.target).parent().parent().attr('action'),
       type: 'POST'
     }).done(function(response){
-      wishlist_button.html(response)
+      wishlist_button.html('<i>In your Wishlist</i>')
     });
 
   });
 
-
-  $('.col-md-4').on('click','.remove-from-wishlist', function(e){
-    e.preventDefault();
-    var wishlist_button = $(this).closest('.wishlist-button')
-
-    $.ajax ({
-      url:$(e.target).parent().parent().attr('action'),
-      type: 'DELETE'
-    }).done(function(){
-      wishlist_button.remove();
-    });
-  });
 
 }); 
 
