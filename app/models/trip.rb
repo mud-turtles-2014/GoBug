@@ -11,6 +11,8 @@ class Trip < ActiveRecord::Base
   end
 
   def remaining_budget
-    self.budget - self.calculate_total
+    if self.budget != 0
+      self.budget - self.calculate_total
+    end
   end
 end

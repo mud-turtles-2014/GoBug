@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141020171500) do
 
   create_table "expenses", force: true do |t|
     t.integer  "location_id",     null: false
-    t.float    "cost",            null: false
+    t.float    "cost"
     t.string   "title"
     t.text     "description"
     t.integer  "category_id",     null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20141020171500) do
     t.integer  "user_id",                      null: false
     t.string   "name",                         null: false
     t.text     "description"
-    t.integer  "budget",                       null: false
+    t.integer  "budget"
     t.boolean  "is_published", default: false
     t.boolean  "is_private",   default: false
     t.datetime "created_at"

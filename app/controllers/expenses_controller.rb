@@ -75,7 +75,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to user_path(current_user) }
+      format.html { head :no_content }
       format.json { head :no_content }
     end
   end
@@ -87,7 +87,9 @@ class ExpensesController < ApplicationController
       @new_expense.expensable = @wishlist
       @new_expense.id = nil
       @new_expense.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html { render partial: 'remove_button', :locals => { expense_id: @new_expense.id}}
+      end
   end
 
   private

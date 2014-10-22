@@ -34,6 +34,21 @@ class TripsController < ApplicationController
     else
       @search = Expense.public_expenses.search()
       @expenses = Expense.public_expenses.limit(20).trip
+
+    if @current_user
+      # @wishlist = @current_user.wishlists.new
+      @wishlists = @current_user.wishlists
+      if @wishlists.length == 0
+        default_option = ["Add to a new Wishlist"]
+      elsif @wishlists.length == 1
+        default_option = @wishlists.first.name
+      else
+        default_option = ["Select Wishlist"]
+        list_options = @wishlists.all.map{|u| [ u.name, u.id ] }
+        @wishlist_options = default_option + list_options
+      end
+    else
+      @is_wishlist = false
     end
 
   end
@@ -62,6 +77,20 @@ class TripsController < ApplicationController
         format.json { render :json }
       end
     end
+  end
+
+  def from_expenses
+    @current_user = current_user
+    @trip = @current_user.trips.create(name: "Trip from Wishlist", budget: 0)
+     num_of_expenses = params[:number_of_items].to_i
+     for i in 0..(num_of_expenses-1) do
+        title_param = "title_#{i}"
+        cat_param = "cat_#{i}"
+        loc_param = "loc_#{i}"
+        @expense = Expense.new(title: params["title_#{i}"], location_id: Location.find_by(name: params["loc_#{i}"]).id, category_id: params["cat_#{i}"].to_i, description: "I checked this off my wishlist!", expensable_id: @trip.id, expensable_type: "Trip")
+        @expense.save
+     end
+     redirect_to user_path(current_user)
   end
 
   def update
