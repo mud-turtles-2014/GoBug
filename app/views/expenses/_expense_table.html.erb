@@ -19,7 +19,7 @@
           <div class="wishlist-button">
 
               <% if @current_user.has_expense_in_wishlist(expense) %>
-                <%= button_to "Remove from wishlist", {:controller => :expenses, :action => 'destroy', :id => @current_user.wishlist_id_of(expense) }, method: 'delete', class: "remove-from-wishlist" %>
+                <i>In your Wishlist</i>
 
               <% elsif @wishlists.length == 1 %>
                 <%= button_to "Add to Wishlist", add_to_wishlist_path(wishlist_id: @wishlists.first, expense_id: expense.id), method: "post", class: "add-to-wishlist" %>
