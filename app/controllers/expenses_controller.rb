@@ -6,32 +6,38 @@ class ExpensesController < ApplicationController
   before_action :set_location, only: [:create]
 
   def index
+    @user = User.new
     @show_itinerary = true
     @params = params[:q]
     search(@params)
-
-    @current_user = current_user
-    if @current_user
-      # @wishlist = @current_user.wishlists.new
+    if current_user
+      @current_user = current_user
+      @trips = @current_user.trips
       @wishlists = @current_user.wishlists
-      if @wishlists.length == 0
-        default_option = ["Add to a new Wishlist"]
-      elsif @wishlists.length == 1
-        default_option = @wishlists.first.name
+      if @current_user
+        # @wishlist = @current_user.wishlists.new
+        @wishlists = @current_user.wishlists
+        if @wishlists.length == 0
+          default_option = ["Add to a new Wishlist"]
+        elsif @wishlists.length == 1
+          default_option = @wishlists.first.name
+        else
+          default_option = ["Select Wishlist"]
+          list_options = @wishlists.all.map{|u| [ u.name, u.id ] }
+          @wishlist_options = default_option + list_options
+        end
       else
-        default_option = ["Select Wishlist"]
-        list_options = @wishlists.all.map{|u| [ u.name, u.id ] }
-        @wishlist_options = default_option + list_options
+        @is_wishlist = false
       end
-    else
-      @is_wishlist = false
     end
   end
 
   def show
+    @user = User.new
   end
 
   def new
+    @user = User.new
     @trip = Trip.find(params[:trip_id])
     @expense = Expense.new
   end
