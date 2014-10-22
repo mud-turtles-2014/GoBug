@@ -1,7 +1,6 @@
  <nav>
     <div class="navbar navbar-inverse navbar-fixed-top" role:"navigation">
       <div class="container-fluid">
-        <% if session[:user_id] %>
           <div class="navbar-header"><%= link_to "GoBug!", root_path, class: "navbar-brand" %></div>
             <ul class="left">
               <%= search_form_for @search do |f| %>
@@ -20,17 +19,11 @@
                 <%= content_tag :li, msg, class: "alert alert-#{name}" %>
                 <% end -%>
                 <li><%= link_to "Browse", expenses_path %></li>
+            <% if session[:user_id] %>
                 <li><%= link_to "My Dashboard", user_path(User.find(session[:user_id])) %></li>
                 <li><%= link_to "Log Out", '/logout', method: :delete %></li>
-              <% else %>
-                <%= form_for :session, url: '/login', html: {class: 'form-inline'} do |f|  %>
-                  <div class="form-group"><%= f.text_field :username, placeholder: "Username", class: 'form-control' %></div>
-                  <div class="form-group"><%= f.password_field :password, placeholder: "Password", class: 'form-control' %></div>
-                  <%= f.submit "Log In", class: 'btn btn-default' %>
-                  <% end %>
-                  <%= link_to "Sign Up", '/users/new', class: 'btn btn-sm' %>
-              <% end %>
-            </ul>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
