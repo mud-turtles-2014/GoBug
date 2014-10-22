@@ -1,14 +1,60 @@
 .search_results {
-  padding-left: 17%;
+  padding-left: 16%;
 }
 
 .search_results li{
   display: inline;
-  padding-right: 10px;
-  padding-top: 7px;
+  padding-right: 1%;
+  padding-top: 0.5%;
   float: left;
 }
 
 .search_results .currency{
   width: 6em;
+
 }
+
+.form-inline input[type=text]{
+  width: 68%;
+}
+
+.form-inline input[type=password]{
+  width: 68%;
+}
+
+@media only screen and (max-width : 1024) {
+    .search_results .currency {
+        display: none;
+        height: auto;
+    }
+
+    .search_results .category {
+        display: none;
+        height: auto;
+    }
+
+@media only screen and (max-width : 480px) {
+    nav {
+        border-bottom: 0;
+    }
+    nav ul {
+        display: none;
+        height: auto;
+    }
+    nav a#pull {
+        display: block;
+        background-color: #283744;
+        width: 100%;
+        position: relative;
+    }
+    nav a#pull:after {
+        content:"";
+        background: url('nav-icon.png') no-repeat;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        rightright: 15px;
+        top: 10px;
+    }
+

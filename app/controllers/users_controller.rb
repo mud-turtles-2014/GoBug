@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   before_action :correct_user, only:[:show]
 
   def show
-    @user = current_user
-    if @user.trips
-      @trips = @user.trips
+    @current_user = current_user
+    if @current_user.trips
+      @trips = @current_user.trips
       if @trips.last
         @trip = @trips.last
         if @trip.expenses
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
      @expenses = false
     end
 
-    @wishlists = @user.wishlists
+    @wishlists = @current_user.wishlists
     @params = params[:q]
     search(@params)
   end

@@ -1,13 +1,24 @@
-<div class="page-title">
-<h2>Build Your Trip</h2>
-  <% if @current_user %>
-    <a href="#" data-toggle="modal" data-target="#basicModal">New Wishlist</a>
-  <% end %>
+<%= render '/expenses/nav_bar' %>
+
+<div id="wrapper" class="active">
+  <div id="sidebar-wrapper">
+    <%= render '/users/sidebar' %>
+  </div>
+  <div id="page-content-wrapper">
+    <div class="page-content inset">
+        <div id="expenses_grid" >
+          <div class="page-title">
+          <h2>Build Your Trip</h2>
+            <% if @current_user %>
+              <a href="#" data-toggle="modal" data-target="#basicModal">New Wishlist</a>
+            <% end %>
+          </div>
+          <%= render 'expense_table' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= render 'nav_bar' %>
-
-<%= render 'expense_table' %>
 
 <br>
 
