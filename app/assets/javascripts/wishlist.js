@@ -4,10 +4,14 @@ $(document).ready(function(){
     e.preventDefault();
     var wishlist_id = $(this).val()
     var expense_id = $(this).parent().children('.expense_id').val()
+    var wishlist_button = $(this).closest('.wishlist-button')
+    wishlist_button.html('<i>Adding to wishlist...  </i>')
     
     $.ajax ({
       url: '/add_to_wishlist?expense_id=' + expense_id + '&' + 'wishlist_id=' + wishlist_id,
       type: 'POST'
+    }).done(function(response){
+      wishlist_button.html(response)
     });
   });
 
