@@ -7,23 +7,8 @@ class ExpensesController < ApplicationController
 
   def index
     @show_itinerary = true
-
-    if params[:q]
-        @public = Expense.public_expenses
-        @search = @public.search(params[:q])
-        @expenses = @search.result.trip
-      if params[:q][:description] != ""
-        @fuzzy_description = Expense.find_by_fuzzy_description(params[:q][:description])
-        @fuzzy_title = Expense.find_by_fuzzy_title(params[:q][:description])
-        @all_fuzzy = @fuzzy_description + @fuzzy_title
-        @fuzzy_results = []
-        @fuzzy_search = @all_fuzzy.each {|expense| @fuzzy_results << expense if expense.expensable_type == "Trip"}
-        @expenses = @expenses & @fuzzy_search
-      end
-    else
-      @search = Expense.public_expenses.search()
-      @expenses = Expense.public_expenses.limit(20).trip
-    end
+    @params = params[:q]
+    search(@params)
 
     @current_user = current_user
     if @current_user
