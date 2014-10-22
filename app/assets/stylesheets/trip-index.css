@@ -14,24 +14,26 @@
 }
 
 /* AWESOME BUTTON FROM http://zurb.com/article/266/super-awesome-buttons-with-css3-and-rgba */
+
 .awesome{
-	background: #222 url(/images/alert-overlay.png) repeat-x;
-	background-color: #A7CD2C;
-	display: inline-block;
-	padding: 5px 10px 6px;
-	color: #fff;
-	text-decoration: none;
-	font-weight: bold;
-	line-height: 1;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-	border-bottom: 1px solid rgba(0,0,0,0.25);
-	position: absolute;
-	right:0;
+  background: #222 url(/images/alert-overlay.png) repeat-x;
+  background-color: #A7CD2C;
+  display: inline-block;
+  padding: 5px 10px 6px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 1;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  position: absolute;
+  right:0;
 }
+
 
 /* RIBBON FROM http://css3.wikidot.com/blog:wrap-around-ribbons-with-css */
 .ribbon {
@@ -68,15 +70,10 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-.ribbon a {
-  font-size: 12px;
-  float: right;
-  padding-top: 5px;
-}
-
 .ribbon p {
   margin-top: 15px;
 }
+
 .ribbon h4::before,
 .ribbon h4::after {
     content: '';
@@ -91,6 +88,17 @@
 }
 .ribbon h4::before {left: 0;}
 .ribbon h4::after {right: 0;}
+
+.ribbon a {
+  text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.ribbon img {
+  float:right;
+  padding-top: 1%
+}
 
 
 /* PRICETAG FROM http://jsfiddle.net/alexroper/zhrwA/25/ */
