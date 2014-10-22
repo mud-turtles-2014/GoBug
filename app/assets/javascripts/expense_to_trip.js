@@ -1,14 +1,14 @@
-$(document).on('click', '.converter', function(event) {
-    // console.log('click');
+$(document).on('click', '.converter', function(event){
     expenses = [];
     $('.event-list li').each(function() {
+      if ($(this).find("input[name='did_it']").prop('checked')) {
        expense = {};
        expense.title = $(this).find('.title').html();
        expense.location = $(this).find('.loc').html();
        expense.category_id = $(this).attr('data-category');
        expenses.push(expense);
-     });
-    // console.log(expenses);
+       console.log(expense);
+     }
     var div = document.createElement('div');
     div.setAttribute('id', 'form_container');
 
@@ -27,5 +27,6 @@ $(document).on('click', '.converter', function(event) {
     }
     $('<input>').attr('type', 'hidden').attr('name', 'number_of_items').attr('value', expenses.length).appendTo('#exp_form');
     $('<input>').attr('type', 'submit').attr('value', 'Create trip').appendTo('#exp_form');
-
+  });
+$("#exp_form").submit();
   });
