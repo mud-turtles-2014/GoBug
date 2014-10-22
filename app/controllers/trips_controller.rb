@@ -95,10 +95,14 @@ class TripsController < ApplicationController
   end
 
   def splash
-    @user = User.new
-    @search = Expense.search(params[:q])
-    @expenses = @search.result.trip
-    render 'splash', layout: false
+    if current_user
+      redirect_to expenses_path
+    else
+      @user = User.new
+      @search = Expense.search(params[:q])
+      @expenses = @search.result.trip
+      render 'splash', layout: false
+    end
   end
 
   private
