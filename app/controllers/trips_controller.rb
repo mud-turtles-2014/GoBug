@@ -13,6 +13,10 @@ class TripsController < ApplicationController
   end
 
   def show
+    @total = @trip.calculate_total
+    @current_user = current_user
+    @expenses = @trip.expenses
+    @wishlists = @current_user.wishlists
   end
 
   def new
