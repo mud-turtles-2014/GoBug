@@ -13,7 +13,7 @@ h2 {
   font-size: 100px;
   font-weight: 50px;
   text-align: center;
-  color: white;
+  color: black;
   padding-top: 25px;
 }
 .splash-search {
@@ -24,9 +24,30 @@ h2 {
   width: 400px;
 }
 
-input[type=text] {
+#splash-search {
   width: 20%;
   font-size: 15px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2.5px solid black;
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+   color: black;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: black;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: black;
+}
+
+:-ms-input-placeholder {
+   color: black;
 }
 
 input[type=submit] {
