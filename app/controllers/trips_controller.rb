@@ -95,6 +95,7 @@ class TripsController < ApplicationController
   end
 
   def splash
+    @user = User.new
     @search = Expense.search(params[:q])
     @expenses = @search.result.trip
     render 'splash', layout: false
