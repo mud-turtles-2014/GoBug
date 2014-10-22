@@ -8,6 +8,10 @@
     padding: 60px 0px;
   }
 
+  .page-title {
+    padding-left: 3%;
+  }
+
   #itinerary {
     text-align: center;
   }
