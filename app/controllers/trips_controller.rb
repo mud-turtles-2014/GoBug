@@ -16,7 +16,7 @@ class TripsController < ApplicationController
     @show_itinerary = false
     @total = @trip.calculate_total
     @current_user = current_user
-    @expenses = @trip.expenses
+    @trip_expenses = @trip.expenses
     @wishlists = @current_user.wishlists
     @params = params[:q]
     search(@params)
