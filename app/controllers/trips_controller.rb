@@ -71,7 +71,7 @@ class TripsController < ApplicationController
         title_param = "title_#{i}"
         cat_param = "cat_#{i}"
         loc_param = "loc_#{i}"
-        @expense = Expense.new(title: params["title_#{i}"], location_id: Location.find_by(name: params["loc_#{i}"]).id, category_id: params["cat_#{i}"].to_i, description: "I checked this off my wishlist!", expensable_id: @trip.id, expensable_type: "Trip")
+        @expense = Expense.new(cost: 0, currency_id: 150, title: params["title_#{i}"], location_id: Location.find_by(name: params["loc_#{i}"]).id, category_id: params["cat_#{i}"].to_i, description: "I checked this off my wishlist!", expensable_id: @trip.id, expensable_type: "Trip")
         @expense.save
      end
      redirect_to user_path(current_user)
