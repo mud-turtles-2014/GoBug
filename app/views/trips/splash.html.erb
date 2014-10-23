@@ -49,7 +49,7 @@
               <%= form_for :session, url: '/login' do |f|  %>
                   <%= f.text_field :username, placeholder: "Username", class: 'form-control' %><br>
                   <%= f.password_field :password, placeholder: "Password", class: 'form-control' %><br>
-                  <%= f.submit "Log In", class: 'btn btn-default' %>
+                  <%= f.submit "Log In", class: 'btn btn-default', id: 'login-modal-btn' %>
               <% end %>
         </div>
     </div>
@@ -74,7 +74,7 @@
                 <%= f.text_field :email, placeholder: "Email", class: 'form-control' %><br>
                 <%= f.password_field :password, placeholder: "Password", class: 'form-control' %><br>
                 <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control' %></p>
-                <%= f.submit "Sign Up", class: 'btn btn-default' %>
+                <%= f.submit "Sign Up", class: 'btn btn-default', id: 'signin-modal-btn' %>
               <% end  %>
             </div>
         </div>

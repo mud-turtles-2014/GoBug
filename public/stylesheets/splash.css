@@ -39,28 +39,28 @@ h2 {
   border: 0;
   outline: 0;
   background: transparent;
-  border-bottom: 2.5px solid rgb(95, 82, 82);;
+  border-bottom: 2.5px solid rgb(95, 82, 82);
   text-align: center;
 }
 
 ::-webkit-input-placeholder {
-   color: rgb(95, 82, 82);
+   color: #FAEBD7;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: rgb(95, 82, 82);
+   color: #FAEBD7;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: rgb(95, 82, 82);
+   color: #FAEBD7;
 }
 
 :-ms-input-placeholder {
-   color: rgb(95, 82, 82);
+   color: #FAEBD7;
 }
 
 #search-btn {
-  color: white;
+  color: #FAEBD7;
   border-radius: 5px;
   border: none;
   background-color: rgb(95, 82, 82);
