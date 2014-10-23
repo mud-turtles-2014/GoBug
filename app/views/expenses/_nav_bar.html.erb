@@ -10,7 +10,7 @@
               <li><%= f.text_field :usd_cost_gteq, placeholder: "$ From", class: "currency form-control"%></li>
               <li><%= f.text_field :usd_cost_lteq, placeholder: "$ To" , class: "currency form-control" %></li>
               <li><%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: 'By Category' %></li>
-              <li><%= f.submit "Search" %></li>
+              <li><%= f.submit "Search", class: "gobug-btn-orange" %></li>
               </div>
               <% end %>
             </ul>
