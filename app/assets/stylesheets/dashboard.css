@@ -232,6 +232,7 @@
       height: 120px;
       text-align: left;
       padding-right: 20px;
+      overflow:auto;
     }
     .event-list > li > .info > .title,
     .event-list > li > .info > .desc {
