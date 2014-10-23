@@ -145,3 +145,11 @@ h2 {
   font-family: 'Open Sans';
   letter-spacing: .25px;
 }
+
+.modal-body {
+  width: 70%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
