@@ -1,3 +1,4 @@
+<!--
 <%= form_for(@wishlist) do |f| %>
   <% if @wishlist.errors.any? %>
     <div id="error_explanation">
@@ -24,3 +25,32 @@
     <%= f.submit %>
   </div>
 <% end %>
+-->
+<form class="form-horizontal">
+<fieldset>
+
+<div class="container" id="new-trip-form">
+        <h1>New Wishlist</h1>
+
+        <p>Planning a trip? Sweet! Create a wishlist then browse the site to find out what other people recommend. When you find something that strikes your interest, add it here for safe-keeping.</p>
+    <%= form_for(@wishlist) do |f| %>
+        <div class="required-field-block">
+            <%= f.text_field :name, class: "form-control", placeholder: "Trip Name" %>
+            <!-- <input type="text" placeholder="Name" class="form-control"> -->
+            <div class="required-icon">
+                <div class="text">*</div>
+            </div>
+        </div>
+
+        <div class="required-field-block">
+            <%= f.number_field :budget, class: "form-control", placeholder: "Budget" %>
+        </div>
+      
+        <br>
+        <%= f.submit class: "gobug-btn" %>
+    <% end %>
+</div>
+</fieldset>
+</form>
+
+

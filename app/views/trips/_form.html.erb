@@ -1,3 +1,4 @@
+<!--
 <%= form_for(@trip) do |f| %>
   <% if @trip.errors.any? %>
     <div id="error_explanation">
@@ -28,3 +29,34 @@
     <%= f.submit %>
   </div>
 <% end %>
+-->
+
+<form class="form-horizontal">
+<fieldset>
+
+<div class="container" id="new-trip-form">
+        <h1>New Trip</h1>
+        <p>Went on a trip and did awesome things? Share your experience with others so they can follow in your footsteps. The goBug community thanks you!</p>
+    <%= form_for(@trip) do |f| %>
+        <div class="required-field-block">
+            <%= f.text_field :name, class: "form-control", placeholder: "Trip Name" %>
+            <!-- <input type="text" placeholder="Name" class="form-control"> -->
+            <div class="required-icon">
+                <div class="text">*</div>
+            </div>
+        </div>
+
+        <div class="required-field-block">
+            <%= f.number_field :budget, class: "form-control", placeholder: "Budget" %>
+        </div>
+        
+ 
+        <div class="required-field-block">
+            <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+        </div>
+        <br>
+        <%= f.submit class: ".gobug-btn" %>
+    <% end %>
+</div>
+</fieldset>
+</form>
