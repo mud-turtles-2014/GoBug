@@ -5,7 +5,7 @@
     <h4>Budget: <%= best_in_place @trip, :budget, :display_with => :number_to_currency %> | Remaining: <div id='balance-field'><%= number_to_currency(@trip.remaining_budget) %></div>
     </h4>
     <br>
-  <button id="add-expense">Add Item</button>
+  <button id="add-expense", class="gobug-btn-blue">Add Item</button>
 <% elsif wishlist %>
   <h2 class="page-header"><%= best_in_place @wishlist, :name %></h2>
   <h5>Budget: <%= best_in_place @wishlist, :budget, :display_with => :number_to_currency %> | Remaining: <div id='balance-field'><%= number_to_currency(@wishlist.remaining_budget) %></div>
@@ -38,7 +38,7 @@
     <%= f.text_field :title, placeholder: " What did you do?", class: 'large_input form-field' %>
     <%= f.text_area :description, placeholder: " How was your experience?", class: 'large_input form-field' %><p id="charNum"><br>
 
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", class: "gobug-btn-blue" %>
     <p><p>
       <% end %>
     </div>
