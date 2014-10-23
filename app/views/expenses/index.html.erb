@@ -6,7 +6,7 @@
   <div id="wrapper">
 <% else %>
   <div id="wrapper" class="active">
-<% end %> 
+<% end %>
 
   <div id="sidebar-wrapper">
     <%= render '/users/sidebar' %>
@@ -35,11 +35,11 @@
             </div>
             <div class="modal-body">
                 <p>Create new wishlist by entering a name and optional budget below. As you browse, add items to your wishlist. Review at any time by visiting your dashboard.</p>
-                
+
                 <% @wishlist = Wishlist.new %>
 	                <%= form_for(@wishlist) do |f| %>
 					<%= f.text_field :name, placeholder: "Enter a name" %><br>
-					<%= f.number_field :budget, placeholder: "Enter a budget" %><br>
+					<%= f.number_field :budget, placeholder: "Enter a budget(or 0 if it's not important right now)" %><br>
 					<%= f.submit "Create", id: "modal-submit", class:"btn btn-primary" %>
 				<% end %>
         </div>
