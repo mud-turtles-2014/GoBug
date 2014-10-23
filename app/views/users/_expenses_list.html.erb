@@ -48,7 +48,7 @@
         <ul class="event-list">
           <% expenses.each do |expense| %>
             <li>
-              <time data-currency-code='<%= expense.currency.code %>'>
+              <time data-currency-code='<%= expense.currency.code %>' data-expense-id='<%=expense.id %>'>
                 <%= image_tag( category_image(expense.category.name)) %><p>
               <% if expense.cost %>
               <p class="desc usd-cost-field">$<%= expense.usd_cost%></p>
@@ -80,7 +80,7 @@
       <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
         <ul class="event-list">
           <% expenses.each do |expense| %>
-            <li  data-category="<%=expense.category_id %>"  >
+            <li  data-category="<%=expense.category_id %>" data-expense-id='<%=expense.id %>'  >
               <time data-currency-code='<%= expense.currency.code %>'>
                 <%= image_tag( category_image(expense.category.name)) %><p>
               <% if expense.cost %>
@@ -107,3 +107,21 @@
         </ul>
       </div>
 <% end %>
+
+<script>
+$(document).ready(function(e){
+     $('time').change(function(e){
+      var foreign_cost = e.target.value
+      var code = e.delegateTarget.dataset.currencyCode
+      var converted = fx.convert(foreign_cost, {from: code, to: "USD"}).toFixed(2)
+      $('.usd-cost-field', e.delegateTarget).text('$'+converted)
+      var id = e.delegateTarget.dataset.expenseId
+    $.ajax({
+        url: '/expenses/' + id,
+        type: 'PUT',
+        data: {usd_cost: converted}
+      })
+    });
+})
+</script>
+

@@ -1,1 +1,3 @@
 $("#expenses_grid").html("<%= escape_javascript(render partial: 'expenses_list', locals: { expenses: @selected, wishlist: false } ) %>").html_safe;
+
+$('#expense_currency_id').select2();
