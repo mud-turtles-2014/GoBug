@@ -22,17 +22,18 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-
-<a href="#" data-toggle="modal" data-target="#loginModal">Log In</a> |
-<a href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
+<div id="splash-links">
+  <a href="#" data-toggle="modal" data-target="#loginModal">Log In</a> |
+  <a href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
+</div>
 
   <h2>goBug</h2>
 <div class="#splash">
 <%= search_form_for @search do |f| %>
     <%= f.hidden_field :description %><p>
-    <h4>Where would you like to go?</h4><br>
+    <h3>Where would you like to go?</h3>
     <%= f.text_field :location_name_cont, class: "location", placeholder: "Enter a location", id: "splash-search" %><p><p>
-  <%= f.submit "Search" %>
+  <%= f.submit "Search", id: "search-btn" %>
 <% end %>
 </div>
 </body>
@@ -42,13 +43,13 @@
         <div class="modal-content">
             <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-            <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+            <h4 class="modal-title" id="myModalLabel">Please sign in</h4>
             </div>
             <div class="modal-body">
-              <%= form_for :session, url: '/login', html: {class: 'form-inline'} do |f|  %>
+              <%= form_for :session, url: '/login' do |f|  %>
                   <%= f.text_field :username, placeholder: "Username", class: 'form-control' %><br>
                   <%= f.password_field :password, placeholder: "Password", class: 'form-control' %><br>
-                  <%= f.submit "Log In", class: 'btn btn-default' %>
+                  <%= f.submit "Log In", class: 'btn btn-default', id: 'login-modal-btn' %>
               <% end %>
         </div>
     </div>
@@ -63,10 +64,18 @@
         <div class="modal-content">
             <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-            <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+            <h4 class="modal-title" id="myModalLabel">We're happy to have you! Please sign up below</h4>
             </div>
             <div class="modal-body">
-              <%= render 'users/form' %>
+              <%= form_for @user do |f| %>
+                <%= f.text_field :username, placeholder: "Username", class: 'form-control' %><br>
+                <%= f.text_field :first_name, placeholder: "First Name", class: 'form-control' %><br>
+                <%= f.text_field :last_name, placeholder: "Last Name", class: 'form-control' %><br>
+                <%= f.text_field :email, placeholder: "Email", class: 'form-control' %><br>
+                <%= f.password_field :password, placeholder: "Password", class: 'form-control' %><br>
+                <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control' %></p>
+                <%= f.submit "Sign Up", class: 'btn btn-default', id: 'signin-modal-btn' %>
+              <% end  %>
             </div>
         </div>
   </div>
