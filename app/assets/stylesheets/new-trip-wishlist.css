@@ -1,9 +1,7 @@
-input, textarea, button { margin-top:10px }
-
 /* Required field START */
 
 .required-field-block {
-    position: relative;   
+    position: relative;
 }
 
 .required-field-block .required-icon {
