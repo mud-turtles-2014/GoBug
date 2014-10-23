@@ -31,7 +31,7 @@
 <div class="#splash">
 <%= search_form_for @search do |f| %>
     <%= f.hidden_field :description %><p>
-    <h4>Where would you like to go?</h4><br>
+    <h3>Where would you like to go?</h3>
     <%= f.text_field :location_name_cont, class: "location", placeholder: "Enter a location", id: "splash-search" %><p><p>
   <%= f.submit "Search" %>
 <% end %>
