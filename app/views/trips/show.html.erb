@@ -1,14 +1,40 @@
-<div id="itinerary">
-  <%= link_to 'Back to Search', expenses_path, class: "back-link" %><br>
-  <p id="notice"><%= notice %></p>
-  <h1 class="page-header"><%= @trip.name %></h1>
-  <h4>Total Cost: <%= number_to_currency(@total) %></h4>
-  <h6>Trip Creator: <%= @trip.user.username %></h6>
-    <% if @trip.user == @current_user %>
-      <%= link_to 'Edit', user_path(@trip.user) %><br>
-    <% end %>
-  <br><br>
 <%= render '/expenses/nav_bar' %>
-<%= render partial: 'trip_table' %>
 
-</div>
+<% if session[:toggle] %>
+  <div id="wrapper" class="active">
+<% else %>
+  <div id="wrapper">
+<% end %>
+
+  <div id="sidebar-wrapper">
+    <%= render '/users/sidebar' %>
+  </div>
+  <div id="page-content-wrapper">
+    <div class="page-content inset">
+        <div id="expenses_grid" >
+          <div id="itinerary">
+            <%= link_to 'Back to Search', expenses_path, class: "back-link" %><br>
+            <p id="notice"><%= notice %></p>
+            <h1 class="page-header"><%= @trip.name %></h1>
+            <h4>Total Cost: <%= number_to_currency(@total) %></h4>
+            <h6>Trip Creator: <%= @trip.user.username %></h6>
+              <% if @trip.user == @current_user %>
+                <%= link_to 'Edit', user_path(@trip.user) %><br>
+              <% end %>
+            <br><br>
+          <%= render partial: 'trip_table' %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
