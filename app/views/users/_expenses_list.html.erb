@@ -51,7 +51,7 @@
               <time data-currency-code='<%= expense.currency.code %>' data-expense-id='<%=expense.id %>'>
                 <%= image_tag( category_image(expense.category.name)) %><p>
               <% if expense.cost %>
-              <p class="desc usd-cost-field">$<%= expense.usd_cost%></p>
+              <p class="desc usd-cost-field">$<%= number_with_precision(expense.usd_cost, precision: 2) %></p>
               <div class="cost-wrapper">
                 <p class="desc foreign-cost-field"><%= best_in_place expense, :cost%></p>
                 <p class="currency-code"><%=expense.currency.code %></p>
