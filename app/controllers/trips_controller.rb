@@ -64,7 +64,7 @@ class TripsController < ApplicationController
     end
   end
 
-  def from_expenses
+   def from_expenses
     @current_user = current_user
     @trip = @current_user.trips.create(name: "Trip from Wishlist", budget: 0)
      num_of_expenses = params[:number_of_items].to_i
@@ -72,7 +72,8 @@ class TripsController < ApplicationController
         title_param = "title_#{i}"
         cat_param = "cat_#{i}"
         loc_param = "loc_#{i}"
-        @expense = Expense.new(cost: 0, currency_id: 150, title: params["title_#{i}"], location_id: Location.find_by(name: params["loc_#{i}"]).id, category_id: params["cat_#{i}"].to_i, description: "I checked this off my wishlist!", expensable_id: @trip.id, expensable_type: "Trip")
+        cur_param = "cur_#{i}"
+        @expense = Expense.new(cost: 0, currency_id: Currency.find_by(code:params["cur_#{i}"]).id, title: params["title_#{i}"], location_id: Location.find_by(name: params["loc_#{i}"]).id, category_id: params["cat_#{i}"].to_i, description: "I checked this off my wishlist!", expensable_id: @trip.id, expensable_type: "Trip")
         @expense.save
      end
      redirect_to user_path(current_user)
