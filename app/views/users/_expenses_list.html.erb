@@ -80,7 +80,7 @@
       <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
         <ul class="event-list">
           <% expenses.each do |expense| %>
-            <li  data-category="<%=expense.category_id %>"  >
+            <li  data-category="<%=expense.category_id %>" data-expense-id='<%=expense.id %>'  >
               <time data-currency-code='<%= expense.currency.code %>'>
                 <%= image_tag( category_image(expense.category.name)) %><p>
               <% if expense.cost %>
