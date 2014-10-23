@@ -35,7 +35,7 @@
     <%= f.text_field :cost, class: "currency form-field", placeholder: " Enter cost" %>
     <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ]}, {:selected => '150'} %>
     <%= f.text_field :usd_cost, readonly: true, placeholder: " USD", class: "currency form-field" %>
-    <%= f.text_field :title, placeholder: " What did you do?", class: 'large_input form-field' %>
+    <%= f.text_field :title, placeholder: "Name of hotel, store, attraction, etc...", class: 'large_input form-field' %>
     <%= f.text_area :description, placeholder: " How was your experience?", class: 'large_input form-field' %><p id="charNum"></p><br>
 
     <%= f.submit "Submit", class: "gobug-btn" %>
