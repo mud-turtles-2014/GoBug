@@ -41,7 +41,7 @@
 	             <%= form_for(@wishlist) do |f| %>
 
 					<%= f.text_field :name, class: "form-control", placeholder: "Trip Name" %><br>
-					<%= f.number_field :budget, class: "form-control", placeholder: "Budget" %><br>
+					<%= f.number_field :budget, class: "form-control", placeholder: "Budget(or 0 if it's not important right now)" %><br>
 					<%= f.submit "Create", id: "modal-submit", class: "gobug-btn" %>
 				<% end %>
       </div>

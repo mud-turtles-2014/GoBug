@@ -86,6 +86,21 @@
 
 }
 
+.gobug-delete-btn {
+    color: white;
+    background-color: #50C8C6;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #49C9C7;
+
+}
+
 .gobug-btn-orange {
     color: #FFFAF0;
     background-color: #f79b3e;
@@ -101,23 +116,6 @@
     border: 1px solid #f79b3e;
 
 }
-
-.gobug-btn-blue {
-    color: #FFFAF0;
-    background-color: #50C8C6;
-    border-radius: 4px;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.4;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 1px solid #50C8C6;
-
-}
-
 
 .gobug-btn-green {
     color: #666666;

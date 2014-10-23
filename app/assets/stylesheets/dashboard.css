@@ -192,7 +192,8 @@
 
    .event-list > li > .info > .delete {
     float: right;
-    padding-top: 8px;
+    padding-top: 0.5%;
+    margin-right: -2%;
   }
 
   .event-list > li > .info > ul {
