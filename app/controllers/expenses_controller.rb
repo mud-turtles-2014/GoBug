@@ -58,7 +58,10 @@ class ExpensesController < ApplicationController
   end
 
   def update
-    if @expense.update(expense_params)
+    if params[:usd_cost]
+      @expense.update(usd_cost: params[:usd_cost])
+      render text:"OK"
+    elsif @expense.update(expense_params)
       respond_with @expense
     end
   end
