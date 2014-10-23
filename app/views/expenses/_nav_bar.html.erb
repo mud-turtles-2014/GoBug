@@ -6,7 +6,7 @@
               <%= search_form_for @search do |f| %>
               <div class="search_results">
               <li><%= f.text_field :description, placeholder: "Search Keyword", class: 'form-control'%></li><p>
-              <li><%= f.text_field :location_name_cont, placeholder: "Location", class: "location form-control" %><p></li>
+              <li><%= f.text_field :location_name_cont, placeholder: "City", class: "location form-control" %><p></li>
               <li><%= f.text_field :usd_cost_gteq, placeholder: "$ From", class: "currency form-control"%></li>
               <li><%= f.text_field :usd_cost_lteq, placeholder: "$ To" , class: "currency form-control" %></li>
               <li><%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: 'By Category' %></li>
