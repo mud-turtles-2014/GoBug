@@ -32,6 +32,8 @@
   border-bottom: 1px solid rgba(0,0,0,0.25);
   position: absolute;
   right:0;
+  font-family: 'Open Sans';
+  letter-spacing: -1.25px;
 }
 
 
@@ -49,6 +51,7 @@
 }
 
 .ribbon h4 {
+    font-family: 'Open Sans';
     text-align: left;
     display: block;
     height: 40px;
@@ -68,7 +71,9 @@
 }
 
 .ribbon p {
-  margin-top: 15px;
+    margin-top: 15px;
+    font-family: 'Open Sans';
+    letter-spacing: -.5px;
 }
 
 .ribbon h4::before,
@@ -121,4 +126,14 @@ ul.filters-list > li {
   background:url('/images/pricetag.png') 0 0 no-repeat;
   border-right:1px solid #ccc;
   display:block;
+}
+
+h2 {
+  font-family: 'Open Sans';
+  letter-spacing: -1.25px;
+}
+
+.info {
+  font-family: 'Open Sans';
+  letter-spacing: .25px;
 }
