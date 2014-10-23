@@ -22,14 +22,14 @@
                 <i>In your Wishlist</i>
 
               <% elsif @wishlists.length == 1 %>
-                <%= button_to "Add to Wishlist", add_to_wishlist_path(wishlist_id: @wishlists.first, expense_id: expense.id), method: "post", class: "add-to-wishlist" %>
+                <%= button_to "Add to Wishlist", add_to_wishlist_path(wishlist_id: @wishlists.first, expense_id: expense.id), method: "post", class: "add-to-wishlist gobug-btn-green" %>
 
               <% elsif @wishlists.length > 1 %>
                 <%= select_tag :wishlist_id, options_for_select(@wishlist_options, :include_blank => true), class: "select-from-wishlist" %>
                 <%= hidden_field_tag :expense_id, expense.id, class: "expense_id" %>
 
               <% else %>
-                <a href="#" data-toggle="modal" data-target="#basicModal">Create Wishlist</a>
+                <button data-toggle="modal" data-target="#basicModal", class="gobug-btn-green" >Create Wishlist</button>
               <% end %>
             </div>
         <% end %>

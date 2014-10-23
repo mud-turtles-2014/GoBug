@@ -31,7 +31,7 @@
     <% end %>
     <div id="add-expense-form">
     <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"}, class: "category-dropdown form-field" %>
-    <%= f.text_field :location_id, class: "location form-field", placeholder: " Enter a location", id: "location-field form-field" %>
+    <%= f.text_field :location_id, class: "location form-field", placeholder: " Enter a city", id: "location-field form-field" %>
     <%= f.text_field :cost, class: "currency form-field", placeholder: " Enter cost" %>
     <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ]}, {:selected => '150'} %>
     <%= f.text_field :usd_cost, readonly: true, placeholder: " USD", class: "currency form-field" %>
