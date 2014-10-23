@@ -13,6 +13,7 @@ class TripsController < ApplicationController
   end
 
   def show
+    @user = User.new
     @show_itinerary = false
     @total = @trip.calculate_total
     @current_user = current_user
