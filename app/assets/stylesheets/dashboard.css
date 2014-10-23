@@ -35,7 +35,8 @@
   }
 
   #charNum {
-    padding-left: 28%;
+    padding-left: 40%;
+    padding-top: 1%;
   }
 
   .new_expense input{
@@ -54,11 +55,6 @@
     height: 80px;
   }
 
-  .newexpense #charNum {
-    padding-left: 100px;
-  }
-
-
   .new_expense .currency{
     width: 15%;
   }
@@ -75,7 +71,6 @@
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-
   }
 
   #add-expense-form .category-dropdown{
@@ -100,8 +95,8 @@
   }
 
   #add-expense-form input[type=submit]{
-    margin-right: 38%;
-
+    margin-right: 0%;
+    margin-top: -3%;
   }
 
 
