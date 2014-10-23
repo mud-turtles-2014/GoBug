@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, except: [:index, :splash]
+  before_action :require_login, except: [:index, :splash, :show]
   respond_to :html, :json
 
   def index
@@ -17,7 +17,6 @@ class TripsController < ApplicationController
     @total = @trip.calculate_total
     @current_user = current_user
     @trip_expenses = @trip.expenses
-    @wishlists = @current_user.wishlists
     @params = params[:q]
     search(@params)
 
