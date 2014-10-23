@@ -61,9 +61,66 @@
     width: 40%;
   }
 
+  #add-expense-form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  #add-expense-form .category-dropdown{
+    text-align: center;
+  }
+
+  #add-expense-form .location{
+    width: 45%;
+  }
+
+   #add-expense-form .currency{
+    display:inline-block;
+    padding-right: 10px;
+  }
+
+  #add-expense-form .large_input{
+    width:60%;
+  }
+
+  #add-expense-form #expense_category_id{
+    margin-bottom: 5px;
+  }
+
+  #add-expense-form input[type=submit]{
+    margin-right: 38%;
+
+  }
+
+
+  .form-field {
+    display:block;
+    width:100%;
+    height:28px;
+    font-size:14px;
+    line-height:-5px;
+    color:#555;
+    background-color:#fff;
+    margin-left: auto;
+    margin-right: auto;
+    background-image:none;border:1px solid #ccc;
+    border-radius:4px;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}
+   }
+
   .page-header {
     color:#50C8C6;
+    font-style: bold;
   }
+
+  .location .form-field{
+      width: 10%;
+    }
 
   textarea {
     height: auto;
@@ -103,6 +160,7 @@
   .event-list > li > .info {
     padding-top: 5px;
     text-align: center;
+    font-style: bold;
   }
   .event-list > li > .info > .title {
     font-size: 12pt;
