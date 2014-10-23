@@ -10,7 +10,7 @@
   <h2 class="page-header"><%= best_in_place @wishlist, :name %></h2>
   <h5>Budget: <%= best_in_place @wishlist, :budget, :display_with => :number_to_currency %> | Remaining: <div id='balance-field'><%= number_to_currency(@wishlist.remaining_budget) %></div>
   </h5><br><br>
-  <h5><%= link_to "Delete Wishlist", {:controller => :wishlists, :action => 'destroy', :id => @wishlist.id }, method: 'delete' %> | <a href="#" class="converter">Convert to trip</a></h5>
+  <h5><%= link_to "Delete Wishlist", {:controller => :wishlists, :action => 'destroy', :id => @wishlist.id }, method: 'delete' %> | <a href="#" id="show-done-checkboxes">Make this into a trip</a> <a href="#" class="converter">Convert to trip</a></h5>
 
 <% end %>
 
@@ -97,9 +97,12 @@
               <% end %>
             </time>
               <div class="info">
+
                 <div class="delete"> <%= button_to "X", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true, class: "gobug-delete-btn" %></div>
-                    <input id="did_it" name="did_it" type="checkbox" value="1">
-                    <label for="did_it">I did it, too!</label>
+                    <div class="conversion-checkboxes">
+                      <input id="did_it" name="did_it" type="checkbox" value="1">
+                      <label for="did_it">Move to Trip</label>
+                    </div>
                 <h5 class="title"><%= expense.title%></h5>
                 <p class="loc"><%= expense.location.name %></p>
                 <p class="desc"><%= best_in_place expense, :cost, type: :textarea %></p>
@@ -111,6 +114,15 @@
 <% end %>
 
 <script>
+
+$('#show-done-checkboxes').click(function(e){
+  e.preventDefault();
+  $('.conversion-checkboxes').show();
+  $('.delete').hide();
+  $('#show-done-checkboxes').hide();
+  $('.converter').show(); 
+})
+
 $(document).ready(function(e){
      $('time').change(function(e){
       var foreign_cost = e.target.value

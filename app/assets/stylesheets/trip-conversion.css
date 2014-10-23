@@ -1,0 +1,9 @@
+.conversion-checkboxes {
+	display: none;
+	position: absolute;
+	right: 0;
+}
+
+.converter {
+	display: none;
+}
