@@ -20,6 +20,7 @@
 
   .cost-wrapper p{
     display: inline-block;
+    line-height: 1px;
   }
 
   .page-title {
@@ -180,7 +181,6 @@
   }
 
   .event-list > li > .info > .desc {
-    font-size: 10pt;
     font-weight: 400;
     margin: 0px;
   }
@@ -208,27 +208,25 @@
       height: 120px;
       padding: 0px;
     }
+
     .event-list > li > time,
     .event-list > li > img  {
       display: inline-block;
-    }
-    .event-list > li > time,
-    .event-list > li > img {
       width: 100px;
       float: left;
-    }
-    .event-list > li > .info {
-      background-color: rgb(245, 245, 245);
-      overflow: hidden;
-    }
-    .event-list > li > time,
-    .event-list > li > img {
-      width: 95px;
-      font-size: 12px;
+      font-size: 15px;
+       width: 95px;
+      font-size: 14px;
       height: 120px;
       padding: 10px;
       margin: 0px;
     }
+
+    .event-list > li > .info {
+      background-color: rgb(245, 245, 245);
+      overflow: hidden;
+    }
+
     .event-list > li > .info {
       position: relative;
       height: 120px;
