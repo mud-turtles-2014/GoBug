@@ -88,7 +88,7 @@
               <% if expense.cost %>
               <p class="desc usd-cost-field">$<%= expense.usd_cost%></p>
               <div class="cost-wrapper">
-                <p class="desc foreign-cost-field"><%= best_in_place expense, :cost%></p>
+                <p class="desc foreign-cost-field"><%= best_in_place expense, :cost, :display_with => lambda { |c| number_with_precision(c, precision: 2)} %></p>
                 <p class="currency-code"><%=expense.currency.code %></p>
               </div>
                 <% else %>
