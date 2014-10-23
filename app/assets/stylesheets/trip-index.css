@@ -39,7 +39,7 @@
 
 /* RIBBON FROM http://css3.wikidot.com/blog:wrap-around-ribbons-with-css */
 .ribbon {
-	height: 250px;
+	  height: 250px;
     margin: 10px auto;
     padding: 0 10px 0;
     position: relative;
