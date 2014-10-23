@@ -36,12 +36,20 @@
         display: none;
         height: auto;
     }
+  }
 
-    .search_results .category {
+@media only screen and (max-width : 900px) {
+    .search_results .currency {
+        display: none;
+        height: auto;
+    }
+
+    .search_results #q_category_id_eq {
         display: none;
         height: auto;
     }
   }
+
 
 @media only screen and (max-width : 480px) {
     nav {

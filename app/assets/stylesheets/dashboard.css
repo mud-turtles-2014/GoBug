@@ -8,6 +8,10 @@
     padding: 60px 0px;
   }
 
+  .page-title h2 {
+    color:#50C8C6;
+  }
+
   .cost-wrapper p{
     display: inline-block;
   }
