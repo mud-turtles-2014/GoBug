@@ -9,7 +9,13 @@
   }
 
   .page-title h2 {
-    color:#50C8C6;
+    color:#188396;
+    font-weight: bold;
+  }
+
+  .page-header {
+    color:#188396;
+    font-weight: bold;
   }
 
   .cost-wrapper p{
