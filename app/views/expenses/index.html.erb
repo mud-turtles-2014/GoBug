@@ -36,12 +36,17 @@
             <div class="modal-body">
                 <p>Create new wishlist by entering a name and optional budget below. As you browse, add items to your wishlist. Review at any time by visiting your dashboard.</p>
 
+                <p>Planning a trip? Sweet! Create a wishlist then browse the site to find out what other people recommend. When you find something that strikes your interest, add it here for safe-keeping.</p>
+
                 <% @wishlist = Wishlist.new %>
-	                <%= form_for(@wishlist) do |f| %>
-					<%= f.text_field :name, placeholder: "Enter a name" %><br>
-					<%= f.number_field :budget, placeholder: "Enter a budget(or 0 if it's not important right now)" %><br>
-					<%= f.submit "Create", id: "modal-submit", class:"btn btn-primary" %>
+
+	             <%= form_for(@wishlist) do |f| %>
+
+					<%= f.text_field :name, class: "form-control", placeholder: "Trip Name" %><br>
+					<%= f.number_field :budget, class: "form-control", placeholder: "Budget" %><br>
+					<%= f.submit "Create", id: "modal-submit", class: "gobug-btn" %>
 				<% end %>
+      </div>
         </div>
     </div>
   </div>

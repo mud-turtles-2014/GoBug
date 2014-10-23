@@ -102,6 +102,22 @@
 
 }
 
+.gobug-btn-blue {
+    color: #FFFAF0;
+    background-color: #50C8C6;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #50C8C6;
+
+}
+
 
 .gobug-btn-green {
     color: #666666;
