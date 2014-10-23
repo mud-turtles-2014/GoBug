@@ -1,10 +1,10 @@
 <% if @trip %>
   <h2 class="page-header"><%= best_in_place @trip, :name %></h2>
-    <h5>Visible to: <%= best_in_place @trip, :is_private, :type => :checkbox,collection: {false => "Everyone", true => "Only you"}%> | <%= link_to "Delete Trip", {:controller => :trips, :action => 'destroy', :id => @trip.id }, method: 'delete' %>
-    </h5>
-    <h5>Budget: <%= best_in_place @trip, :budget, :display_with => :number_to_currency %> | Remaining: <div id='balance-field'><%= number_to_currency(@trip.remaining_budget) %></div>
-    </h5>
-    <br><br>
+    <h4>Visible to: <%= best_in_place @trip, :is_private, :type => :checkbox,collection: {false => "Everyone", true => "Only you"}%> | <%= link_to "Delete Trip", {:controller => :trips, :action => 'destroy', :id => @trip.id }, method: 'delete' %>
+    </h4>
+    <h4>Budget: <%= best_in_place @trip, :budget, :display_with => :number_to_currency %> | Remaining: <div id='balance-field'><%= number_to_currency(@trip.remaining_budget) %></div>
+    </h4>
+    <br>
   <button id="add-expense">Add Item</button>
 <% elsif wishlist %>
   <h2 class="page-header"><%= best_in_place @wishlist, :name %></h2>
@@ -29,17 +29,19 @@
       </ul>
     </div>
     <% end %>
-    <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"}, class: "category-dropdown" %><br><br>
-    <%= f.text_field :location_id, class: "location", placeholder: "Enter a location", id: "location-field" %><br>
-    <%= f.text_field :cost, class: "currency", placeholder: "Enter cost" %>
+    <div id="add-expense-form">
+    <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"}, class: "category-dropdown form-field" %>
+    <%= f.text_field :location_id, class: "location form-field", placeholder: " Enter a location", id: "location-field form-field" %>
+    <%= f.text_field :cost, class: "currency form-field", placeholder: " Enter cost" %>
     <%= f.select :currency_id, Currency.all.collect {|currency| [ currency.code, currency.id ]}, {:selected => '150'} %>
-    <%= f.text_field :usd_cost, readonly: true, placeholder: "USD", class: "currency" %><br>
-    <%= f.text_field :title, placeholder: "Where did you go?", class: 'large_input' %><br>
-    <%= f.text_area :description, placeholder: "How was your experience?", class: 'large_input' %><p id="charNum"></p>
+    <%= f.text_field :usd_cost, readonly: true, placeholder: " USD", class: "currency form-field" %>
+    <%= f.text_field :title, placeholder: " What did you do?", class: 'large_input form-field' %>
+    <%= f.text_area :description, placeholder: " How was your experience?", class: 'large_input form-field' %><p id="charNum"><br>
 
     <%= f.submit "Submit" %>
     <p><p>
       <% end %>
+    </div>
     </div>
 
 
@@ -61,7 +63,7 @@
                 <p class="desc"></p>
               <% end %>
             </time>
-              <div class="info"> 
+              <div class="info">
                 <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
                 <h5 data-category="<%=expense.category_id %>"  class="title"><%= best_in_place expense, :title%></h5>
                 <p class="loc"><%= expense.location.name %></p>

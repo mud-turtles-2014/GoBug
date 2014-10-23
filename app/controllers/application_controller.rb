@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def search(params)
-     if params
+    if params
         @public = Expense.public_expenses
         @search = @public.search(params)
         @expenses = @search.result.trip
