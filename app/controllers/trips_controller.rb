@@ -66,7 +66,7 @@ class TripsController < ApplicationController
 
    def from_expenses
     @current_user = current_user
-    @trip = @current_user.trips.create(name: "Trip from Wishlist", budget: 0)
+    @trip = @current_user.trips.create(name: "Trip from Wishlist", budget: 0, is_published: false, is_private: false)
      num_of_expenses = params[:number_of_items].to_i
      for i in 0..(num_of_expenses-1) do
         title_param = "title_#{i}"

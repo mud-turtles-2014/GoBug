@@ -5,9 +5,13 @@ class Trip < ActiveRecord::Base
   accepts_nested_attributes_for :expenses, allow_destroy: true
 
   def calculate_total
-    total = 0
-    self.expenses.each { |expense| total += expense.usd_cost }
-    return total
+      total = 0
+      self.expenses.each do |expense|
+        if expense.usd_cost != nil
+          total += expense.usd_cost
+        end
+      return total
+    end
   end
 
   def remaining_budget
