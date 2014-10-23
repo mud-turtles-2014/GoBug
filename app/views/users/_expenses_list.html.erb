@@ -64,7 +64,7 @@
               <% end %>
             </time>
               <div class="info">
-                <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
+                <div class="delete"> <%= button_to "X", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true, class: "gobug-delete-btn" %></div>
                 <h5 data-category="<%=expense.category_id %>"  class="title"><%= best_in_place expense, :title%></h5>
                 <p class="loc"><%= expense.location.name %></p>
                 <p class="desc"><%= best_in_place expense, :description, type: :textarea %></p>
@@ -97,7 +97,7 @@
               <% end %>
             </time>
               <div class="info">
-                <div class="delete"> <%= button_to "x", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true %></div>
+                <div class="delete"> <%= button_to "X", {:controller => :expenses, :action => 'destroy', :id => expense.id }, method: 'delete', remote: true, class: "gobug-delete-btn" %></div>
                     <input id="did_it" name="did_it" type="checkbox" value="1">
                     <label for="did_it">I did it, too!</label>
                 <h5 class="title"><%= expense.title%></h5>
