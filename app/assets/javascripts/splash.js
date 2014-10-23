@@ -3,7 +3,6 @@ $(document).ready(function(event){
     if (event.which == 13) {
       evenet.preventDefault();
       $('form').submit();
-      console.log("hi");
     }
   })
 })
