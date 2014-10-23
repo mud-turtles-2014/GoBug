@@ -61,12 +61,13 @@
     text-align: left;
     display: block;
     height: 40px;
+    width: 112%;
     line-height: 1.3;
     margin: 0;
     padding: 5px 10px;
     position: relative;
     left: -36px;
-    top: 8px;
+    top: 9px;
     color: white;
     border-top: 1px solid #50C8C6;
     border-bottom: 1px solid #50C8C6;
@@ -76,7 +77,9 @@
 }
 
 .ribbon p {
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-left: -5%;
+    margin-right: -5%;
     font-family: 'Open Sans';
     letter-spacing: -.5px;
 }
