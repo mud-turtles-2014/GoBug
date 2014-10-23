@@ -87,3 +87,35 @@ input, textarea, button { margin-top:10px }
     border: 1px solid #49C9C7;
 
 }
+
+.gobug-btn-orange {
+    color: #FFFAF0;
+    background-color: #f79b3e;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #f79b3e;
+
+}
+
+
+.gobug-btn-green {
+    color: #666666;
+    background-color: #E1F5C4;
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #E1F5C4;
+
+}
