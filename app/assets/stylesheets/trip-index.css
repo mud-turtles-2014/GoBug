@@ -18,7 +18,7 @@
 /* AWESOME BUTTON FROM http://zurb.com/article/266/super-awesome-buttons-with-css3-and-rgba */
 
 .awesome{
-  background: #222 url(/images/alert-overlay.png) repeat-x;
+  /*background: #222 url(/images/alert-overlay.png) repeat-x;*/
   background-color: #A7CD2C;
   display: inline-block;
   padding: 3px 6px 6px;

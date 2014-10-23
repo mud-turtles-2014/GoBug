@@ -6,7 +6,7 @@
   <div id="wrapper">
 <% else %>
   <div id="wrapper" class="active">
-<% end %> 
+<% end %>
 
   <div id="sidebar-wrapper">
     <%= render '/users/sidebar' %>
@@ -35,12 +35,13 @@
             </div>
             <div class="modal-body">
                 <p>Planning a trip? Sweet! Create a wishlist then browse the site to find out what other people recommend. When you find something that strikes your interest, add it here for safe-keeping.</p>
-                
+
                 <% @wishlist = Wishlist.new %>
-                
-	                <%= form_for(@wishlist) do |f| %>
+
+	             <%= form_for(@wishlist) do |f| %>
+
 					<%= f.text_field :name, class: "form-control", placeholder: "Trip Name" %><br>
-					<%= f.number_field :budget, class: "form-control", placeholder: "Budget" %><br>
+					<%= f.number_field :budget, class: "form-control", placeholder: "Budget(or 0 if it's not important right now)" %><br>
 					<%= f.submit "Create", id: "modal-submit", class: "gobug-btn" %>
 				<% end %>
       </div>
