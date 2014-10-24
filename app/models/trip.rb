@@ -7,16 +7,12 @@ class Trip < ActiveRecord::Base
   def calculate_total
       total = 0
       self.expenses.each do |expense|
-        if expense.usd_cost != nil
-          total += expense.usd_cost
-        end
+        total += expense.usd_cost
+      end
       return total
-    end
   end
 
   def remaining_budget
-    if self.budget != 0
-      self.budget - self.calculate_total
-    end
+    self.budget - self.calculate_total
   end
 end

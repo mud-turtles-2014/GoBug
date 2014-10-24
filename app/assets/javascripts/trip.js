@@ -15,10 +15,10 @@ $(document).ready(function(){
     }
   });
 
-  var old_budget = parseFloat($('h5 .best_in_place[data-bip-attribute="budget"]').text().replace(/[A-Za-z$-,]/g, ""))
+  var old_budget = parseFloat($('h4 .best_in_place[data-bip-attribute="budget"]').text().replace(/[A-Za-z$-,]/g, ""))
   var balance = parseFloat($('#balance-field').text().replace(/[A-Za-z$-,]/g, ""))
 
-  $('h5 .best_in_place[data-bip-attribute="budget"]').change(function(e){
+  $('h4 .best_in_place[data-bip-attribute="budget"]').change(function(e){
     new_budget = (e.target.value) * 1
     var total_spent = old_budget - balance;
     var new_balance = (new_budget - total_spent).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
@@ -74,7 +74,7 @@ $('#expenses_grid').on('submit','#new_expense',function(e){
     data: $(e.target).serialize()
   }).done(function(data){
     $('.event-list').append(data);
-    var usd = parseFloat($('.event-list li:last-child #usd-cost-field').text().replace(/[A-Za-z$-,]/g, ""));
+    var usd = parseFloat($('.event-list li:last-child .usd-cost-field').text().replace(/[A-Za-z$-,]/g, ""));
     var new_balance = (old_balance - usd).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
     $('#balance-field').text('$' + new_balance)
     clearInputs();
