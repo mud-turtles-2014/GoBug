@@ -1,4 +1,3 @@
-require 'pry'
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   before_action :require_login, except: [:index, :splash, :show]
@@ -76,12 +75,10 @@ class TripsController < ApplicationController
       cur_param = "cur_#{i}"
       usd_cost_param = "usd_cost_#{i}"
       foreign_cost_param = "foreign_cost_#{i}"
-      binding.pry
       @expense = Expense.new(usd_cost: params["usd_cost_#{i}"].delete("$").to_f, currency_id: Currency.find_by(code:params["cur_#{i}"]).id, cost: (params["foreign_cost_#{i}"]).to_f, title: params["title_#{i}"], location_id: Location.find_by(name: params["loc_#{i}"]).id, category_id: params["cat_#{i}"].to_i, description: "I checked this off my wishlist!", expensable_id: @trip.id, expensable_type: "Trip")
       @expense.save
      end
      sum = 0
-     binding.pry
       @trip.expenses.each do |ex|
         sum += ex.usd_cost
       end
