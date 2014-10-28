@@ -3,7 +3,7 @@
 <head>
   <style>
   </style>
-  <title>GoBug</title>
+  <title>goBug</title>
 
     <!-- %= stylesheet_link_tag 'application', media: 'all' %> -->
 
@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'application' %>
     <script src="/jquery.geocomplete.js"></script>
      <!-- Latest compiled and minified CSS -->
-     <link href='http://fonts.googleapis.com/css?family=Overlock|Fira+Mono|Source+Code+Pro|Cousine|Comfortaa|Berkshire+Swash' rel='stylesheet' type='text/css'>
+     <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -27,7 +27,7 @@
   <a href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
 </div>
 
-  <h2>goBug</h2>
+<h2><%= image_tag '/images/gobug.png' %></h2>
 <div class="#splash">
 <%= search_form_for @search do |f| %>
     <%= f.hidden_field :description %><p>
