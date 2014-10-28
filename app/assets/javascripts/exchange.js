@@ -8,6 +8,13 @@ $(document).ready(function(){
    currency_exchange();
     });
 
+   $('time').change(function(e){
+     var foreign_cost = e.target.value
+     var code = e.delegateTarget.dataset.currencyCode
+     var converted = fx.convert(foreign_cost, {from: code, to: "USD"}).toFixed(2)
+     $('.usd-cost-field', e.delegateTarget).text('$'+converted)
+ })
+
   $.getJSON(
         'http://openexchangerates.org/api/latest.json?app_id=10eff371738744b3b3f187281d3f9a06',
         function(data) {

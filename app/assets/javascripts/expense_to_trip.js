@@ -6,7 +6,7 @@ $(document).on('click', '.converter', function(event){
        expense.title = $(this).find('.title').html();
        expense.location = $(this).find('.loc').html();
        expense.category_id = $(this).attr('data-category');
-       expense.currency_id = $(document.body).find('.currency-code').html();
+       // expense.currency_id = $(document.body).find('.currency-code').html();
        expenses.push(expense);
        console.log(expense);
      }
@@ -25,7 +25,7 @@ $(document).on('click', '.converter', function(event){
       $('<input>').attr('name', 'title_' + i).attr('value', exp.title ).appendTo('#exp_form');
       $('<input>').attr('name', 'cat_' + i).attr('value', exp.category_id ).appendTo('#exp_form');
       $('<input>').attr('name', 'loc_' + i).attr('value', exp.location ).appendTo('#exp_form');
-      $('<input>').attr('name', 'cur_' + i).attr('value', exp.currency_id ).appendTo('#exp_form');
+      // $('<input>').attr('name', 'cur_' + i).attr('value', exp.currency_id ).appendTo('#exp_form');
     }
     $('<input>').attr('type', 'hidden').attr('name', 'number_of_items').attr('value', expenses.length).appendTo('#exp_form');
     $('<input>').attr('type', 'submit').attr('value', 'Create trip').appendTo('#exp_form');
