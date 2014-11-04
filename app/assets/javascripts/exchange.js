@@ -8,12 +8,25 @@ $(document).ready(function(){
    currency_exchange();
     });
 
-   $('time').change(function(e){
-     var foreign_cost = e.target.value
-     var code = e.delegateTarget.dataset.currencyCode
-     var converted = fx.convert(foreign_cost, {from: code, to: "USD"}).toFixed(2)
-     $('.usd-cost-field', e.delegateTarget).text('$'+converted)
- })
+  var original_value = ""
+  $('.best_in_place[data-bip-attribute="cost"]').on('click',function(){
+    original_value = parseFloat($(this).text().replace(/[A-Za-z$-,]/g, ""));
+    console.log(original_value)
+  });
+
+  var converted = ""
+  $('time').change(function(e){
+    var foreign_cost = e.target.value
+    var code = e.delegateTarget.dataset.currencyCode
+    var difference = parseFloat(original_value - foreign_cost)
+    var diff_converted = fx.convert(difference, {from: code, to :"USD"}).toFixed(2)
+    var new_balance = parseFloat($('#balance-field').text().replace(/[A-Za-z$-,]/g, "")) - diff_converted
+    converted = fx.convert(foreign_cost, {from: code, to: "USD"}).toFixed(2)
+    $('.usd-cost-field', e.delegateTarget).text('$'+converted)
+    $('#balance-field').text('$'+new_balance)
+  });
+
+
 
   $.getJSON(
         'http://openexchangerates.org/api/latest.json?app_id=10eff371738744b3b3f187281d3f9a06',
