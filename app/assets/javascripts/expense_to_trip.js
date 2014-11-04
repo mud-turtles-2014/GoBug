@@ -1,4 +1,5 @@
 $(document).on('click', '.converter', function(event){
+    budget = $('.best_in_place[data-bip-attribute="budget"]').text().replace(/[A-Za-z$-,]/g, "")
     expenses = [];
     $('.event-list li').each(function() {
       if ($(this).find("input[name='did_it']").prop('checked')) {
@@ -32,6 +33,7 @@ $(document).on('click', '.converter', function(event){
       $('<input>').attr('name', 'usd_cost_' + i).attr('value', exp.usd_cost ).appendTo('#exp_form');
       $('<input>').attr('name', 'foreign_cost_' + i).attr('value', exp.foreign_cost ).appendTo('#exp_form');
     }
+      $('<input>').attr('type', 'hidden').attr('name', 'budget').attr('value', budget).appendTo('#exp_form');
       $('<input>').attr('type', 'hidden').attr('name', 'number_of_items').attr('value', expenses.length).appendTo('#exp_form');
       $('<input>').attr('type', 'submit').attr('value', 'Create trip').appendTo('#exp_form');
     });
