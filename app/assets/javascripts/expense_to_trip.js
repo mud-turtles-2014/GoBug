@@ -6,9 +6,9 @@ $(document).on('click', '.converter', function(event){
        expense.title = $(this).find('.title').html();
        expense.location = $(this).find('.loc').html();
        expense.category_id = $(this).attr('data-category');
-       expense.currency_id = $(document.body).find('.currency-code').html();
-       expense.usd_cost = $(document.body).find('p.desc.usd-cost-field').html();
-       expense.foreign_cost = $(document.body).find('.foreign-cost-field .best_in_place[data-bip-attribute="cost"]').html();
+       expense.currency_id = $(this).find('.currency-code').html();
+       expense.usd_cost = $(this).find('p.desc.usd-cost-field').html();
+       expense.foreign_cost = $(this).find('.foreign-cost-field .best_in_place[data-bip-attribute="cost"]').html();
        expenses.push(expense);
        console.log(expense);
      }
