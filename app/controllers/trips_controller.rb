@@ -64,23 +64,29 @@ class TripsController < ApplicationController
     end
   end
 
-   def from_expenses
+  def from_expenses
     @current_user = current_user
-    @trip = @current_user.trips.create(name: "Trip from Wishlist", budget: 0, is_published: false, is_private: false)
-     num_of_expenses = params[:number_of_items].to_i
-     for i in 0..(num_of_expenses-1) do
-        title_param = "title_#{i}"
-        cat_param = "cat_#{i}"
-        loc_param = "loc_#{i}"
-        cur_param = "cur_#{i}"
-        @expense = Expense.new(cost: 0, currency_id: Currency.find_by(code:params["cur_#{i}"]).id, title: params["title_#{i}"], location_id: Location.find_by(name: params["loc_#{i}"]).id, category_id: params["cat_#{i}"].to_i, description: "I checked this off my wishlist!", expensable_id: @trip.id, expensable_type: "Trip")
-        @expense.save
+    @trip = @current_user.trips.create(name: "Trip from Wishlist", is_published: false, is_private: false)
+    num_of_expenses = params[:number_of_items].to_i
+    for i in 0..(num_of_expenses-1) do
+      title_param = "title_#{i}"
+      cat_param = "cat_#{i}"
+      loc_param = "loc_#{i}"
+      cur_param = "cur_#{i}"
+      usd_cost_param = "usd_cost_#{i}"
+      foreign_cost_param = "foreign_cost_#{i}"
+      @expense = Expense.new(usd_cost: params["usd_cost_#{i}"].delete("$").to_f, currency_id: Currency.find_by(code:params["cur_#{i}"]).id, cost: (params["foreign_cost_#{i}"]).to_f, title: params["title_#{i}"], location_id: Location.find_by(name: params["loc_#{i}"]).id, category_id: params["cat_#{i}"].to_i, description: "I checked this off my wishlist!", expensable_id: @trip.id, expensable_type: "Trip")
+      @expense.save
      end
-     redirect_to user_path(current_user)
+     sum = 0
+      @trip.expenses.each do |ex|
+        sum += ex.usd_cost
+      end
+    @trip.budget = sum.to_i
+    redirect_to user_path(current_user)
   end
 
   def update
-
     if @trip.update(trip_params)
       respond_with @trip
     end
