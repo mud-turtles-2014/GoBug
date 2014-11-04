@@ -9,6 +9,10 @@ class Wishlist < ActiveRecord::Base
   end
 
   def remaining_budget
-    self.budget - self.calculate_total
+    if self.budget == 0
+      0
+    else
+      self.budget - self.calculate_total
+    end
   end
 end
