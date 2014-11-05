@@ -11,7 +11,6 @@ $(document).ready(function(){
   var original_value = ""
   $('.best_in_place[data-bip-attribute="cost"]').on('click',function(){
     original_value = parseFloat($(this).text().replace(/[A-Za-z$-,]/g, ""));
-    console.log(original_value)
   });
 
   var converted = ""
@@ -20,7 +19,7 @@ $(document).ready(function(){
     var code = e.delegateTarget.dataset.currencyCode
     var difference = parseFloat(original_value - foreign_cost)
     var diff_converted = fx.convert(difference, {from: code, to :"USD"}).toFixed(2)
-    var new_balance = parseFloat($('#balance-field').text().replace(/[A-Za-z$-,]/g, "")) - diff_converted
+    var new_balance = parseFloat($('#balance-field').text().replace(/[A-Za-z$-,]/g, "")) + parseFloat(diff_converted)
     converted = fx.convert(foreign_cost, {from: code, to: "USD"}).toFixed(2)
     $('.usd-cost-field', e.delegateTarget).text('$'+converted)
     $('#balance-field').text('$'+new_balance)
