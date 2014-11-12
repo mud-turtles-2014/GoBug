@@ -1,6 +1,5 @@
 $("#expenses_grid").html("<%= escape_javascript(render partial: 'expenses_list', locals: { expenses: @selected, wishlist: false } ) %>").html_safe;
 
-$('#expense_currency_id').select2();
 
   $('body').on('change','#expense_currency_id',function(e){
     currency_exchange();

@@ -60,9 +60,9 @@ $('body').on('click','.location',function(e){
 
 $('#expenses_grid').on('click','#add-expense', function(e){
   e.preventDefault();
-  console.log("clicked");
   $('#new_expense').show();
   $('#add-expense').hide();
+  $('#expense_currency_id').select2();
 });
 
 $('#expenses_grid').on('submit','#new_expense',function(e){
