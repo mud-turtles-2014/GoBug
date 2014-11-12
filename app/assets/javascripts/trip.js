@@ -44,10 +44,6 @@ $(document).ready(function(){
     regexp = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regexp, time));
   });
-  // $('#add-location').click(function(e){
-  //   e.preventDefault();
-  //   addLegForm();
-  // })
 
 $('body').on('click','.location',function(e){
   $(this).geocomplete();

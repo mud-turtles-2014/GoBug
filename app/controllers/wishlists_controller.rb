@@ -1,8 +1,7 @@
 class WishlistsController < ApplicationController
   before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
   respond_to :html, :json
-  # GET /wishlists
-  # GET /wishlists.json
+
   def index
     @current_user = current_user
     @wishlists = @current_user.wishlists
