@@ -128,18 +128,18 @@
 
 
 $(document).ready(function(e){
-     $('time').change(function(e){
-      var foreign_cost = e.target.value
-      var code = e.delegateTarget.dataset.currencyCode
-      var converted = fx.convert(foreign_cost, {from: code, to: "USD"}).toFixed(2)
-      $('.usd-cost-field', e.delegateTarget).text('$'+converted)
-      var id = e.delegateTarget.dataset.expenseId
-    $.ajax({
-        url: '/expenses/' + id,
-        type: 'PUT',
-        data: {usd_cost: converted}
-      })
-    });
+    //  $('time').change(function(e){
+    //   var foreign_cost = e.target.value
+    //   var code = e.delegateTarget.dataset.currencyCode
+    //   var converted = fx.convert(foreign_cost, {from: code, to: "USD"}).toFixed(2)
+    //   $('.usd-cost-field', e.delegateTarget).text('$'+converted)
+    //   var id = e.delegateTarget.dataset.expenseId
+    // $.ajax({
+    //     url: '/expenses/' + id,
+    //     type: 'PUT',
+    //     data: {usd_cost: converted}
+    //   })
+    // });
 })
 </script>
 
