@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var max = 300;
 
-  $('#expense_description').keyup(function () {
+  $('#expenses_grid').on('keyup','#expense_description',function() {
     var len = $(this).val().length;
     var char = max - len;
     if (len >= max) {
