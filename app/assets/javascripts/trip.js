@@ -27,7 +27,7 @@ $(document).ready(function(){
     $('h5 .best_in_place[data-bip-attribute="budget"]').text('$' + formatted)
   })
 
-  $('#expense_currency_id').select2();
+
 
   $("#menu-toggle").click(function(e) {
       e.preventDefault();
