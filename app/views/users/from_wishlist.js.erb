@@ -1,1 +1,4 @@
 $("#expenses_grid").html("<%= escape_javascript(render partial: 'expenses_list', locals: { expenses: @selected, wishlist: @wishlist } ) %>").html_safe;
+
+  var old_budget = parseFloat($('h4 .best_in_place[data-bip-attribute="budget"]').text().replace(/[A-Za-z$-,]/g, ""));
+  var balance = parseFloat($('#balance-field').text().replace(/[A-Za-z$-,]/g, ""));
