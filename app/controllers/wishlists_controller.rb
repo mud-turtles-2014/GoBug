@@ -40,15 +40,8 @@ class WishlistsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @wishlist.update(wishlist_params)
-        format.html { redirect_to @wishlist }
-        format.json { render :show }
-      else
-        flash[:danger] = "Hrm... try again?"
-        format.html { render :edit }
-        format.json { render :json }
-      end
+    if @wishlist.update(wishlist_params)
+      respond_with @wishlist
     end
   end
 
