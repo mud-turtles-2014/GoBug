@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-  validates presence
 
   has_many :trips
   has_many :wishlists
