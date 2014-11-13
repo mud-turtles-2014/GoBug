@@ -13,13 +13,13 @@
   <button id="add-expense", class="gobug-btn">Add Item</button>
 <% elsif wishlist %>
   <h2 class="page-header"><%= best_in_place @wishlist, :name %></h2>
-  <h5>Budget: <%= best_in_place @wishlist, :budget, :display_with => :number_to_currency %> | Remaining:
+  <h4>Budget: <%= best_in_place @wishlist, :budget, :display_with => :number_to_currency %> | Remaining:
     <% if @wishlist.budget %>
      <div id='balance-field'><%= number_to_currency(@wishlist.remaining_budget) %></div>
      <% else %>
       0
     <% end %>
-  </h5><br><br>
+  </h4><br><br>
   <h5><%= link_to "Delete Wishlist", {:controller => :wishlists, :action => 'destroy', :id => @wishlist.id }, method: 'delete' %> | <a href="#" id="show-done-checkboxes">Make this into a trip</a> <a href="#" class="converter">Convert to trip</a></h5>
 
 <% end %>
@@ -125,13 +125,7 @@
 
 <script>
 
-$('#show-done-checkboxes').click(function(e){
-  e.preventDefault();
-  $('.conversion-checkboxes').show();
-  $('.delete').hide();
-  $('#show-done-checkboxes').hide();
-  $('.converter').show();
-})
+
 
 $(document).ready(function(e){
      $('time').change(function(e){
@@ -146,6 +140,24 @@ $(document).ready(function(e){
         data: {usd_cost: converted}
       })
     });
+
+  var original_value = ""
+  $('.best_in_place[data-bip-attribute="cost"]').on('click',function(){
+    original_value = parseFloat($(this).text().replace(/[A-Za-z$-,]/g, ""));
+  });
+
+  var converted = ""
+  $('time').change(function(e){
+    var foreign_cost = e.target.value
+    var code = e.delegateTarget.dataset.currencyCode
+    var difference = parseFloat(original_value - foreign_cost)
+    var diff_converted = fx.convert(difference, {from: code, to :"USD"}).toFixed(2)
+    var new_balance = parseFloat($('#balance-field').text().replace(/[A-Za-z$-,]/g, "")) + parseFloat(diff_converted)
+    converted = fx.convert(foreign_cost, {from: code, to: "USD"}).toFixed(2)
+    $('.usd-cost-field', e.delegateTarget).text('$'+converted)
+    $('#balance-field').text('$'+new_balance)
+  });
+
 })
 </script>
 
